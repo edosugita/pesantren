@@ -31,6 +31,15 @@ class AdminIndukSantri extends BaseController
         return view('Admin/IndukSantri/editIndukSantri', $data);
     }
 
+    public function addPage()
+    {
+        $data = [
+            'title' => 'Tambah Induk Santri'
+        ];
+
+        return view('Admin/IndukSantri/addIndukSantri', $data);
+    }
+
     public function deletePage()
     {
         $data = [

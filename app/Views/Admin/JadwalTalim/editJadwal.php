@@ -34,7 +34,7 @@ $this->section('content');
                         </div>
                         <div class="form-group">
                             <label>Waktu</label>
-                            <select class="form-control">
+                            <select class="select2">
                                 <option value="05.30 - 06.30">05.30 - 06.30</option>
                                 <option value="11.00 - 12.00">11.00 - 12.00</option>
                                 <option value="14.30 - 15.30">14.30 - 15.30</option>

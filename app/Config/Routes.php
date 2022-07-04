@@ -53,6 +53,7 @@ $routes->get('/admin', 'AdminDashboard::index');
 $routes->get('/admin/induk-santri', 'AdminIndukSantri::index');
 $routes->get('/admin/induk-santri/view', 'AdminIndukSantri::viewPage');
 $routes->get('/admin/induk-santri/edit', 'AdminIndukSantri::editPage');
+$routes->get('/admin/induk-santri/add', 'AdminIndukSantri::addPage');
 $routes->get('/admin/induk-santri/delete', 'AdminIndukSantri::deletePage');
 $routes->get('/admin/induk-santri/cetak', 'AdminIndukSantri::cetakPage');
 
@@ -78,6 +79,7 @@ $routes->get('/admin/jadwal-talim/cetak', 'AdminJadwal::cetakPage');
 // JURNAL TA'LIM
 $routes->get('/admin/jurnal-talim', 'AdminJurnal::index');
 $routes->get('/admin/jurnal-talim/view', 'AdminJurnal::viewPage');
+$routes->get('/admin/jurnal-talim/add', 'AdminJurnal::addPage');
 $routes->get('/admin/jurnal-talim/edit', 'AdminJurnal::editPage');
 $routes->get('/admin/jurnal-talim/delete', 'AdminJurnal::deletePage');
 

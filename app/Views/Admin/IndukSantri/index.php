@@ -16,7 +16,7 @@ $this->section('content');
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">
                             <div class="row">
-                                <button class="btn btn-santri btn-hover-santri" data-toggle="modal" data-target="#tambahObat">Tambah Santri</button>
+                                <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/induk-santri/add') ?>">Tambah Santri</a>
                             </div>
                         </div>
                     </div>

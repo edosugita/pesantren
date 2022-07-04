@@ -22,6 +22,15 @@ class AdminJurnal extends BaseController
         return view('Admin/JurnalTalim/viewJurnal', $data);
     }
 
+    public function addPage()
+    {
+        $data = [
+            'title' => 'Jurnal Talim'
+        ];
+
+        return view('Admin/JurnalTalim/addJurnal', $data);
+    }
+
     public function editPage()
     {
         $data = [

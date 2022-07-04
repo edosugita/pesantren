@@ -169,7 +169,7 @@ $this->section('content');
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Obat</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Donatur</h5>
                 <button type="button" class="close" data-dismiss="modal">
                     <i class="anticon anticon-close"></i>
                 </button>
@@ -177,29 +177,30 @@ $this->section('content');
             <form method="">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="kodeobat">Kode Obat</label>
-                        <input type="text" class="form-control" id="kodeobat" placeholder="ex: KD01">
+                        <label>Nama Donatur</label>
+                        <input type="text" class="form-control" id="kodeobat" placeholder="ex: Jemes Harden">
                     </div>
                     <div class="form-group">
-                        <label for="namaobat">Nama Obat</label>
-                        <input type="text" class="form-control" id="namaobat" placeholder="ex: Paramex">
+                        <label>No Handphone</label>
+                        <input type="text" class="form-control" id="namaobat" placeholder="ex: 081234567890">
                     </div>
                     <div class="form-group">
-                        <label for="hargaobat">Harga Obat</label>
-                        <input type="text" class="form-control" id="hargaobat" placeholder="ex: 100.000">
+                        <label>Alamat</label>
+                        <input type="text" class="form-control" id="satuanobat" placeholder="ex: Jl Malang Raya">
                     </div>
                     <div class="form-group">
-                        <label for="satuanobat">Satuan</label>
-                        <input type="text" class="form-control" id="satuanobat" placeholder="ex: PCS">
-                    </div>
-                    <div class="form-group">
-                        <label for="penggunaanobat">Penggunaan Obat</label>
-                        <input type="text" class="form-control" id="penggunaanobat" placeholder="ex: 1x Sehari">
+                        <label>Status</label>
+                        <div>
+                            <select class="select2">
+                                <option value="Tetap">Tetap</option>
+                                <option value="Tidak Tetap">Tidak Tetap</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-hover" style="border: 1px solid #336CFB; color: #336CFB;" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;">Cancel</button>
+                    <button type="submit" class="btn btn-santri btn-hover-santri">Simpan</button>
                 </div>
             </form>
         </div>

@@ -15,7 +15,7 @@ $this->section('content');
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">
                             <div class="row">
-                                <button class="btn btn-santri btn-hover-santri" data-toggle="modal" data-target="#tambahObat">Tambah Jadwal</button>
+                                <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/jurnal-talim/add') ?>">Tambah Jadwal</a>
                             </div>
                         </div>
                     </div>
@@ -211,47 +211,4 @@ $this->section('content');
         </div>
     </div>
 </div>
-
-<!-- MODAL TAMBAH OBAT -->
-<div class="modal fade" id="tambahObat">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Obat</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <i class="anticon anticon-close"></i>
-                </button>
-            </div>
-            <form method="">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="kodeobat">Kode Obat</label>
-                        <input type="text" class="form-control" id="kodeobat" placeholder="ex: KD01">
-                    </div>
-                    <div class="form-group">
-                        <label for="namaobat">Nama Obat</label>
-                        <input type="text" class="form-control" id="namaobat" placeholder="ex: Paramex">
-                    </div>
-                    <div class="form-group">
-                        <label for="hargaobat">Harga Obat</label>
-                        <input type="text" class="form-control" id="hargaobat" placeholder="ex: 1$576.28">
-                    </div>
-                    <div class="form-group">
-                        <label for="satuanobat">Satuan</label>
-                        <input type="text" class="form-control" id="satuanobat" placeholder="ex: PCS">
-                    </div>
-                    <div class="form-group">
-                        <label for="penggunaanobat">Penggunaan Obat</label>
-                        <input type="text" class="form-control" id="penggunaanobat" placeholder="ex: 1x Sehari">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-hover" style="border: 1px solid #336CFB; color: #336CFB;" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <?= $this->endSection(); ?>

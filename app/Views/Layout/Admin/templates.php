@@ -57,6 +57,7 @@
     <script src="<?= base_url('assets/vendors/datatables/dataTables.bootstrap.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendors/select2/select2.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') ?>"></script>
+    <script src="<?= base_url('assets/vendors/quill/quill.min.js') ?>"></script>
 
     <!-- Core JS -->
     <script src="<?= base_url('assets/js/app.min.js') ?>"></script>
@@ -65,6 +66,9 @@
         $('#data-table').DataTable();
         $('.select2').select2();
         $('.datepicker-input').datepicker();
+        new Quill('#editor', {
+            theme: 'snow'
+        });
     </script>
 
 </body>
