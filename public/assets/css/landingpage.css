@@ -10,7 +10,7 @@ body {
 .navbar {
     font-family: 'Poppins', sans-serif !important;
     background-color: #FFFFFF !important;
-    padding: 20px 0 !important;
+    /* padding: 10px 0 !important; */
 }
 
 .navbar-brand {
