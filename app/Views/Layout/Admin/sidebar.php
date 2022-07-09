@@ -3,11 +3,19 @@
     <div class="side-nav-inner">
         <ul class="side-nav-menu scrollable">
             <li class="nav-item">
-                <a href="<?= base_url('/admin') ?>">
+                <a href="<?= base_url('/admin/dashboard') ?>">
                     <span class="icon-holder">
                         <i class="anticon anticon-appstore"></i>
                     </span>
                     <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= base_url('/admin') ?>">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-idcard"></i>
+                    </span>
+                    <span class="title">Master Admin</span>
                 </a>
             </li>
             <li class="nav-item">

@@ -10,7 +10,7 @@ body {
 .navbar {
     font-family: 'Poppins', sans-serif !important;
     background-color: #FFFFFF !important;
-    /* padding: 10px 0 !important; */
+    /* padding: 20px 0 !important; */
 }
 
 .navbar-brand {
@@ -470,6 +470,17 @@ body {
 /* DESKTOP */
 
 @media (min-width: 992px) {
+    .jumbotron {
+        display: flex;
+        align-items: center;
+        background-color: #038456;
+        background-image: url("../img/banner.png");
+        background-repeat: none;
+        background-size: cover;
+        width: 100%;
+        height: 730px !important;
+    }
+
     .nav-item:nth-child(4) {
         background: #038556;
         border-radius: 8px;
@@ -584,7 +595,7 @@ body {
         background-repeat: none;
         background-size: cover;
         width: 100%;
-        height: 730px;
+        height: 600px;
     }
 
     .display-4 {

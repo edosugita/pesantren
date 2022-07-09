@@ -44,7 +44,7 @@ $this->section('content');
                         </div>
                         <div class="m-l-15">
                             <h2 class="m-b-0">20.000.000</h2>
-                            <p class="m-b-0 text-muted">Infaq</p>
+                            <p class="m-b-0 text-muted">Saldo Pondok</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ $this->section('content');
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5>Grafik Pendaftaran Santri</h5>
+                        <h5>Grafik Data Santri</h5>
                     </div>
                     <div class="m-t-50" style="height: 330px">
                         <canvas class="chart" id="revenue-chart"></canvas>

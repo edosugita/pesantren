@@ -39,10 +39,6 @@
 
             </div>
             <!-- Page Container END -->
-
-            <!-- Search Start-->
-            <?= $this->include('Layout/Admin/search'); ?>
-            <!-- Search End-->
         </div>
     </div>
 
@@ -62,14 +58,7 @@
     <!-- Core JS -->
     <script src="<?= base_url('assets/js/app.min.js') ?>"></script>
 
-    <script>
-        $('#data-table').DataTable();
-        $('.select2').select2();
-        $('.datepicker-input').datepicker();
-        new Quill('#editor', {
-            theme: 'snow'
-        });
-    </script>
+    <script src="<?= base_url('assets/js/script.js') ?>"></script>
 
 </body>
 

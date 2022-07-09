@@ -26,11 +26,9 @@ $this->section('content');
                                 <thead style="background: #CDECE1;">
                                     <tr>
                                         <th>No</th>
+                                        <th>NIS</th>
                                         <th>Nama Santri</th>
-                                        <th>Nominal</th>
-                                        <th>Tanggal</th>
-                                        <th>Infaq Bulanan</th>
-                                        <th>Status</th>
+                                        <th>Total Infaq</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -38,10 +36,8 @@ $this->section('content');
                                     <tr>
                                         <td>1</td>
                                         <td>Jane Cooper</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -51,10 +47,8 @@ $this->section('content');
                                     <tr>
                                         <td>2</td>
                                         <td>Wade Warren</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -64,10 +58,8 @@ $this->section('content');
                                     <tr>
                                         <td>3</td>
                                         <td>Esther Howard</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -77,10 +69,8 @@ $this->section('content');
                                     <tr>
                                         <td>4</td>
                                         <td>Cameron Williamson</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -90,10 +80,8 @@ $this->section('content');
                                     <tr>
                                         <td>5</td>
                                         <td>Brooklyn Simmons</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -103,10 +91,8 @@ $this->section('content');
                                     <tr>
                                         <td>6</td>
                                         <td>Leslie Alexander</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -116,10 +102,8 @@ $this->section('content');
                                     <tr>
                                         <td>7</td>
                                         <td>Jenny Wilson</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -129,10 +113,8 @@ $this->section('content');
                                     <tr>
                                         <td>8</td>
                                         <td>Guy Hawkins</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -142,10 +124,8 @@ $this->section('content');
                                     <tr>
                                         <td>9</td>
                                         <td>Robert Fox</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>
@@ -155,10 +135,8 @@ $this->section('content');
                                     <tr>
                                         <td>10</td>
                                         <td>Jacob Jones</td>
-                                        <td>$576.28</td>
                                         <td>1/28/17</td>
                                         <td>Juni</td>
-                                        <td>Aktif</td>
                                         <td>
                                             <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/edit') ?>">
                                                 <i class="anticon anticon-form" style="color: #049F67;"></i>

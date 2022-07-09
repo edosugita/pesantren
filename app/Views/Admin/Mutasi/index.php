@@ -26,7 +26,7 @@ $this->section('content');
                                 <thead style="background: #CDECE1;">
                                     <tr>
                                         <th>No</th>
-                                        <th>Perihal</th>
+                                        <th>Nama Keperluan</th>
                                         <th>Nominal</th>
                                         <th>Tanggal</th>
                                         <th>Status</th>
