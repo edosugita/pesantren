@@ -34,6 +34,7 @@ $this->section('content');
                     <?php endif; ?>
                     <div class="m-t-10">
                         <form action="<?= base_url('/admin/master/add') ?>" method="post">
+                            <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama</label>
                                 <input type="text" id="data" oninput="tampil()" class="form-control <?= (isset($validation)) ? ($validation->hasError('name')) ? 'is-invalid' : null : null ?>" placeholder="ex: Master" name="name" value="<?= set_value('name') ?>">
@@ -72,7 +73,7 @@ $this->section('content');
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-end p-h-30">
                                     <div class="row">
-                                        <button class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;">Cancel</button>
+                                        <button type="button" class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;" onclick="history.go(-1);">Cancel</button>
                                         <button type="submit" class="btn btn-santri btn-hover-santri">Simpan</button>
                                     </div>
                                 </div>

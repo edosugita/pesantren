@@ -86,4 +86,15 @@ class MasterAdmin extends BaseController
 
         return view('Admin/MasterAdmin/add', $data);
     }
+
+    public function view($id)
+    {
+        $admin = $this->admin->find($id);
+        $data = [
+            'title' => 'Data Admin | ' . $admin['nama'],
+            'dataAdmin' => $admin,
+        ];
+
+        return view('Admin/MasterAdmin/view', $data);
+    }
 }

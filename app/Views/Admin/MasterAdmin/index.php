@@ -60,7 +60,7 @@ $this->section('content');
                                             <td><?= $data['username'] ?></td>
                                             <td>Admin <?= $data['role'] ?></td>
                                             <td>
-                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/master/' . $data['id'] . '/view') ?>">
                                                     <i class="anticon anticon-eye" style="color: #336CFB;"></i>
                                                 </a>
                                                 <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">

@@ -103,12 +103,12 @@
                                 <img src="<?= base_url('assets/images/avatars/user-original.jpg') ?>" alt="">
                             </div>
                             <div class="m-l-10">
-                                <p class="m-b-0 text-dark font-weight-semibold">Marshall Nichols</p>
-                                <p class="m-b-0 opacity-07">UI/UX Desinger</p>
+                                <p class="m-b-0 text-dark font-weight-semibold"><?= session()->get('nama') ?></p>
+                                <p class="m-b-0 opacity-07">Admin <?= session()->get('role') ?></p>
                             </div>
                         </div>
                     </div>
-                    <a href="javascript:void(0);" class="dropdown-item d-block p-h-15 p-v-10">
+                    <a href="<?= base_url('/admin/logout') ?>" class="dropdown-item d-block p-h-15 p-v-10">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
                                 <i class="anticon opacity-04 font-size-16 anticon-logout"></i>
