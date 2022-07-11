@@ -12,4 +12,11 @@ navLink.forEach(link => {
     if (link.href.includes(`${activePage}`)) {
         link.classList.add('active');
     }
-})
+});
+
+const tampil = () => {
+    const data = document.getElementById('data').value.replace(/\s/g, "").toLowerCase();
+    const hasil = document.getElementById('hasil').value = data;
+
+    return hasil;
+};

@@ -49,6 +49,13 @@ $routes->get('/jurnal/detail', 'LandingPage::Detailjurnal');
 // DASHBOARD
 $routes->get('/admin/dashboard', 'AdminDashboard::index');
 
+// DASHBOARD
+$routes->get('/admin/login', 'AdminAuth::index');
+
+// MASTER ADMIN
+$routes->get('/admin/master', 'MasterAdmin::index');
+$routes->match(['get', 'post'], '/admin/master/add', 'MasterAdmin::add');
+
 // INDUK SANTRI
 $routes->get('/admin/induk-santri', 'AdminIndukSantri::index');
 $routes->get('/admin/induk-santri/view', 'AdminIndukSantri::viewPage');

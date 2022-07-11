@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('/admin') ?>">
+                <a href="<?= base_url('/admin/master') ?>">
                     <span class="icon-holder">
                         <i class="anticon anticon-idcard"></i>
                     </span>

@@ -24,11 +24,8 @@
         <div class="layout">
             <?= $this->include('Layout/Admin/header'); ?>
             <?= $this->include('Layout/Admin/sidebar'); ?>
-
             <!-- Page Container START -->
             <div class="page-container">
-
-
                 <!-- Content Wrapper START -->
                 <?= $this->renderSection('content'); ?>
                 <!-- Content Wrapper END -->
@@ -36,7 +33,6 @@
                 <!-- Footer START -->
                 <?= $this->include('Layout/Admin/footer'); ?>
                 <!-- Footer END -->
-
             </div>
             <!-- Page Container END -->
         </div>
