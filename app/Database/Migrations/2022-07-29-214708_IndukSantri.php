@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Admin extends Migration
+class IndukSantri extends Migration
 {
     public function up()
     {
@@ -12,24 +12,15 @@ class Admin extends Migration
             [
                 'id' => [
                     'type' => 'INT',
-                    'unsigned' => TRUE,
                     'auto_increment' => TRUE
                 ],
-                'nama' => [
-                    'type' => 'VARCHAR',
-                    'constraint' => '50'
+                'nis' => [
+                    'type' => 'CHAR',
+                    'constraint' => '50',
+                    'unique' => TRUE
                 ],
-                'username' => [
-                    'type' => 'varchar',
-                    'constraint' => '50'
-                ],
-                'role' => [
-                    'type' => 'varchar',
-                    'constraint' => '50'
-                ],
-                'password' => [
-                    'type' => 'varchar',
-                    'constraint' => '255'
+                'id_data' => [
+                    'type' => 'INT',
                 ],
                 'created_at' => [
                     'type' => 'DATETIME',
@@ -45,11 +36,12 @@ class Admin extends Migration
         );
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('admin');
+        $this->forge->addForeignKey('id_data', 'data_santri', 'id');
+        $this->forge->createTable('induk_santri');
     }
 
     public function down()
     {
-        $this->forge->dropTable('admin');
+        $this->forge->dropTable('induk_santri');
     }
 }

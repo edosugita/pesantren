@@ -49,7 +49,7 @@ class InfaqSantri extends Migration
 
         $this->forge->addKey('id', TRUE);
         $this->forge->addForeignKey('id_semester', 'semester', 'id');
-        $this->forge->addForeignKey('nis', 'data_santri', 'nis');
+        $this->forge->addForeignKey('nis', 'induk_santri', 'nis');
         $this->forge->createTable('infaq_santri');
     }
 

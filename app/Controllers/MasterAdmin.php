@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Libraries\Hash;
 use App\Models\AdminModel;
+use App\Models\RoleAdminModel;
 
 class MasterAdmin extends BaseController
 {
@@ -11,6 +12,7 @@ class MasterAdmin extends BaseController
     {
         helper(['url', 'form']);
         $this->admin = new AdminModel();
+        $this->role = new RoleAdminModel();
     }
 
     public function index()
@@ -26,7 +28,8 @@ class MasterAdmin extends BaseController
     public function add()
     {
         $data = [
-            'title' => 'Master Admin'
+            'title' => 'Master Admin',
+            'roleAdmin' => $this->role->findAll(),
         ];
 
         if ($this->request->getMethod() == 'post') {
@@ -96,5 +99,82 @@ class MasterAdmin extends BaseController
         ];
 
         return view('Admin/MasterAdmin/view', $data);
+    }
+
+    public function edit($id)
+    {
+        $admin = $this->admin->find($id);
+        $data = [
+            'title' => 'Edit Admin | ' . $admin['nama'],
+            'dataAdmin' => $admin,
+            'roleAdmin' => $this->role->findAll(),
+        ];
+
+        if ($this->request->getMethod() == 'post') {
+            $checkUsername = $this->admin->where('id', $id)->first();
+            $username = $checkUsername['username'];
+            if ($username == $this->request->getVar('username')) {
+                $validation = $this->validate([
+                    'name' => [
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => 'Username harus di isi',
+                        ]
+                    ],
+                    'username' => [
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => 'Username Harus Di isi',
+                        ]
+                    ],
+                ]);
+            } else {
+                $validation = $this->validate([
+                    'name' => [
+                        'rules' => 'required',
+                        'errors' => [
+                            'required' => 'Username harus di isi',
+                        ]
+                    ],
+                    'username' => [
+                        'rules' => 'required|is_unique[admin.username]',
+                        'errors' => [
+                            'required' => 'Username Harus Di isi',
+                            'is_unique' => 'Username telah terdaftar'
+                        ]
+                    ],
+                ]);
+            }
+
+            if (!$validation) {
+                $data['validation'] = $this->validator;
+            } else {
+                $password = $this->request->getVar('password');
+
+                if ($password == null) {
+                    $checkPassword = $this->admin->where('id', $id)->first();
+                    $password = $checkPassword['password'];
+                } else {
+                    $password = Hash::make($password);
+                }
+
+                $newData = [
+                    'nama' => $this->request->getVar('name'),
+                    'username' => $this->request->getVar('username'),
+                    'role' => $this->request->getVar('role'),
+                    'password' => $password,
+                ];
+
+                $query = $this->admin->update($id, $newData);
+
+                if (!$query) {
+                    return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
+                } else {
+                    return redirect()->to('/admin/master')->with('success', 'Admin telah berhasil diganti!');
+                }
+            }
+        }
+
+        return view('Admin/MasterAdmin/edit', $data);
     }
 }

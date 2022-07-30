@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class DataSantri extends Migration
+class CalonSantri extends Migration
 {
     public function up()
     {
@@ -12,19 +12,15 @@ class DataSantri extends Migration
             [
                 'id' => [
                     'type' => 'INT',
-                    'unsigned' => TRUE,
                     'auto_increment' => TRUE
                 ],
-                'nis' => [
-                    'type' => 'char',
+                'no_register' => [
+                    'type' => 'CHAR',
                     'constraint' => '50',
                     'unique' => TRUE
                 ],
-                'no_register' => [
+                'id_data' => [
                     'type' => 'INT',
-                ],
-                'kelas' => [
-                    'type' => 'int',
                 ],
                 'created_at' => [
                     'type' => 'DATETIME',
@@ -40,12 +36,12 @@ class DataSantri extends Migration
         );
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->addForeignKey('no_register', 'santri_reg', 'no_register');
-        $this->forge->createTable('data_santri');
+        $this->forge->addForeignKey('id_data', 'data_santri', 'id');
+        $this->forge->createTable('calon_santri');
     }
 
     public function down()
     {
-        $this->forge->dropTable('data_santri');
+        $this->forge->dropTable('calon_santri');
     }
 }

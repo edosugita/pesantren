@@ -13,10 +13,32 @@ $this->section('content');
                         <a class="btn btn-santri btn-hover-santri" href=""><i class="anticon anticon-printer m-r-15"></i>Cetak</a>
                     </div>
                     <hr>
+                    <!-- START ALERT -->
+                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <?= session()->getFlashdata('fail'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <?= session()->getFlashdata('success'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <!-- STOP ALERT -->
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">
                             <div class="row">
-                                <button class="btn btn-santri btn-hover-santri" data-toggle="modal" data-target="#tambahObat">Tambah Santri</button>
+                                <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/calon-santri/add') ?>">Tambah Santri</a>
                             </div>
                         </div>
                     </div>
@@ -35,244 +57,34 @@ $this->section('content');
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Jane Cooper</td>
-                                        <td>001</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Wade Warren</td>
-                                        <td>002</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Esther Howard</td>
-                                        <td>003</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Cameron Williamson</td>
-                                        <td>004</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Brooklyn Simmons</td>
-                                        <td>005</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Leslie Alexander</td>
-                                        <td>006</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Jenny Wilson</td>
-                                        <td>007</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Guy Hawkins</td>
-                                        <td>008</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Robert Fox</td>
-                                        <td>009</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>Jacob Jones</td>
-                                        <td>010</td>
-                                        <td>Laki-laki</td>
-                                        <td>(406) 555-0120</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($dataSantriReg as $data) : ?>
+                                        <tr>
+                                            <td><?= $i++ ?></td>
+                                            <td><?= $data['nama_santri'] ?></td>
+                                            <td><?= $data['no_register'] ?></td>
+                                            <td><?= $data['gender'] ?></td>
+                                            <td><?= $data['no_hp_santri'] ?></td>
+                                            <td><?= $data['alamat_santri'] ?></td>
+                                            <td>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/' . $data['id'] . '/view') ?>">
+                                                    <i class="anticon anticon-eye" style="color: #336CFB;"></i>
+                                                </a>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/' . $data['id'] . '/edit') ?>">
+                                                    <i class="anticon anticon-form" style="color: #049F67;"></i>
+                                                </a>
+                                                <!-- <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
+                                                    <i class="anticon anticon-delete" style="color: #BF0603;"></i>
+                                                </a> -->
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL TAMBAH OBAT -->
-<div class="modal fade" id="tambahObat">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Obat</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <i class="anticon anticon-close"></i>
-                </button>
-            </div>
-            <form method="">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="kodeobat">Kode Obat</label>
-                        <input type="text" class="form-control" id="kodeobat" placeholder="ex: KD01">
-                    </div>
-                    <div class="form-group">
-                        <label for="namaobat">Nama Obat</label>
-                        <input type="text" class="form-control" id="namaobat" placeholder="ex: Paramex">
-                    </div>
-                    <div class="form-group">
-                        <label for="hargaobat">Harga Obat</label>
-                        <input type="text" class="form-control" id="hargaobat" placeholder="ex: 100.000">
-                    </div>
-                    <div class="form-group">
-                        <label for="satuanobat">Satuan</label>
-                        <input type="text" class="form-control" id="satuanobat" placeholder="ex: PCS">
-                    </div>
-                    <div class="form-group">
-                        <label for="penggunaanobat">Penggunaan Obat</label>
-                        <input type="text" class="form-control" id="penggunaanobat" placeholder="ex: 1x Sehari">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-hover" style="border: 1px solid #336CFB; color: #336CFB;" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Surat extends Migration
+class Admin extends Migration
 {
     public function up()
     {
@@ -15,28 +15,21 @@ class Surat extends Migration
                     'unsigned' => TRUE,
                     'auto_increment' => TRUE
                 ],
-                'nis' => [
-                    'type' => 'char',
+                'nama' => [
+                    'type' => 'VARCHAR',
                     'constraint' => '50'
                 ],
-                'nomor_surat' => [
-                    'type' => 'CHAR',
+                'username' => [
+                    'type' => 'varchar',
                     'constraint' => '50'
                 ],
-                'jenis_surat' => [
+                'role' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '50'
+                ],
+                'password' => [
                     'type' => 'varchar',
                     'constraint' => '255'
-                ],
-                'tujuan' => [
-                    'type' => 'varchar',
-                    'constraint' => '255'
-                ],
-                'perihal' => [
-                    'type' => 'varchar',
-                    'constraint' => '255'
-                ],
-                'tgl' => [
-                    'type' => 'DATE',
                 ],
                 'created_at' => [
                     'type' => 'DATETIME',
@@ -52,12 +45,12 @@ class Surat extends Migration
         );
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->addForeignKey('nis', 'data_santri', 'nis');
-        $this->forge->createTable('surat');
+        $this->forge->addForeignKey('role', 'role', 'nama');
+        $this->forge->createTable('admin');
     }
 
     public function down()
     {
-        $this->forge->dropTable('surat');
+        $this->forge->dropTable('admin');
     }
 }

@@ -9,7 +9,7 @@ $this->section('content');
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5>Tambah Admin</h5>
+                        <h5>Edit Admin <?= $dataAdmin['nama'] ?></h5>
                     </div>
                     <hr>
                     <?php if (!empty(session()->getFlashdata('fail'))) : ?>
@@ -33,39 +33,42 @@ $this->section('content');
                         </div>
                     <?php endif; ?>
                     <div class="m-t-10">
-                        <form action="<?= base_url('/admin/master/add') ?>" method="post">
+                        <form action="<?= base_url('/admin/master/' . $dataAdmin['id'] . '/edit') ?>" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" id="data" oninput="tampil()" class="form-control <?= (isset($validation)) ? ($validation->hasError('name')) ? 'is-invalid' : null : null ?>" placeholder="ex: Master" name="name" value="<?= set_value('name') ?>">
+                                <input type="text" id="data" oninput="tampil()" class="form-control  <?= (isset($validation)) ? ($validation->hasError('nama')) ? 'is-invalid' : null : null ?>" placeholder="ex: Master" name="name" value="<?= set_value('nama') ? set_value('nama') : $dataAdmin['nama'] ?>">
                                 <div class="invalid-feedback">
-                                    <?= (isset($validation)) ? ($validation->getError('name')) : null ?>
+                                    <?= (isset($validation)) ? ($validation->getError('nama')) : null ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Username</label>
-                                <input type="text" id="hasil" class="form-control" readonly name="username" value="<?= set_value('username') ?>">
+                                <input type="text" id="hasil" class="form-control  <?= (isset($validation)) ? ($validation->hasError('username')) ? 'is-invalid' : null : null ?>" readonly name="username" value="<?= set_value('username') ? set_value('username') : $dataAdmin['username'] ?>">
+                                <div class="invalid-feedback">
+                                    <?= (isset($validation)) ? ($validation->getError('username')) : null ?>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Role Job</label>
                                 <div>
                                     <select class="select2" name="role">
                                         <?php foreach ($roleAdmin as $data) : ?>
-                                            <option value="<?= $data['nama'] ?>"><?= $data['nama'] ?></option>
+                                            <option <?= $data['nama'] == $dataAdmin['role'] ? 'selected' : '' ?> value="<?= $data['nama'] ?>"><?= $data['nama'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control <?= (isset($validation)) ? ($validation->hasError('password')) ? 'is-invalid' : null : null ?>" placeholder="Password" name="password" value="<?= set_value('password') ?>">
+                                <input type="password" class="form-control" placeholder="Password" name="password" value="<?= set_value('password') ? set_value('password') : null ?>">
                                 <div class="invalid-feedback">
                                     <?= (isset($validation)) ? ($validation->getError('password')) : null ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password</label>
-                                <input type="password" class="form-control <?= (isset($validation)) ? ($validation->hasError('cpassword')) ? 'is-invalid' : null : null ?>" placeholder="Confirm Password" name="cpassword" value="<?= set_value('cpassword') ?>">
+                                <input type="password" class="form-control" placeholder="Confirm Password" name="cpassword" value="<?= set_value('cpassword') ? set_value('cpassword') : null ?>">
                                 <div class="invalid-feedback">
                                     <?= (isset($validation)) ? ($validation->getError('cpassword')) : null ?>
                                 </div>

@@ -25,6 +25,13 @@ body {
     font-size: 16px !important;
 }
 
+.header-btn-regis {
+    background: #038556;
+    border-radius: 8px;
+    padding: 5px 50px;
+    text-align: center;
+}
+
 .nav-regis{
     color: #FFFFFF !important;
     font-weight: 500 !important;
@@ -37,13 +44,6 @@ body {
 .nav-item {
     padding: 5px 0;
     margin-left: 20px;
-}
-
-.nav-item:nth-child(4) {
-    background: #038556;
-    border-radius: 8px;
-    padding: 5px 50px;
-    text-align: center;
 }
 
 /* MAIN LANDING PAGE */
@@ -481,7 +481,7 @@ body {
         height: 730px !important;
     }
 
-    .nav-item:nth-child(4) {
+    .header-btn-regis {
         background: #038556;
         border-radius: 8px;
         padding: 5px 50px;
@@ -701,4 +701,82 @@ body {
     .lp-mobile-view {
         display: none;
     }
+}
+
+.btn-santri {
+    padding: 10px 20px 10px 20px !important;
+    background: #049F67 !important;
+    color: white !important;
+}
+
+.btn-santri-cancel {
+    padding: 10px 20px 10px 20px !important;
+    color: #049F67 !important;
+}
+
+.btn-hover-santri {
+    border-color: transparent !important;
+}
+
+.btn-hover-santri:hover,
+.btn-hover-santri:focus,
+.btn-hover-santri:active {
+    background-color: rgba(4, 159, 103, 0.1) !important;
+    color: #2EAF80 !important;
+    border-color: transparent !important;
+}
+
+.btn-hover-santri.text-primary:hover,
+.btn-hover-santri.text-primary:focus {
+    color: #049F67 !important;
+}
+
+.nav-select>li>a {
+    padding: 20px 50px 20px 50px !important;
+    background: #fff !important;
+    border-radius: 5px !important;
+    color: #16181b !important;
+}
+
+;
+
+.nav-select>li>a.active {
+    color: #ffffff !important;
+    background-color: #049F67;
+    border-color: #049F67;
+    border: 1px solid #049F67;
+}
+
+.nav-select>li {
+    margin-bottom: 0px !important;
+    border-bottom: 1px solid #edf2f9 !important;
+}
+
+.nav-select>li>a.active.nav-link {
+    color: #ffffff !important;
+    background-color: #049F67 !important;
+    border-color: #049F67 !important;
+}
+
+.form-control {
+    padding: 0.55rem 1rem !important;
+    height: auto;
+    color: #53535f !important;
+    border: 1px solid #edf2f9 !important;
+    font-size: .875rem !important;
+    line-height: 1.5 !important;
+}
+
+.form-control::placeholder {
+    color: #d1d6db !important;
+    opacity: 1 !important;
+}
+
+label {
+    color: #16181b;
+}
+
+input:focus {
+    outline: none !important;
+    box-shadow: none !important; 
 }

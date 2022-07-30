@@ -13,6 +13,28 @@ $this->section('content');
                         <a class="btn btn-santri btn-hover-santri" href=""><i class="anticon anticon-printer m-r-15"></i>Cetak</a>
                     </div>
                     <hr>
+                    <!-- START ALERT -->
+                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <?= session()->getFlashdata('fail'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <?= session()->getFlashdata('success'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <!-- STOP ALERT -->
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">
                             <div class="row">
@@ -35,196 +57,28 @@ $this->section('content');
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>190535646001</td>
-                                        <td>Jane Cooper</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>190535646002</td>
-                                        <td>Wade Warren</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>190535646003</td>
-                                        <td>Esther Howard</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>190535646004</td>
-                                        <td>Cameron Williamson</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>190535646005</td>
-                                        <td>Brooklyn Simmons</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>190535646006</td>
-                                        <td>Leslie Alexander</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>190535646007</td>
-                                        <td>Jenny Wilson</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>190535646008</td>
-                                        <td>Guy Hawkins</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>190535646009</td>
-                                        <td>Robert Fox</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>190535646010</td>
-                                        <td>Jacob Jones</td>
-                                        <td>Malang</td>
-                                        <td>6</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/view') ?>">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($dataSantri as $data) : ?>
+                                        <tr>
+                                            <td><?= $i++ ?></td>
+                                            <td><?= $data['nis'] ?></td>
+                                            <td><?= $data['nama_santri'] ?></td>
+                                            <td><?= $data['tmp_lahir'] ?></td>
+                                            <td><?= $data['semester'] ?></td>
+                                            <td>Aktif</td>
+                                            <td>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/' . $data['id'] . '/view') ?>">
+                                                    <i class="anticon anticon-eye" style="color: #336CFB;"></i>
+                                                </a>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/' . $data['id'] . '/edit') ?>">
+                                                    <i class="anticon anticon-form" style="color: #049F67;"></i>
+                                                </a>
+                                                <!-- <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
+                                                    <i class="anticon anticon-delete" style="color: #BF0603;"></i>
+                                                </a> -->
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

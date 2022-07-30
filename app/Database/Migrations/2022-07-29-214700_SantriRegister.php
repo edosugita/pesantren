@@ -12,12 +12,7 @@ class SantriRegister extends Migration
             [
                 'id' => [
                     'type' => 'INT',
-                    'unsigned' => TRUE,
                     'auto_increment' => TRUE
-                ],
-                'no_register' => [
-                    'type' => 'INT',
-                    'unique' => TRUE
                 ],
                 'nama_santri' => [
                     'type' => 'VARCHAR',
@@ -34,6 +29,9 @@ class SantriRegister extends Migration
                 'tgl_lahir' => [
                     'type' => 'DATE',
                 ],
+                'semester' => [
+                    'type' => 'INT'
+                ],
                 'gender' => [
                     'type' => 'ENUM',
                     'constraint' => ['Laki-laki', 'Perempuan'],
@@ -43,7 +41,7 @@ class SantriRegister extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '50'
                 ],
-                'kewarganergaraan' => [
+                'kewarganegaraan' => [
                     'type' => 'VARCHAR',
                     'constraint' => '50'
                 ],
@@ -59,8 +57,16 @@ class SantriRegister extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '50'
                 ],
+                'alamat_santri' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '50'
+                ],
                 'nama_ayah' => [
                     'type' => 'VARCHAR',
+                    'constraint' => '50'
+                ],
+                'nik_ayah' => [
+                    'type' => 'CHAR',
                     'constraint' => '50'
                 ],
                 'pekerjaan_ayah' => [
@@ -71,6 +77,10 @@ class SantriRegister extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '20'
                 ],
+                'penghasilan_ayah' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '255'
+                ],
                 'alamat_ayah' => [
                     'type' => 'VARCHAR',
                     'constraint' => '50'
@@ -79,7 +89,15 @@ class SantriRegister extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '50'
                 ],
+                'nik_ibu' => [
+                    'type' => 'CHAR',
+                    'constraint' => '50'
+                ],
                 'pekerjaan_ibu' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '255'
+                ],
+                'pendidikan_ibu' => [
                     'type' => 'VARCHAR',
                     'constraint' => '255'
                 ],
@@ -91,21 +109,40 @@ class SantriRegister extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '50'
                 ],
+                'hubungan_wali' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '50',
+                    'null' => true
+                ],
                 'nama_wali' => [
                     'type' => 'VARCHAR',
-                    'constraint' => '50'
+                    'constraint' => '50',
+                    'null' => true
+                ],
+                'nik_wali' => [
+                    'type' => 'CHAR',
+                    'constraint' => '50',
+                    'null' => true
                 ],
                 'pekerjaan_wali' => [
                     'type' => 'VARCHAR',
-                    'constraint' => '255'
+                    'constraint' => '255',
+                    'null' => true
+                ],
+                'penghasilan_wali' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '255',
+                    'null' => true
                 ],
                 'no_hp_wali' => [
                     'type' => 'VARCHAR',
-                    'constraint' => '20'
+                    'constraint' => '20',
+                    'null' => true
                 ],
                 'alamat_wali' => [
                     'type' => 'VARCHAR',
-                    'constraint' => '50'
+                    'constraint' => '50',
+                    'null' => true
                 ],
                 'created_at' => [
                     'type' => 'DATETIME',
@@ -121,11 +158,11 @@ class SantriRegister extends Migration
         );
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->createTable('santri_reg');
+        $this->forge->createTable('data_santri');
     }
 
     public function down()
     {
-        $this->forge->dropTable('santri_reg');
+        $this->forge->dropTable('data_santri');
     }
 }

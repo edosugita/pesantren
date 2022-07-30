@@ -63,7 +63,7 @@ $this->section('content');
                                                 <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/master/' . $data['id'] . '/view') ?>">
                                                     <i class="anticon anticon-eye" style="color: #336CFB;"></i>
                                                 </a>
-                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/edit') ?>">
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/master/' . $data['id'] . '/edit') ?>">
                                                     <i class="anticon anticon-form" style="color: #049F67;"></i>
                                                 </a>
                                                 <?php if ($data['role'] !== 'Master') : ?>

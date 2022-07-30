@@ -4,6 +4,26 @@ $this->section('content');
 ?>
 
 <main>
+
+    <!-- ALERT START -->
+    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+        <div class="col-12">
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= session()->getFlashdata('fail'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+        <div class="col-12">
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= session()->getFlashdata('success'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    <?php endif; ?>
+    <!-- ALERT STOP -->
+
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Mari Bergabung Bersama Kami</h1>
