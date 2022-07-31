@@ -101,7 +101,8 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         // JADWAL TA'LIM
         $routes->group('jadwal-talim', function ($routes) {
             $routes->get('/', 'AdminJadwal::index');
-            $routes->get('edit', 'AdminJadwal::edit');
+            $routes->match(['get', 'post'], 'add', 'AdminJadwal::add');
+            $routes->match(['get', 'post'], '(:num)/edit', 'AdminJadwal::edit/$1');
             $routes->get('delete', 'AdminJadwal::delete');
             $routes->get('cetak', 'AdminJadwal::cetak');
         });

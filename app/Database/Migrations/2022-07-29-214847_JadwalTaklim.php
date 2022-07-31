@@ -26,12 +26,20 @@ class JadwalTaklim extends Migration
                 'id_kategori' => [
                     'type' => 'INT',
                 ],
+                'tgl_jadwal' => [
+                    'type' => 'DATE',
+                ],
                 'materi' => [
                     'type' => 'VARCHAR',
                     'constraint' => '255',
                 ],
                 'hari' => [
-                    'type' => 'DATE',
+                    'type' => 'VARCHAR',
+                    'constraint' => '255'
+                ],
+                'waktu' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '255'
                 ],
                 'tempat' => [
                     'type' => 'VARCHAR',
