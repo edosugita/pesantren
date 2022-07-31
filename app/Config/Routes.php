@@ -119,17 +119,19 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         // MUTASI
         $routes->group('mutasi', function ($routes) {
             $routes->get('/', 'AdminMutasi::index');
-            $routes->get('edit', 'AdminMutasi::editPage');
-            $routes->get('delete', 'AdminMutasi::deletePage');
-            $routes->get('cetak', 'AdminMutasi::cetakPage');
+            $routes->get('edit', 'AdminMutasi::edit');
+            $routes->get('delete', 'AdminMutasi::delete');
+            $routes->get('cetak', 'AdminMutasi::cetak');
         });
 
         // DONATUR
         $routes->group('donatur', function ($routes) {
             $routes->get('/', 'AdminDonatur::index');
-            $routes->get('edit', 'AdminDonatur::editPage');
-            $routes->get('delete', 'AdminDonatur::deletePage');
-            $routes->get('cetak', 'AdminDonatur::cetakPage');
+            $routes->get('(:num)/view', 'AdminDonatur::view/$1');
+            $routes->match(['get', 'post'], 'add', 'AdminDonatur::add');
+            $routes->match(['get', 'post'], '(:num)/edit', 'AdminDonatur::edit/$1');
+            $routes->get('delete', 'AdminDonatur::delete');
+            $routes->get('cetak', 'AdminDonatur::cetak');
         });
 
         // DOKUMEN
