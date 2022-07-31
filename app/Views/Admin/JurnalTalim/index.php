@@ -12,6 +12,46 @@ $this->section('content');
                         <h5>Jurnal Ta’lim</h5>
                     </div>
                     <hr>
+                    <!-- START ALERT -->
+                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <?= session()->getFlashdata('fail'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <?= session()->getFlashdata('success'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('modalSuccess'))) : ?>
+                        <div class="modal fade" id="infaq-santri">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="border-radius: 12px; overflow:hidden;">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                            <span class="sr-only"></span>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img src="<?= base_url('/assets/img/success-image.svg') ?>" class="mb-5">
+                                        <h5>Data Berhasil Diperbarui</h5>
+                                        <p><?= session()->getFlashdata('modalSuccess') ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <!-- STOP ALERT -->
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">
                             <div class="row">
@@ -32,176 +72,26 @@ $this->section('content');
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Jane Cooper</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Wade Warren</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Esther Howard</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Cameron Williamson</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Brooklyn Simmons</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Leslie Alexander</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Jenny Wilson</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Guy Hawkins</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Robert Fox</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>Cara Membaca Al Quran</td>
-                                        <td>Jacob Jones</td>
-                                        <td>Al Quran</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-eye" style="color: #336CFB;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($dataJurnal as $data) : ?>
+                                        <tr>
+                                            <td><?= $i++ ?></td>
+                                            <td><?= $data['judul'] ?></td>
+                                            <td><?= $data['penulis'] ?></td>
+                                            <td><?= $data['nama_kategori'] ?></td>
+                                            <td>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/jurnal-talim/' . $data['slug'] . '/view') ?>">
+                                                    <i class="anticon anticon-eye" style="color: #336CFB;"></i>
+                                                </a>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/jurnal-talim/' . $data['id'] . '/edit') ?>">
+                                                    <i class="anticon anticon-form" style="color: #049F67;"></i>
+                                                </a>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
+                                                    <i class="anticon anticon-delete" style="color: #BF0603;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

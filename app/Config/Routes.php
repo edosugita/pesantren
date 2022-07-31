@@ -110,10 +110,10 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         // JURNAL TA'LIM
         $routes->group('jurnal-talim', function ($routes) {
             $routes->get('/', 'AdminJurnal::index');
-            $routes->get('view', 'AdminJurnal::viewPage');
-            $routes->get('add', 'AdminJurnal::addPage');
-            $routes->get('edit', 'AdminJurnal::editPage');
-            $routes->get('delete', 'AdminJurnal::deletePage');
+            $routes->get('(:segment)/view', 'AdminJurnal::view/$1');
+            $routes->match(['get', 'post'], 'add', 'AdminJurnal::add');
+            $routes->match(['get', 'post'], '(:num)/edit', 'AdminJurnal::edit/$1');
+            $routes->get('delete', 'AdminJurnal::delete');
         });
 
         // MUTASI

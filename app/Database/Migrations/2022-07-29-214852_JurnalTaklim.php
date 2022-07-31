@@ -30,6 +30,12 @@ class JurnalTaklim extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '255',
                 ],
+                'articel' => [
+                    'type' => 'TEXT',
+                ],
+                'tgl_jurnal' => [
+                    'type' => 'DATE',
+                ],
                 'created_at' => [
                     'type' => 'DATETIME',
                 ],

@@ -33,7 +33,7 @@ $this->section('content');
                         </div>
                     <?php endif; ?>
                     <div class="m-t-10">
-                        <form action="<?= base_url('/admin/master/' . $dataAdmin['id'] . '/edit') ?>" method="post">
+                        <form action="<?= base_url('/admin/master/' . $dataAdmin['id'] . '/edit') ?>" method="post" onsubmit="return confirm('Anda yakin ingin merubah data ini?');">
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama</label>

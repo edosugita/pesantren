@@ -13,6 +13,7 @@ $this->section('content');
                     </div>
                     <hr>
                     <form method="post" action="<?= base_url('/admin/jadwal-talim/add') ?>">
+                        <?= csrf_field(); ?>
                         <div class="form-group">
                             <label>Pemateri</label>
                             <input type="text" name="nama" class="form-control  <?= (isset($validation)) ? ($validation->hasError('nama')) ? 'is-invalid' : null : null ?>" placeholder="ex: Gus Naim" value="<?= set_value('nama') ?>">

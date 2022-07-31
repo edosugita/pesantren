@@ -170,7 +170,7 @@ class MasterAdmin extends BaseController
                 if (!$query) {
                     return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
                 } else {
-                    return redirect()->to('/admin/master')->with('success', 'Admin telah berhasil diganti!');
+                    return redirect()->to('/admin/master')->with('modalSuccess', 'Admin telah berhasil diperbarui!');
                 }
             }
         }

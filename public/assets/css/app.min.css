@@ -29402,3 +29402,123 @@ div.is-invalid {
     background-color: #049F67;
     border-color: #049F67;
 }
+
+.preview {
+    width: 100%;
+    border-radius: 12px;
+    max-height: 303px;
+    overflow: hidden;
+}
+
+.img-preview {
+    width: 100%;
+    height: 100%;
+}
+
+/* DETAIL JURNAL */
+
+.image-detail {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.image-detail p>.anticon {
+    margin-right: 10px;
+    color: #008a00;
+}
+
+.image-detail p {
+    font-weight: 400;
+    font-size: 18px;
+    color: #5F5F5F;
+}
+
+.img-d {
+    width: 100%;
+    height: 508px;
+    border-radius: 12px;
+    background-size: cover;
+}
+
+.detail-info-jurnal>p {
+    text-align: justify;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #5F5F5F;
+}
+
+.detail-info-jurnal>ul>li {
+    text-align: justify;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #5F5F5F;
+    /* margin-left: 20px; */
+}
+
+.detail-info-jurnal>ul {
+    margin: 20px;
+}
+
+.judul-detail {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px !important;
+    color: #1D242A;
+    margin-bottom: 25px;
+}
+
+.post-date {
+    display: block;
+    text-align: center;
+    float: left;
+}
+
+.day span {
+    font-style: normal;
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    color: #038556;
+}
+
+.date span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: #383838;
+}
+
+.date {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.month span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #383838;
+}
+
+.month {
+    margin-bottom: 25px !important;
+}
+
+.share span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #038556;
+}
+
+.share {
+    margin-bottom: 30px;
+}
+
+.share-social-media a,
+.share-social-media .fab {
+    color: #53535f;
+    font-size: 24px;
+    margin-bottom: 50px;
+}

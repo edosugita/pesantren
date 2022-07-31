@@ -12,7 +12,8 @@ $this->section('content');
                         <h5>Edit Data Jadwal Ta’lim</h5>
                     </div>
                     <hr>
-                    <form method="post" action="<?= base_url('/admin/jadwal-talim/' . $dataJadwal['id'] . '/edit') ?>">
+                    <form method="post" action="<?= base_url('/admin/jadwal-talim/' . $dataJadwal['id'] . '/edit') ?>" onsubmit="return confirm('Anda yakin ingin merubah data ini?');">
+                        <?= csrf_field(); ?>
                         <div class="form-group">
                             <label>Pemateri</label>
                             <input type="text" name="nama" class="form-control  <?= (isset($validation)) ? ($validation->hasError('nama')) ? 'is-invalid' : null : null ?>" placeholder="ex: Gus Naim" value="<?= $dataJadwal['pembicara'] ?>">

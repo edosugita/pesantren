@@ -60,6 +60,7 @@ $this->section('content');
                             </div>
                             <div class="col-sm-12 col-md-9">
                                 <form action="<?= base_url('/admin/induk-santri/add') ?>" method="post">
+                                    <?= csrf_field(); ?>
                                     <!-- START ALERT -->
                                     <?php if (isset($validation)) : ?>
                                         <div class="col-12 mb-2">

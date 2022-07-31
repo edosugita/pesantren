@@ -59,7 +59,8 @@ $this->section('content');
                                 </ul>
                             </div>
                             <div class="col-sm-12 col-md-9">
-                                <form action="<?= base_url('/admin/calon-santri/' . $dataSantriReg[0]['id'] . '/edit') ?>" method="post">
+                                <form action="<?= base_url('/admin/calon-santri/' . $dataSantriReg[0]['id'] . '/edit') ?>" method="post" onsubmit="return confirm('Anda yakin ingin merubah data ini?');">
+                                    <?= csrf_field(); ?>
                                     <!-- START ALERT -->
                                     <?php if (isset($validation)) : ?>
                                         <div class="col-12 mb-2">

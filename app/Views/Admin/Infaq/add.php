@@ -35,6 +35,7 @@ $this->section('content');
                     <?php endif; ?>
                     <!-- STOP ALERT -->
                     <form action="<?= base_url('/admin/infaq/add') ?>" method="post">
+                        <?= csrf_field(); ?>
                         <div class="form-group">
                             <label>NIS</label>
                             <input type="text" id="nis" name="nis" class="form-control <?= (isset($validation)) ? ($validation->hasError('nis')) ? 'is-invalid' : null : null ?>" placeholder="NIS" readonly>

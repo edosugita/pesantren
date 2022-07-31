@@ -36,6 +36,26 @@ navLink.forEach(link => {
     }
 });
 
+function previewImg() {
+    const sampul = document.querySelector('#gambar');
+    const sampulLabel = document.querySelector('.custom-file-label');
+    const imgPreview = document.querySelector('.img-preview');
+
+    sampulLabel.textContent = sampul.files[0].name;
+
+    const fileSampul = new FileReader();
+    fileSampul.readAsDataURL(sampul.files[0]);
+
+    fileSampul.onload = function(e) {
+        imgPreview.src = e.target.result;
+    }
+}
+
+const mySubmit = () => {
+    var html = document.getElementById('editor').innerHTML;
+    document.getElementById('articelcontent').value = html;
+}
+
 const tampil = () => {
     const data = document.getElementById('data').value.replace(/\s/g, "").toLowerCase();
     const hasil = document.getElementById('hasil').value = data;

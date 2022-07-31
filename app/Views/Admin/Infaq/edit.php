@@ -12,7 +12,8 @@ $this->section('content');
                         <h5>Edit Data Infaq Santri</h5>
                     </div>
                     <hr>
-                    <form action="<?= base_url('/admin/infaq/' . $infaqSantri[0]['id'] . '/edit') ?>" method="post">
+                    <form action="<?= base_url('/admin/infaq/' . $infaqSantri[0]['id'] . '/edit') ?>" method="post" onsubmit="return confirm('Anda yakin ingin merubah data ini?');">
+                        <?= csrf_field(); ?>
                         <div class="form-group">
                             <label>NIS</label>
                             <input type="text" id="nis" name="nis" class="form-control bg-white" value="<?= $infaqSantri[0]['nis'] ?>" readonly>
