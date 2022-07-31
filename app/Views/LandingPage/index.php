@@ -27,7 +27,7 @@ $this->section('content');
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="border-radius: 12px; overflow:hidden;">
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%; height:5px; --bs-progress-bar-bg: #038556;">
                             <span class="sr-only"></span>
                         </div>
                     </div>
