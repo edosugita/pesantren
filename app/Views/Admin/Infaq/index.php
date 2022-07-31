@@ -44,7 +44,7 @@
                                     <div class="modal-body text-center">
                                         <img src="<?= base_url('/assets/img/success-image.svg') ?>" class="mb-5">
                                         <h5>Data Berhasil Diperbarui</h5>
-                                        <p>Data infaq telah berhasil disimpan</p>
+                                        <p><?= session()->getFlashdata('modalSuccess') ?></p>
                                     </div>
                                 </div>
                             </div>

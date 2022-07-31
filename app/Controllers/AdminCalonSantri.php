@@ -105,8 +105,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Santri harus di isi',
                             'integer' => 'No Telepon Santri harus berupa angka',
-                            'min_length' => 'No Telepon Santri harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Santri harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
                         ],
                     ],
                     'hobi' => [
@@ -147,8 +147,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
                             'integer' => 'No Telepon Ayah harus berupa angka',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -184,10 +184,10 @@ class AdminCalonSantri extends BaseController
                             'required' => 'Pekerjaan Ibu harus di isi',
                         ]
                     ],
-                    'pendidikan_ibu' => [
+                    'penghasilan_ibu' => [
                         'rules' => 'required',
                         'errors' => [
-                            'required' => 'Pendidikan Ibu harus di isi',
+                            'required' => 'Penghasilan Ibu harus di isi',
                         ]
                     ],
                     'no_ibu' => [
@@ -195,8 +195,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
                             'integer' => 'No Telepon Ibu harus berupa angka',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -270,8 +270,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Santri harus di isi',
                             'integer' => 'No Telepon Santri harus berupa angka',
-                            'min_length' => 'No Telepon Santri harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Santri harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
                         ],
                     ],
                     'hobi' => [
@@ -312,8 +312,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
                             'integer' => 'No Telepon Ayah harus berupa angka',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -349,10 +349,10 @@ class AdminCalonSantri extends BaseController
                             'required' => 'Pekerjaan Ibu harus di isi',
                         ]
                     ],
-                    'pendidikan_ibu' => [
+                    'penghasilan_ibu' => [
                         'rules' => 'required',
                         'errors' => [
-                            'required' => 'Pendidikan Ibu harus di isi',
+                            'required' => 'Penghasilan Ibu harus di isi',
                         ]
                     ],
                     'no_ibu' => [
@@ -360,8 +360,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
                             'integer' => 'No Telepon Ibu harus berupa angka',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -382,8 +382,8 @@ class AdminCalonSantri extends BaseController
                         'rules' => 'integer|min_length[11]|max_length[13]',
                         'errors' => [
                             'integer' => 'No Telepon Wali harus berupa angka',
-                            'min_length' => 'No Telepon Wali harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Wali harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Wali harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Wali harus memiliki maximal 13 angka',
                         ]
                     ],
                 ]);
@@ -392,6 +392,10 @@ class AdminCalonSantri extends BaseController
             if (!$validation) {
                 $data['validation'] = $this->validator;
             } else {
+                if ($this->request->getVar('penghasilan_ayah') === 'null' || $this->request->getVar('penghasilan_ibu') === 'null') {
+                    return redirect()->back()->with('fail', 'Penghasilan Ayah atau Ibu harus di Pilih!');
+                }
+
                 $register = date('yd') . mt_rand(100, 999);
 
                 $newData = [
@@ -416,7 +420,7 @@ class AdminCalonSantri extends BaseController
                     'nama_ibu' => $this->request->getVar('nama_ibu'),
                     'nik_ibu' => $this->request->getVar('nik_ibu'), // Belum ada di tabel
                     'pekerjaan_ibu' => $this->request->getVar('pekerjaan_ibu'),
-                    'pendidikan_ibu' => $this->request->getVar('pendidikan_ibu'), // Belum ada di tabel
+                    'penghasilan_ibu' => $this->request->getVar('penghasilan_ibu'), // Belum ada di tabel
                     'no_hp_ibu' => $this->request->getVar('no_ibu'),
                     'alamat_ibu' => $this->request->getVar('alamat_ibu'),
                     'hubungan_wali' => $this->request->getVar('hubungan_wali'), // Belum ada di tabel
@@ -444,7 +448,7 @@ class AdminCalonSantri extends BaseController
                     if (!$newQuery) {
                         return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
                     } else {
-                        return redirect()->to('/admin/calon-santri')->with('success', 'Registrasi berhasil dilakukan!');
+                        return redirect()->to('/admin/calon-santri')->with('modalSuccess', 'Registrasi berhasil dilakukan!');
                     }
                 }
             }
@@ -525,8 +529,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Santri harus di isi',
                             'integer' => 'No Telepon Santri harus berupa angka',
-                            'min_length' => 'No Telepon Santri harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Santri harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
                         ],
                     ],
                     'hobi' => [
@@ -567,8 +571,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
                             'integer' => 'No Telepon Ayah harus berupa angka',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -604,10 +608,10 @@ class AdminCalonSantri extends BaseController
                             'required' => 'Pekerjaan Ibu harus di isi',
                         ]
                     ],
-                    'pendidikan_ibu' => [
+                    'penghasilan_ibu' => [
                         'rules' => 'required',
                         'errors' => [
-                            'required' => 'Pendidikan Ibu harus di isi',
+                            'required' => 'Penghasilan Ibu harus di isi',
                         ]
                     ],
                     'no_ibu' => [
@@ -615,8 +619,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
                             'integer' => 'No Telepon Ibu harus berupa angka',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -690,8 +694,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Santri harus di isi',
                             'integer' => 'No Telepon Santri harus berupa angka',
-                            'min_length' => 'No Telepon Santri harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Santri harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
                         ],
                     ],
                     'hobi' => [
@@ -732,8 +736,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
                             'integer' => 'No Telepon Ayah harus berupa angka',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -769,10 +773,10 @@ class AdminCalonSantri extends BaseController
                             'required' => 'Pekerjaan Ibu harus di isi',
                         ]
                     ],
-                    'pendidikan_ibu' => [
+                    'penghasilan_ibu' => [
                         'rules' => 'required',
                         'errors' => [
-                            'required' => 'Pendidikan Ibu harus di isi',
+                            'required' => 'Penghasilan Ibu harus di isi',
                         ]
                     ],
                     'no_ibu' => [
@@ -780,8 +784,8 @@ class AdminCalonSantri extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
                             'integer' => 'No Telepon Ibu harus berupa angka',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -802,8 +806,8 @@ class AdminCalonSantri extends BaseController
                         'rules' => 'integer|min_length[11]|max_length[13]',
                         'errors' => [
                             'integer' => 'No Telepon Wali harus berupa angka',
-                            'min_length' => 'No Telepon Wali harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Wali harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Wali harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Wali harus memiliki maximal 13 angka',
                         ]
                     ],
                 ]);
@@ -812,6 +816,10 @@ class AdminCalonSantri extends BaseController
             if (!$validation) {
                 $data['validation'] = $this->validator;
             } else {
+                if ($this->request->getVar('penghasilan_ayah') === 'null' || $this->request->getVar('penghasilan_ibu') === 'null') {
+                    return redirect()->back()->with('fail', 'Penghasilan Ayah atau Ibu harus di Pilih!');
+                }
+
                 $newData = [
                     'nama_santri' => $this->request->getVar('nama_santri'),
                     'nik_santri' => $this->request->getVar('nik_santri'),
@@ -834,7 +842,7 @@ class AdminCalonSantri extends BaseController
                     'nama_ibu' => $this->request->getVar('nama_ibu'),
                     'nik_ibu' => $this->request->getVar('nik_ibu'), // Belum ada di tabel
                     'pekerjaan_ibu' => $this->request->getVar('pekerjaan_ibu'),
-                    'pendidikan_ibu' => $this->request->getVar('pendidikan_ibu'), // Belum ada di tabel
+                    'penghasilan_ibu' => $this->request->getVar('penghasilan_ibu'), // Belum ada di tabel
                     'no_hp_ibu' => $this->request->getVar('no_ibu'),
                     'alamat_ibu' => $this->request->getVar('alamat_ibu'),
                     'hubungan_wali' => $this->request->getVar('hubungan_wali'), // Belum ada di tabel
@@ -853,7 +861,7 @@ class AdminCalonSantri extends BaseController
                 if (!$query) {
                     return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
                 } else {
-                    return redirect()->to('/admin/calon-santri')->with('success', 'Update data calon santri berhasil dilakukan!');
+                    return redirect()->to('/admin/calon-santri')->with('modalSuccess', 'Update data calon santri berhasil dilakukan!');
                 }
             }
         }

@@ -34,6 +34,24 @@ $this->section('content');
                             </div>
                         </div>
                     <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('modalSuccess'))) : ?>
+                        <div class="modal fade" id="infaq-santri">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="border-radius: 12px; overflow:hidden;">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                            <span class="sr-only"></span>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img src="<?= base_url('/assets/img/success-image.svg') ?>" class="mb-5">
+                                        <h5>Data Berhasil Diperbarui</h5>
+                                        <p><?= session()->getFlashdata('modalSuccess') ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <!-- STOP ALERT -->
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">

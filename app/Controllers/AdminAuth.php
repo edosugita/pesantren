@@ -179,8 +179,8 @@ class AdminAuth extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Santri harus di isi',
                             'integer' => 'No Telepon Santri harus berupa angka',
-                            'min_length' => 'No Telepon Santri harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Santri harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
                         ],
                     ],
                     'hobi' => [
@@ -221,8 +221,8 @@ class AdminAuth extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
                             'integer' => 'No Telepon Ayah harus berupa angka',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -258,10 +258,10 @@ class AdminAuth extends BaseController
                             'required' => 'Pekerjaan Ibu harus di isi',
                         ]
                     ],
-                    'pendidikan_ibu' => [
+                    'penghasilan_ibu' => [
                         'rules' => 'required',
                         'errors' => [
-                            'required' => 'Pendidikan Ibu harus di isi',
+                            'required' => 'Penghasilan Ibu harus di isi',
                         ]
                     ],
                     'no_ibu' => [
@@ -269,8 +269,8 @@ class AdminAuth extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
                             'integer' => 'No Telepon Ibu harus berupa angka',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -344,8 +344,8 @@ class AdminAuth extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Santri harus di isi',
                             'integer' => 'No Telepon Santri harus berupa angka',
-                            'min_length' => 'No Telepon Santri harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Santri harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
                         ],
                     ],
                     'hobi' => [
@@ -386,8 +386,8 @@ class AdminAuth extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
                             'integer' => 'No Telepon Ayah harus berupa angka',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -423,10 +423,10 @@ class AdminAuth extends BaseController
                             'required' => 'Pekerjaan Ibu harus di isi',
                         ]
                     ],
-                    'pendidikan_ibu' => [
+                    'penghasilan_ibu' => [
                         'rules' => 'required',
                         'errors' => [
-                            'required' => 'Pendidikan Ibu harus di isi',
+                            'required' => 'Penghasilan Ibu harus di isi',
                         ]
                     ],
                     'no_ibu' => [
@@ -434,8 +434,8 @@ class AdminAuth extends BaseController
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
                             'integer' => 'No Telepon Ibu harus berupa angka',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -456,8 +456,8 @@ class AdminAuth extends BaseController
                         'rules' => 'integer|min_length[11]|max_length[13]',
                         'errors' => [
                             'integer' => 'No Telepon Wali harus berupa angka',
-                            'min_length' => 'No Telepon Wali harus memiliki minimal 16 angka',
-                            'max_length' => 'No Telepon Wali harus memiliki maximal 16 angka',
+                            'min_length' => 'No Telepon Wali harus memiliki minimal 11 angka',
+                            'max_length' => 'No Telepon Wali harus memiliki maximal 13 angka',
                         ]
                     ],
                 ]);
@@ -466,6 +466,10 @@ class AdminAuth extends BaseController
             if (!$validation) {
                 $data['validation'] = $this->validator;
             } else {
+                if ($this->request->getVar('penghasilan_ayah') === 'null' || $this->request->getVar('penghasilan_ibu') === 'null') {
+                    return redirect()->back()->with('fail', 'Penghasilan Ayah atau Ibu harus di Pilih!');
+                }
+
                 $register = date('yd') . mt_rand(100, 999);
 
                 $newData = [
@@ -490,7 +494,7 @@ class AdminAuth extends BaseController
                     'nama_ibu' => $this->request->getVar('nama_ibu'),
                     'nik_ibu' => $this->request->getVar('nik_ibu'), // Belum ada di tabel
                     'pekerjaan_ibu' => $this->request->getVar('pekerjaan_ibu'),
-                    'pendidikan_ibu' => $this->request->getVar('pendidikan_ibu'), // Belum ada di tabel
+                    'penghasilan_ibu' => $this->request->getVar('penghasilan_ibu'), // Belum ada di tabel
                     'no_hp_ibu' => $this->request->getVar('no_ibu'),
                     'alamat_ibu' => $this->request->getVar('alamat_ibu'),
                     'hubungan_wali' => $this->request->getVar('hubungan_wali'), // Belum ada di tabel
@@ -518,7 +522,7 @@ class AdminAuth extends BaseController
                     if (!$newQuery) {
                         return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
                     } else {
-                        return redirect()->to('/')->with('success', 'Registrasi berhasil dilakukan!');
+                        return redirect()->to('/')->with('modalSuccess', 'Registrasi Berhasil dilakukan');
                     }
                 }
             }

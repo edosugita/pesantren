@@ -110,7 +110,7 @@ class AdminInfaq extends BaseController
                 if (!$query) {
                     return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
                 } else {
-                    return redirect()->to('/admin/infaq')->with('modalSuccess', 'Data Berhasil Diperbarui');
+                    return redirect()->to('/admin/infaq')->with('modalSuccess', 'Data Infaq Berhasil Ditambah');
                 }
             }
         }
@@ -191,7 +191,7 @@ class AdminInfaq extends BaseController
                 if (!$query) {
                     return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
                 } else {
-                    return redirect()->to('/admin/infaq/' . $this->request->getVar('nis') . '/view')->with('modalSuccess', 'Data Berhasil Diperbarui');
+                    return redirect()->to('/admin/infaq/' . $this->request->getVar('nis') . '/view')->with('modalSuccess', 'Data Infaq Berhasil Diperbarui');
                 }
             }
         }

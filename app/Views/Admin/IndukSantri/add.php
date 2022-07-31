@@ -198,17 +198,22 @@ $this->section('content');
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label>Penghasilan Ayah</label>
+                                                <select class="select2" name="penghasilan_ayah">
+                                                    <option value="null">Pilih Penghasilan Ayah</option>
+                                                    <option value="Di Bawah Rp. 1.000.000">Di Bawah Rp. 1.000.000</option>
+                                                    <option value="Rp. 1.000.000 - 3.000.000">Rp. 1.000.000 - 3.000.000</option>
+                                                    <option value="Di Atas Rp. 5.000.000">Di Atas Rp. 5.000.000</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    <?= (isset($validation)) ? ($validation->getError('penghasilan_ayah')) : null ?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label>No Handphone</label>
                                                 <input type="number" name="no_ayah" class="form-control <?= (isset($validation)) ? ($validation->hasError('no_ayah')) ? 'is-invalid' : null : null ?>" placeholder="ex: 081234567890" value="<?= set_value('no_ayah') ?>">
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('no_ayah')) : null ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Penghasilan</label>
-                                                <input type="text" name="penghasilan_ayah" class="form-control <?= (isset($validation)) ? ($validation->hasError('penghasilan_ayah')) ? 'is-invalid' : null : null ?>" placeholder="ex: 10.000.000 - 20.000.000" value="<?= set_value('penghasilan_ayah') ?>">
-                                                <div class="invalid-feedback">
-                                                    <?= (isset($validation)) ? ($validation->getError('penghasilan_ayah')) : null ?>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -254,10 +259,15 @@ $this->section('content');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Pendidikan</label>
-                                                <input type="text" name="pendidikan_ibu" class="form-control <?= (isset($validation)) ? ($validation->hasError('pendidikan_ibu')) ? 'is-invalid' : null : null ?>" placeholder="ex: SMA/MA/Sederajat" value="<?= set_value('pendidikan_ibu') ?>">
+                                                <label>Penghasilan Ibu</label>
+                                                <select class="select2" name="penghasilan_ibu">
+                                                    <option value="null">Pilih Penghasilan Ibu</option>
+                                                    <option value="Di Bawah Rp. 1.000.000">Di Bawah Rp. 1.000.000</option>
+                                                    <option value="Rp. 1.000.000 - 3.000.000">Rp. 1.000.000 - 3.000.000</option>
+                                                    <option value="Di Atas Rp. 5.000.000">Di Atas Rp. 5.000.000</option>
+                                                </select>
                                                 <div class="invalid-feedback">
-                                                    <?= (isset($validation)) ? ($validation->getError('pendidikan_ibu')) : null ?>
+                                                    <?= (isset($validation)) ? ($validation->getError('penghasilan_ibu')) : null ?>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -317,8 +327,13 @@ $this->section('content');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Penghasilan</label>
-                                                <input type="text" name="penghasilan_wali" class="form-control <?= (isset($validation)) ? ($validation->hasError('penghasilan_wali')) ? 'is-invalid' : null : null ?>" placeholder="ex: 10.000.000 - 20.000.000" value="<?= set_value('penghasilan_wali') ?>">
+                                                <label>Penghasilan Wali</label>
+                                                <select class="select2" name="penghasilan_wali">
+                                                    <option value="null">Pilih Penghasilan Wali</option>
+                                                    <option value="Di Bawah Rp. 1.000.000">Di Bawah Rp. 1.000.000</option>
+                                                    <option value="Rp. 1.000.000 - 3.000.000">Rp. 1.000.000 - 3.000.000</option>
+                                                    <option value="Di Atas Rp. 5.000.000">Di Atas Rp. 5.000.000</option>
+                                                </select>
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('penghasilan_wali')) : null ?>
                                                 </div>

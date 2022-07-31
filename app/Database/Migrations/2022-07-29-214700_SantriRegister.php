@@ -97,7 +97,7 @@ class SantriRegister extends Migration
                     'type' => 'VARCHAR',
                     'constraint' => '255'
                 ],
-                'pendidikan_ibu' => [
+                'penghasilan_ibu' => [
                     'type' => 'VARCHAR',
                     'constraint' => '255'
                 ],
