@@ -29522,3 +29522,20 @@ div.is-invalid {
     font-size: 24px;
     margin-bottom: 50px;
 }
+
+.dokumen {
+    padding: 25px 35px;
+    text-align: center;
+}
+
+.dokumen-text>.text {
+    font-size: 14px;
+    color: #999999;
+}
+
+.dokumen-text>.title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: #4D4D4D;
+}

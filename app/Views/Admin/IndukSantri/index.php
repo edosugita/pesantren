@@ -56,7 +56,7 @@ $this->section('content');
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">
                             <div class="row">
-                                <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/induk-santri/add') ?>">Tambah Santri</a>
+                                <button type="button" class="btn btn-santri btn-hover-santri" data-toggle="modal" data-target="#dataSantri">Tambah Santri</button>
                             </div>
                         </div>
                     </div>
@@ -102,6 +102,32 @@ $this->section('content');
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="dataSantri">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dataSantriTitle">Jenis Santri</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Pilih Jenis Santri</label><br>
+                <div>
+                    <div class="row">
+                        <button type="button" class="btn btn-santri btn-hover-santri w-100 mt-2 mb-2" onclick="location.href='<?= base_url('/admin/induk-santri/add') ?>'">Tambah Santri Lama</button>
+                        <button type="button" class="btn btn-santri btn-hover-santri w-100 mt-2" onclick="location.href='<?= base_url('/admin/induk-santri/add/baru') ?>'">Tambah Santri Baru</button>
+                    </div>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-hover-santri" data-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>

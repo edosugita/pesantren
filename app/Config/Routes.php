@@ -73,6 +73,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->get('(:num)/view', 'AdminIndukSantri::view/$1');
             $routes->match(['get', 'post'], '(:num)/edit', 'AdminIndukSantri::edit/$1');
             $routes->match(['get', 'post'], 'add', 'AdminIndukSantri::add');
+            $routes->match(['get', 'post'], 'add/baru', 'AdminIndukSantri::addBaru');
             $routes->get('delete', 'AdminIndukSantri::delete');
             $routes->get('cetak', 'AdminIndukSantri::cetak');
         });
@@ -135,7 +136,11 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         });
 
         // DOKUMEN
-
+        $routes->group('dokumen', function ($routes) {
+            $routes->get('/', 'AdminDokumen::index');
+            $routes->get('add', 'AdminDokumen::add');
+            $routes->match(['get', 'post'], 'add/instansi', 'AdminDokumen::instansi');
+        });
     });
 });
 

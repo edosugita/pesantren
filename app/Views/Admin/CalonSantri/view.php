@@ -138,7 +138,7 @@ $this->section('content');
                                                     </tr>
                                                     <tr>
                                                         <td>Pendidikan</td>
-                                                        <td><?= $dataSantriReg[0]['pendidikan_ibu'] ?></td>
+                                                        <td><?= $dataSantriReg[0]['penghasilan_ibu'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>No Handphone</td>

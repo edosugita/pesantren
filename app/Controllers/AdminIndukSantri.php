@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\CalonSantriModel;
 use App\Models\DataSantriModel;
 use App\Models\IndukSantriModel;
 
@@ -12,6 +13,7 @@ class AdminIndukSantri extends BaseController
         helper(['url', 'form']);
         $this->indukSantri = new IndukSantriModel();
         $this->dataSantri = new DataSantriModel();
+        $this->calonSantri = new CalonSantriModel();
     }
 
     public function index()
@@ -32,6 +34,51 @@ class AdminIndukSantri extends BaseController
         ];
 
         return view('Admin/IndukSantri/view', $data);
+    }
+
+    public function addBaru()
+    {
+        $data = [
+            'title' => 'Induk Santri',
+            'dataSantriReg' => $this->calonSantri->findJoinAll(),
+        ];
+
+        if ($this->request->getMethod() == 'post') {
+            if ($this->request->getVar('nama') == 'null') {
+                return redirect()->back()->with('fail', 'Nama harus dipilih!');
+            }
+
+            $maxId = $this->indukSantri->findMax();
+            $maxNIS = $maxId[0]['nis'];
+            if ($maxNIS == null) {
+                $maxNIS++;
+                $kodeauto = date('ymd') . sprintf("%03s", $maxNIS);
+            } else {
+                $maxNIS++;
+                $kodeauto = sprintf("%03s", $maxNIS);
+            }
+
+            $getId = $this->dataSantri->getId($this->request->getVar('nama'));
+            $getCalonReg = $this->calonSantri->findJoinAllById($getId[0]['id']);
+
+            $newData = [
+                'nis' => $kodeauto,
+                'id_data' => $getId[0]['id'],
+            ];
+
+            // dd($newData);
+
+            $query = $this->indukSantri->insert($newData);
+            $this->calonSantri->delete($getCalonReg[0]['id']);
+            if (!$query) {
+                return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
+            } else {
+                // dd($this->calonSantri->delete($getCalonReg[0]['id']));
+                return redirect()->to('/admin/induk-santri')->with('modalSuccess', 'Registrasi berhasil dilakukan!');
+            }
+        }
+
+        return view('Admin/IndukSantri/addBaru', $data);
     }
 
     public function add()
@@ -450,7 +497,6 @@ class AdminIndukSantri extends BaseController
                     $getId = $this->dataSantri->getId($this->request->getVar('nama_santri'));
                     $superNewData = [
                         'nis' => $kodeauto,
-                        'kelas' => '0',
                         'id_data' => $getId[0]['id'],
                     ];
                     $newQuery = $this->indukSantri->insert($superNewData);
