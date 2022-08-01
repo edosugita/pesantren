@@ -75,6 +75,20 @@ $this->section('content');
                                 </thead>
                                 <tbody>
                                     <?php $i = 1 ?>
+                                    <?php foreach ($dataInstansi as $data) : ?>
+                                        <tr>
+                                            <td><?= $i++ ?></td>
+                                            <td><?= $data['nomor_surat'] ?></td>
+                                            <td><?= $data['keperluan'] ?></td>
+                                            <td><?= $data['instansi_tujuan'] ?></td>
+                                            <td><?= $data['tanggal'] ?></td>
+                                            <td>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/' . $data['id'] . '/download') ?>">
+                                                    <i class="anticon anticon-cloud-download" style="color: #336CFB;"></i <i class="anticon anticon"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

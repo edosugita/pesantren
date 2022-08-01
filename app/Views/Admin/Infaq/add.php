@@ -47,7 +47,7 @@ $this->section('content');
                             <label>Nama</label>
                             <select class="select2" name="nama" id="nama_santri" onclick="nisSantri()">
                                 <option value="null" selected>Pilih Nama Santri</option>
-                                <?php foreach ($dataSantri as $data) : ?>
+                                <?php foreach ($indukSantri as $data) : ?>
                                     <option value="<?= $data['nama_santri'] ?>"><?= $data['nama_santri'] ?></option>
                                 <?php endforeach; ?>
                             </select>

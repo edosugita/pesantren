@@ -51,6 +51,24 @@ function previewImg() {
     }
 }
 
+const nisSantriDoc = () => {
+	var nama =  $("#nama_santri").val()
+	$.ajax({
+        url: 'data-santri/json-data-auto-fill',
+        data:"nama="+nama,
+        success: function(data) {
+            var json = data,
+            obj = JSON.parse(json)
+            
+            if (obj.nis == 'null') {
+                $('#nis').val('')
+            } else {
+                $('#nis').val(obj.nis)
+            }
+        },
+    })
+}
+
 const mySubmit = () => {
     var html = document.getElementById('editor').innerHTML;
     document.getElementById('articelcontent').value = html;
@@ -100,3 +118,4 @@ const nisSantri = () => {
         },
     })
 }
+

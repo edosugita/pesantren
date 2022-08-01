@@ -140,6 +140,8 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->get('/', 'AdminDokumen::index');
             $routes->get('add', 'AdminDokumen::add');
             $routes->match(['get', 'post'], 'add/instansi', 'AdminDokumen::instansi');
+            $routes->match(['get', 'post'], 'add/santri', 'AdminDokumen::santri');
+            $routes->match(['get', 'post'], 'add/data-santri/json-data-auto-fill', 'DataSantriJson::index');
         });
     });
 });

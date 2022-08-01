@@ -15,7 +15,19 @@ class Dokumen extends Migration
                     'unsigned' => TRUE,
                     'auto_increment' => TRUE
                 ],
+                'no' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '50'
+                ],
                 'nomor_surat' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '50'
+                ],
+                'nis' => [
+                    'type' => 'CHAR',
+                    'constraint' => '50'
+                ],
+                'nama' => [
                     'type' => 'VARCHAR',
                     'constraint' => '50'
                 ],
@@ -32,6 +44,16 @@ class Dokumen extends Migration
                     'constraint' => '255'
                 ],
                 'tanggal' => [
+                    'type' => 'DATE',
+                ],
+                'jenis_surat' => [
+                    'type' => 'VARCHAR',
+                    'constraint' => '50'
+                ],
+                'tanggal_mulai' => [
+                    'type' => 'DATE',
+                ],
+                'tanggal_akhir' => [
                     'type' => 'DATE',
                 ],
                 'created_at' => [

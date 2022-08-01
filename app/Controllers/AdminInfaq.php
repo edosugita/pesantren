@@ -40,7 +40,7 @@ class AdminInfaq extends BaseController
     {
         $data = [
             'title' => 'Tambah Infaq',
-            'dataSantri' => $this->indukSantri->findJoinAll(),
+            'indukSantri' => $this->indukSantri->findJoinAll(),
             'semester' => $this->semester->findAll(),
         ];
 
