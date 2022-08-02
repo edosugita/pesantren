@@ -55,7 +55,7 @@ $this->section('content');
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">
                             <div class="row">
-                                <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/jurnal-talim/add') ?>">Tambah Jadwal</a>
+                                <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/jurnal-talim/add') ?>">Tambah Jurnal</a>
                             </div>
                         </div>
                     </div>

@@ -163,13 +163,6 @@ $this->section('content');
                                                     <?= (isset($validation)) ? ($validation->getError('alamat_santri')) : null ?>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-end p-h-30">
-                                                    <div class="row">
-                                                        <button type="button" class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;" onclick="location.href='<?= base_url('/admin/calon-santri') ?>'">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <!-- --------------------------
@@ -225,13 +218,6 @@ $this->section('content');
                                                     <?= (isset($validation)) ? ($validation->getError('alamat_ayah')) : null ?>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-end p-h-30">
-                                                    <div class="row">
-                                                        <button type="button" class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;" onclick="location.href='<?= base_url('/admin/calon-santri') ?>'">Cancel</button>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <!-- --------------------------
@@ -263,7 +249,7 @@ $this->section('content');
                                             <div class="form-group">
                                                 <label>Penghasilan Ibu</label>
                                                 <select class="select2" name="penghasilan_ibu">
-                                                    <option value="null">Pilih Penghasilan Ayah</option>
+                                                    <option value="null">Pilih Penghasilan Ibu</option>
                                                     <option value="Di Bawah Rp. 1.000.000">Di Bawah Rp. 1.000.000</option>
                                                     <option value="Rp. 1.000.000 - 3.000.000">Rp. 1.000.000 - 3.000.000</option>
                                                     <option value="Rp. 3.000.000 - 4.000.000">Rp. 3.000.000 - 4.000.000</option>
@@ -285,13 +271,6 @@ $this->section('content');
                                                 <input type="text" name="alamat_ibu" class="form-control <?= (isset($validation)) ? ($validation->hasError('alamat_ibu')) ? 'is-invalid' : null : null ?>" placeholder="ex: Jl. Mawar IV Joyogren, Dau, Malang 65151" value="<?= set_value('alamat_ibu') ?>">
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('alamat_ibu')) : null ?>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12 d-flex justify-content-end p-h-30">
-                                                    <div class="row">
-                                                        <button type="button" class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;" onclick="location.href='<?= base_url('/admin/calon-santri') ?>'">Cancel</button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -332,7 +311,7 @@ $this->section('content');
                                             <div class="form-group">
                                                 <label>Penghasilan Wali</label>
                                                 <select class="select2" name="penghasilan_wali">
-                                                    <option value="null">Pilih Penghasilan Ayah</option>
+                                                    <option value="null">Pilih Penghasilan Wali</option>
                                                     <option value="Di Bawah Rp. 1.000.000">Di Bawah Rp. 1.000.000</option>
                                                     <option value="Rp. 1.000.000 - 3.000.000">Rp. 1.000.000 - 3.000.000</option>
                                                     <option value="Rp. 3.000.000 - 4.000.000">Rp. 3.000.000 - 4.000.000</option>

@@ -64,6 +64,8 @@ $this->section('content');
                                 <option value="Rabu" <?= 'Rabu' == $dataJadwal['hari'] ? 'selected' : '' ?>>Rabu</option>
                                 <option value="Kamis" <?= 'Kamis' == $dataJadwal['hari'] ? 'selected' : '' ?>>Kamis</option>
                                 <option value="Jum’at" <?= 'Jum’at' == $dataJadwal['hari'] ? 'selected' : '' ?>>Jum’at</option>
+                                <option value="Sabtu" <?= 'Sabtu' == $dataJadwal['hari'] ? 'selected' : '' ?>>Sabtu</option>
+                                <option value="Minggu" <?= 'Minggu' == $dataJadwal['hari'] ? 'selected' : '' ?>>Minggu</option>
                             </select>
                             <div class="invalid-feedback">
                                 <?= (isset($validation)) ? ($validation->getError('hari')) : null ?>

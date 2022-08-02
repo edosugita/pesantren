@@ -854,7 +854,7 @@ class AdminCalonSantri extends BaseController
                     'alamat_wali' => $this->request->getVar('alamat_wali'),
                 ];
 
-                dd($newData);
+                // dd($newData);
 
                 $query = $this->dataSantri->update($id, $newData);
 
