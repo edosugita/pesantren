@@ -213,7 +213,7 @@ $this->section('content');
                                             </div>
                                             <div class="form-group">
                                                 <label>No Handphone</label>
-                                                <input type="number" name="no_ayah" class="form-control <?= (isset($validation)) ? ($validation->hasError('no_ayah')) ? 'is-invalid' : null : null ?>" placeholder="ex: 081234567890" value="<?= set_value('no_ayah') ?>">
+                                                <input type="text" name="no_ayah" class="form-control <?= (isset($validation)) ? ($validation->hasError('no_ayah')) ? 'is-invalid' : null : null ?>" placeholder="ex: 081234567890" value="<?= set_value('no_ayah') ?>">
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('no_ayah')) : null ?>
                                                 </div>
@@ -275,7 +275,7 @@ $this->section('content');
                                             </div>
                                             <div class="form-group">
                                                 <label>No Handphone</label>
-                                                <input type="number" name="no_ibu" class="form-control <?= (isset($validation)) ? ($validation->hasError('no_ibu')) ? 'is-invalid' : null : null ?>" placeholder="ex: 081234567890" value="<?= set_value('no_ibu') ?>">
+                                                <input type="text" name="no_ibu" class="form-control <?= (isset($validation)) ? ($validation->hasError('no_ibu')) ? 'is-invalid' : null : null ?>" placeholder="ex: 081234567890" value="<?= set_value('no_ibu') ?>">
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('no_ibu')) : null ?>
                                                 </div>
@@ -344,7 +344,7 @@ $this->section('content');
                                             </div>
                                             <div class="form-group">
                                                 <label>No Handphone</label>
-                                                <input type="number" name="no_wali" class="form-control <?= (isset($validation)) ? ($validation->hasError('no_wali')) ? 'is-invalid' : null : null ?>" placeholder="ex: 081234567890" value="<?= set_value('no_hp_wali') ?>">
+                                                <input type="text" name="no_wali" class="form-control <?= (isset($validation)) ? ($validation->hasError('no_wali')) ? 'is-invalid' : null : null ?>" placeholder="ex: 081234567890" value="<?= set_value('no_hp_wali') ?>">
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('no_wali')) : null ?>
                                                 </div>

@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\CalonSantriModel;
 use App\Models\DokumenInstansiModel;
 use App\Models\IndukSantriModel;
+use App\Models\MutasiModel;
 
 class AdminDashboard extends BaseController
 {
@@ -13,6 +14,7 @@ class AdminDashboard extends BaseController
         $this->dataSantri = new IndukSantriModel();
         $this->dataCalonSantri = new CalonSantriModel();
         $this->dokumen = new DokumenInstansiModel();
+        $this->mutasi = new MutasiModel();
     }
 
     public function index()
@@ -23,12 +25,21 @@ class AdminDashboard extends BaseController
             $santri[] = $data['id'];
         }
 
+        $pemasukan = $this->mutasi->findPemasukan();
+        $pengeluaran = $this->mutasi->findPengeluaran();
+
+        $pem = $pemasukan[0]['nominal'] == null ? '0' : $pemasukan[0]['nominal'];
+        $pen =  $pengeluaran[0]['nominal'] == null ? '0' : $pengeluaran[0]['nominal'];
+
         // dd($tahun);
         $data = [
             'title' => 'Dashboard',
             'dataSantri' => $this->dataSantri->findCount(),
             'dataCalonSantri' => $this->dataCalonSantri->findCount(),
             'dokumen' => $this->dokumen->findCount(),
+            'dataPemasukan' => $pemasukan,
+            'dataPengeluaran' => $pengeluaran,
+            'dataDebit' => $pem - $pen,
             'tahun' => $tahun,
             'santri' => $santri,
         ];

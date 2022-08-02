@@ -63,7 +63,7 @@ $this->section('content');
                             <i class="anticon anticon-wallet"></i>
                         </div>
                         <div class="m-l-15">
-                            <h2 class="m-b-0">20.000.000</h2>
+                            <h2 class="m-b-0">Rp. <?= number_format($dataDebit, 2, ',', '.') ?></h2>
                             <p class="m-b-0 text-muted">Saldo Pondok</p>
                         </div>
                     </div>
@@ -112,8 +112,8 @@ $this->section('content');
                                 <div class="media align-items-center">
                                     <span class="badge badge-success badge-dot m-r-10"></span>
                                     <div class="m-l-5">
-                                        <h4 class="m-b-0">350</h4>
-                                        <p class="m-b-0 muted">New</p>
+                                        <h4 class="m-b-0" style="font-size: 21px;"><?= number_format($dataDebit, 2, ',', '.') ?></h4>
+                                        <p class="m-b-0 muted">Debit</p>
                                     </div>
                                 </div>
                             </div>
@@ -123,8 +123,8 @@ $this->section('content');
                                 <div class="media align-items-center">
                                     <span class="badge badge-secondary badge-dot m-r-10"></span>
                                     <div class="m-l-5">
-                                        <h4 class="m-b-0">450</h4>
-                                        <p class="m-b-0 muted">Returning</p>
+                                        <h4 class="m-b-0" style="font-size: 21px;"><?= number_format($dataPemasukan[0]['nominal'], 2, ',', '.') ?></h4>
+                                        <p class="m-b-0 muted">Pemasukan</p>
                                     </div>
                                 </div>
                             </div>
@@ -134,8 +134,8 @@ $this->section('content');
                                 <div class="media align-items-center">
                                     <span class="badge badge-warning badge-dot m-r-10"></span>
                                     <div class="m-l-5">
-                                        <h4 class="m-b-0">100</h4>
-                                        <p class="m-b-0 muted">Others</p>
+                                        <h4 class="m-b-0" style="font-size: 21px;"><?= number_format($dataPengeluaran[0]['nominal'], 2, ',', '.') ?></h4>
+                                        <p class="m-b-0 muted">Pengeluaran</p>
                                     </div>
                                 </div>
                             </div>
@@ -227,12 +227,12 @@ $this->section('content');
     const customersChartConfig = new Chart(document.getElementById("customers-chart").getContext('2d'), {
         type: 'doughnut',
         data: {
-            labels: ['New', 'Retuing', 'Others'],
+            labels: ['Debit', 'Pemasukan', 'Pengeluaran'],
             datasets: [{
                 label: 'Series A',
                 backgroundColor: ["#05c9a7", '#886cff', '#ffc107'],
                 pointBackgroundColor: ["#05c9a7", '#886cff', '#ffc107'],
-                data: [350, 450, 100]
+                data: [<?= $dataDebit . ',' . $dataPemasukan[0]['nominal'] . ',' . $dataPengeluaran[0]['nominal'] ?>]
             }]
         },
         options: {
