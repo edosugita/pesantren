@@ -69,6 +69,30 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->match(['get', 'post'], 'add', 'MasterAdmin::add');
         });
 
+        // MASTER KATEGORI
+        $routes->group('master/kategori', function ($routes) {
+            $routes->get('/', 'MasterKategori::index');
+            $routes->match(['get', 'post'], '(:num)/edit', 'MasterKategori::edit/$1');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'MasterKategori::delete/$1');
+            $routes->match(['get', 'post'], 'add', 'MasterKategori::add');
+        });
+
+        // MASTER KOP SURAT
+        $routes->group('master/kode-surat', function ($routes) {
+            $routes->get('/', 'MasterKop::index');
+            $routes->match(['get', 'post'], '(:num)/edit', 'MasterKop::edit/$1');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'MasterKop::delete/$1');
+            $routes->match(['get', 'post'], 'add', 'MasterKop::add');
+        });
+
+        // MASTER SEMESTER
+        $routes->group('master/semester', function ($routes) {
+            $routes->get('/', 'MasterSemester::index');
+            $routes->match(['get', 'post'], '(:num)/edit', 'MasterSemester::edit/$1');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'MasterSemester::delete/$1');
+            $routes->match(['get', 'post'], 'add', 'MasterSemester::add');
+        });
+
         // INDUK SANTRI
         $routes->group('induk-santri', function ($routes) {
             $routes->get('/', 'AdminIndukSantri::index');

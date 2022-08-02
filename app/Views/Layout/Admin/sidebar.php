@@ -11,13 +11,38 @@
                 </a>
             </li>
             <?php if (session()->get('role') == 'Master') : ?>
-                <li class="nav-item">
-                    <a href="<?= base_url('/admin/master') ?>">
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" href="javascript:void(0);">
                         <span class="icon-holder">
                             <i class="anticon anticon-idcard"></i>
                         </span>
-                        <span class="title">Master Admin</span>
+                        <span class="title">Master</span>
+                        <span class="arrow">
+                            <i class="arrow-icon"></i>
+                        </span>
                     </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="<?= base_url('/admin/master') ?>">
+                                <span class="title">Master Admin</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('/admin/master/kategori') ?>">
+                                <span class="title">Master Kategori</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('/admin/master/kode-surat') ?>">
+                                <span class="title">Master Kop Surat</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('/admin/master/semester') ?>">
+                                <span class="title">Master Semester</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('/admin/induk-santri') ?>">

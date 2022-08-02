@@ -27291,6 +27291,7 @@ a.badge-purple:focus {
     line-height: 1.5;
     min-height: auto;
     padding: 10px 15px;
+    padding-left: 60px;
     display: block;
     transition: all 0.1s ease-out;
     -webkit-transition: all 0.1s ease-out;

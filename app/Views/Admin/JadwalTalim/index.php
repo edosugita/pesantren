@@ -45,7 +45,7 @@ $this->section('content');
                                     </div>
                                     <div class="modal-body text-center">
                                         <img src="<?= base_url('/assets/img/success-image.svg') ?>" class="mb-5">
-                                        <h5>Data Berhasil Ditambah atau Diperbarui</h5>
+                                        <h5>Data berhasil di proses</h5>
                                         <p><?= session()->getFlashdata('modalSuccess') ?></p>
                                     </div>
                                 </div>
