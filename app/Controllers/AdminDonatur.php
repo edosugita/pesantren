@@ -16,7 +16,7 @@ class AdminDonatur extends BaseController
     {
         $data = [
             'title' => 'Donatur',
-            'dataDonatur' => $this->donatur->findAll(),
+            'dataDonatur' => $this->donatur->orderBy('id', 'DESC')->findAll(),
         ];
 
         return view('Admin/Donatur/index', $data);

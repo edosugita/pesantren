@@ -308,6 +308,13 @@ $this->section('content');
                                             </div>
                                             <div class="form-group">
                                                 <label>Pekerjaan Wali</label>
+                                                <input type="text" name="pekerjaan_wali" class="form-control <?= (isset($validation)) ? ($validation->hasError('pekerjaan_wali')) ? 'is-invalid' : null : null ?>" placeholder="ex: 10.000.000 - 20.000.000" value="<?= $dataSantriReg[0]['pekerjaan_wali'] ?>">
+                                                <div class="invalid-feedback">
+                                                    <?= (isset($validation)) ? ($validation->getError('pekerjaan_wali')) : null ?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Pekenghasilan</label>
                                                 <select class="select2" name="penghasilan_wali">
                                                     <option value="null">Pilih Penghasilan Ayah</option>
                                                     <option value="Di Bawah Rp. 1.000.000" <?= $dataSantriReg[0]['penghasilan_wali'] == 'Rp. Di Bawah Rp. 1.000.000' ? 'selected' : '' ?>>Di Bawah Rp. 1.000.000</option>
@@ -315,13 +322,6 @@ $this->section('content');
                                                     <option value="Rp. 3.000.000 - 4.000.000" <?= $dataSantriReg[0]['penghasilan_wali'] == 'Rp. 3.000.000 - 4.000.000' ? 'selected' : '' ?>>Rp. 3.000.000 - 4.000.000</option>
                                                     <option value="Di Atas Rp. 5.000.000" <?= $dataSantriReg[0]['penghasilan_wali'] == 'Di Atas Rp. 5.000.000' ? 'selected' : '' ?>>Di Atas Rp. 5.000.000</option>
                                                 </select>
-                                                <div class="invalid-feedback">
-                                                    <?= (isset($validation)) ? ($validation->getError('pekerjaan_wali')) : null ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Penghasilan</label>
-                                                <input type="text" name="penghasilan_wali" class="form-control <?= (isset($validation)) ? ($validation->hasError('penghasilan_wali')) ? 'is-invalid' : null : null ?>" placeholder="ex: 10.000.000 - 20.000.000" value="<?= $dataSantriReg[0]['penghasilan_wali'] ?>">
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('penghasilan_wali')) : null ?>
                                                 </div>

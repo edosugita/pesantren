@@ -42,6 +42,6 @@ class JadwalModel extends Model
 
     public function findJoinAll()
     {
-        return $this->db->table('jd_taklim')->select('jd_taklim.*, kategori.id as id_kat, kategori.nama as nama_kategori')->join('kategori', 'jd_taklim.id_kategori = kategori.id')->get()->getResultArray();
+        return $this->db->table('jd_taklim')->select('jd_taklim.*, kategori.id as id_kat, kategori.nama as nama_kategori')->join('kategori', 'jd_taklim.id_kategori = kategori.id')->orderBy('jd_taklim.id', 'DESC')->get()->getResultArray();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Database\Migrations\InfaqSantri;
 use CodeIgniter\Model;
 
 class InfaqModel extends Model
@@ -42,7 +43,7 @@ class InfaqModel extends Model
 
     public function findSum()
     {
-        return $this->db->table('infaq_santri')->select('*')->selectSum('infaq_santri.nominal', 'total_infaq')->join('induk_santri', 'infaq_santri.nis = induk_santri.nis')->join('data_santri', 'induk_santri.id_data = data_santri.id')->groupBy('infaq_santri.nis')->get()->getResultArray();
+        return $this->db->table('infaq_santri')->select('*')->selectSum('infaq_santri.nominal', 'total_infaq')->join('induk_santri', 'infaq_santri.nis = induk_santri.nis')->join('data_santri', 'induk_santri.id_data = data_santri.id')->groupBy('infaq_santri.nis')->orderBy('infaq_santri.id', 'DESC')->get()->getResultArray();
     }
 
     public function findJoinAll($id)

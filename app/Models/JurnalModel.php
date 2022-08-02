@@ -42,7 +42,7 @@ class JurnalModel extends Model
 
     public function findJoinAll()
     {
-        return $this->db->table('jurnal')->select('jurnal.*, kategori.id as id_kat, kategori.nama as nama_kategori')->join('kategori', 'jurnal.id_kategori = kategori.id')->get()->getResultArray();
+        return $this->db->table('jurnal')->select('jurnal.*, kategori.id as id_kat, kategori.nama as nama_kategori')->join('kategori', 'jurnal.id_kategori = kategori.id')->orderBy('jurnal.id', 'DESC')->get()->getResultArray();
     }
 
     public function getSlug($slug = false)

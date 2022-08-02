@@ -42,7 +42,7 @@ class IndukSantriModel extends Model
 
     public function findJoinAll()
     {
-        return $this->db->table('induk_santri')->join('data_santri', 'induk_santri.id_data = data_santri.id')->get()->getResultArray();
+        return $this->db->table('induk_santri')->join('data_santri', 'induk_santri.id_data = data_santri.id')->orderBy('data_santri.id', 'DESC')->get()->getResultArray();
     }
 
     public function findCount()

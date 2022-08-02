@@ -22,7 +22,7 @@ class AdminMutasi extends BaseController
 
         $data = [
             'title' => 'Mutasi',
-            'dataMutasi' => $this->mutasi->findAll(),
+            'dataMutasi' => $this->mutasi->orderBy('id', 'DESC')->findAll(),
             'dataPemasukan' => $pemasukan,
             'dataPengeluaran' => $pengeluaran,
             'dataDebit' => $pem - $pen,
