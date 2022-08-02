@@ -103,10 +103,20 @@ class AdminMutasi extends BaseController
 
     public function cetak()
     {
-        $data = [
-            'title' => 'Cetak Mutasi'
-        ];
+        $data = $this->mutasi->orderBy('id', 'DESC')->findAll();
+        $i = 1;
+        $html = '<table class="table table-hover table-borderless"> <thead style="background: #CDECE1;"><tr><th>No</th><th>Nama Keperluan</th>
+                                        <th>Nominal</th>
+                                        <th>Tanggal</th>
+                                        <th>Status</th></tr></thead><tbody>';
+        foreach ($data as $data) {
+            $html .= '<tr><td>' . $i++ . '</td><td>' . $data['nama'] . '</td><td>Rp. ' . number_format($data['nominal'], 2, ',', '.') . '</td><td>' . $data['tanggal'] . '</td><td>' . $data['jenis'] . '</td></td></tr>';
+        }
 
-        return view('Admin/Mutasi/cetakMutasi', $data);
+        $html .= '</tbody></table>';
+
+        header('Content-Type:application/xls');
+        header('Content-Disposition:attachment;filename=Mutasi.xls');
+        echo $html;
     }
 }

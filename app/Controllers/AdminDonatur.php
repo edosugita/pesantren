@@ -155,10 +155,19 @@ class AdminDonatur extends BaseController
 
     public function cetak()
     {
-        $data = [
-            'title' => 'Cetak Donatur'
-        ];
+        $data = $this->donatur->orderBy('id', 'DESC')->findAll();
+        $i = 1;
+        $html = '<table class="table table-hover table-borderless"> <thead style="background: #CDECE1;"><tr><th>No</th><th>Nama Donatur</th>
+                                        <th>No Handphone</th>
+                                        <th>Alamat</th></tr></thead><tbody>';
+        foreach ($data as $data) {
+            $html .= '<tr><td>' . $i++ . '</td><td>' . $data['nama'] . '</td><td>' . $data['no_hp'] . '</td><td>' . $data['Alamat'] . '</td></td></tr>';
+        }
 
-        return view('Admin/Donatur/cetak', $data);
+        $html .= '</tbody></table>';
+
+        header('Content-Type:application/xls');
+        header('Content-Disposition:attachment;filename=Donatur.xls');
+        echo $html;
     }
 }

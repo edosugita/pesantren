@@ -10,7 +10,7 @@ $this->section('content');
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5>Mutasi Keuangan</h5>
-                        <a class="btn btn-santri btn-hover-santri" href=""><i class="anticon anticon-printer m-r-15"></i>Cetak</a>
+                        <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/mutasi/cetak') ?>"><i class="anticon anticon-printer m-r-15"></i>Cetak</a>
                     </div>
                     <hr>
                     <!-- START ALERT -->

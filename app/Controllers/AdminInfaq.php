@@ -216,10 +216,19 @@ class AdminInfaq extends BaseController
 
     public function cetak()
     {
-        $data = [
-            'title' => 'Cetak Infaq'
-        ];
+        $data = $this->infaqSantri->findSum();
+        $i = 1;
+        $html = '<table class="table table-hover table-borderless"> <thead style="background: #CDECE1;"><tr><th>No</th><th>NIS</th>
+                                        <th>Nama Santri</th>
+                                        <th>Total Infaq</th></tr></thead><tbody>';
+        foreach ($data as $data) {
+            $html .= '<tr><td>' . $i++ . '</td><td>' . $data['nis'] . '</td><td>' . $data['nama_santri'] . '</td><td>Rp. ' . number_format($data['total_infaq'], 2, ',', '.') . '</td></td></tr>';
+        }
 
-        return view('Admin/Infaq/cetak', $data);
+        $html .= '</tbody></table>';
+
+        header('Content-Type:application/xls');
+        header('Content-Disposition:attachment;filename=InfaqSantri.xls');
+        echo $html;
     }
 }

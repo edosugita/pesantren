@@ -151,18 +151,6 @@ $this->section('content');
                                     <?= (isset($validation)) ? ($validation->getError('alamat_santri')) : null ?>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 d-flex justify-content-end ps-3 pe-3">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button type="button" class="btn btn-santri-cancel btn-hover-santri" style="border: 1px solid #049F67 !important;" onclick="location.href='<?= base_url('/') ?>'">Cancel</button>
-                                        </div>
-                                        <!-- <div class="col-6">
-                                            <button type="button" class="btn btn-santri btn-hover-santri">Next</button>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-ayah" role="tabpanel" aria-labelledby="v-pills-ayah-tab" tabindex="0">
                             <h5 style="color: #16181b;">Data Ayah</h5>
@@ -215,18 +203,6 @@ $this->section('content');
                                     <?= (isset($validation)) ? ($validation->getError('alamat_ayah')) : null ?>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12 d-flex justify-content-end ps-3 pe-3">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button type="button" class="btn btn-santri-cancel btn-hover-santri" style="border: 1px solid #049F67 !important;" onclick="location.href='<?= base_url('/') ?>'">Cancel</button>
-                                        </div>
-                                        <!-- <div class="col-6">
-                                            <button type="submit" class="btn btn-santri btn-hover-santri">Simpan</button>
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-pane fade" id="v-pills-ibu" role="tabpanel" aria-labelledby="v-pills-ibu-tab" tabindex="0">
                             <h5 style="color: #16181b;">Data Ibu</h5>
@@ -277,18 +253,6 @@ $this->section('content');
                                 <input type="text" name="alamat_ibu" class="form-control <?= (isset($validation)) ? ($validation->hasError('alamat_ibu')) ? 'is-invalid' : null : null ?>" placeholder="ex: Jl. Mawar IV Joyogren, Dau, Malang 65151" value="<?= set_value('alamat_ibu') ?>">
                                 <div class="invalid-feedback">
                                     <?= (isset($validation)) ? ($validation->getError('alamat_ibu')) : null ?>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 d-flex justify-content-end ps-3 pe-3">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button type="button" class="btn btn-santri-cancel btn-hover-santri" style="border: 1px solid #049F67 !important;" onclick="location.href='<?= base_url('/') ?>'">Cancel</button>
-                                        </div>
-                                        <!-- <div class="col-6">
-                                            <button type="submit" class="btn btn-santri btn-hover-santri">Simpan</button>
-                                        </div> -->
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -285,4 +285,23 @@ class AdminDokumen extends BaseController
 
         return view('Admin/Dokumen/santri', $data);
     }
+
+    public function cetak()
+    {
+        $data = $this->dokumenInstansi->findDesc();
+        $i = 1;
+        $html = '<table class="table table-hover table-borderless"> <thead style="background: #CDECE1;"><tr><th>No</th><th>No Dokumen</th>
+                                        <th>Keperluan</th>
+                                        <th>Tujuan</th>
+                                        <th>Tanggal</th></tr></thead><tbody>';
+        foreach ($data as $data) {
+            $html .= '<tr><td>' . $i++ . '</td><td>' . $data['nomor_surat'] . '</td><td>' . $data['keperluan'] . '</td><td>' . $data['instansi_tujuan'] . '</td><td>' .  $data['tanggal'] . '</td></td></tr>';
+        }
+
+        $html .= '</tbody></table>';
+
+        header('Content-Type:application/xls');
+        header('Content-Disposition:attachment;filename=Dokumen.xls');
+        echo $html;
+    }
 }

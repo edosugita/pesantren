@@ -218,10 +218,22 @@ class AdminJadwal extends BaseController
 
     public function cetak()
     {
-        $data = [
-            'title' => 'Cetak Jadwal'
-        ];
+        $data = $this->jadwal->findJoinAll();
+        $i = 1;
+        $html = '<table class="table table-hover table-borderless"> <thead style="background: #CDECE1;"><tr><th>No</th><th>Pemateri</th>
+                                        <th>Materi Ta’lim</th>
+                                        <th>Tempat</th>
+                                        <th>Hari</th>
+                                        <th>Waktu</th>
+                                        <th>Tanggal Pelaksana</th></tr></thead><tbody>';
+        foreach ($data as $data) {
+            $html .= '<tr><td>' . $i++ . '</td><td>' . $data['pembicara'] . '</td><td>' . $data['materi'] . '</td><td>' . $data['tempat'] . '</td><td>' . $data['hari'] . '</td><td>' . $data['waktu'] . '</td><td>' . $data['tgl_jadwal'] . '</td></td></tr>';
+        }
 
-        return view('Admin/JadwalTalim/cetak', $data);
+        $html .= '</tbody></table>';
+
+        header('Content-Type:application/xls');
+        header('Content-Disposition:attachment;filename=JadwalTaklim.xls');
+        echo $html;
     }
 }
