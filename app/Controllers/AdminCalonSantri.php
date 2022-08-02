@@ -143,12 +143,9 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'no_ayah' => [
-                        'rules' => 'required|integer|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
-                            'integer' => 'No Telepon Ayah harus berupa angka',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -191,12 +188,9 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'no_ibu' => [
-                        'rules' => 'required|integer|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
-                            'integer' => 'No Telepon Ibu harus berupa angka',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -308,12 +302,9 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'no_ayah' => [
-                        'rules' => 'required|integer|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
-                            'integer' => 'No Telepon Ayah harus berupa angka',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -356,12 +347,9 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'no_ibu' => [
-                        'rules' => 'required|integer|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
-                            'integer' => 'No Telepon Ibu harus berupa angka',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -567,11 +555,9 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'no_ayah' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -614,11 +600,9 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'no_ibu' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -730,11 +714,9 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'no_ayah' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -777,11 +759,9 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'no_ibu' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -796,13 +776,6 @@ class AdminCalonSantri extends BaseController
                             'integer' => 'NIK Wali harus berupa angka',
                             'min_length' => 'NIK Wali harus memiliki minimal 16 angka',
                             'max_length' => 'NIK Wali harus memiliki maximal 16 angka',
-                        ]
-                    ],
-                    'no_wali' => [
-                        'rules' => 'min_length[11]|max_length[13]',
-                        'errors' => [
-                            'min_length' => 'No Telepon Wali harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Wali harus memiliki maximal 13 angka',
                         ]
                     ],
                 ]);

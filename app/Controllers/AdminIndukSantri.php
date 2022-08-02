@@ -191,11 +191,9 @@ class AdminIndukSantri extends BaseController
                         ]
                     ],
                     'no_ayah' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -238,11 +236,9 @@ class AdminIndukSantri extends BaseController
                         ]
                     ],
                     'no_ibu' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -354,11 +350,9 @@ class AdminIndukSantri extends BaseController
                         ]
                     ],
                     'no_ayah' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -401,11 +395,9 @@ class AdminIndukSantri extends BaseController
                         ]
                     ],
                     'no_ibu' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -619,11 +611,9 @@ class AdminIndukSantri extends BaseController
                         ]
                     ],
                     'no_ayah' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -666,11 +656,9 @@ class AdminIndukSantri extends BaseController
                         ]
                     ],
                     'no_ibu' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
@@ -782,11 +770,9 @@ class AdminIndukSantri extends BaseController
                         ]
                     ],
                     'no_ayah' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ayah harus di isi',
-                            'min_length' => 'No Telepon Ayah harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ayah harus memiliki maximal 13 angka',
                         ]
                     ],
                     'penghasilan_ayah' => [
@@ -829,11 +815,9 @@ class AdminIndukSantri extends BaseController
                         ]
                     ],
                     'no_ibu' => [
-                        'rules' => 'required|min_length[11]|max_length[13]',
+                        'rules' => 'required',
                         'errors' => [
                             'required' => 'No Telepon Ibu harus di isi',
-                            'min_length' => 'No Telepon Ibu harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Ibu harus memiliki maximal 13 angka',
                         ]
                     ],
                     'alamat_ibu' => [
