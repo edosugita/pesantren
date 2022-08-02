@@ -38,7 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'LandingPage::index');
 $routes->get('/jadwal', 'LandingPage::jadwal');
 $routes->get('/jurnal', 'LandingPage::jurnal');
-$routes->get('/jurnal/detail', 'LandingPage::Detailjurnal');
+$routes->get('/jurnal/view/(:segment)', 'LandingPage::Detailjurnal/$1');
 
 /*
  * --------------------------------------------------------------------

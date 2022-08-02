@@ -52,4 +52,14 @@ class JurnalModel extends Model
         }
         return $this->where(['slug' => $slug])->first();
     }
+
+    public function findMax()
+    {
+        return $this->select('*')->selectMax('jurnal.id')->join('kategori', 'jurnal.id_kategori = kategori.id')->first();
+    }
+
+    public function findMaxById($id)
+    {
+        return $this->select('*')->join('kategori', 'jurnal.id_kategori = kategori.id')->where(['jurnal.id' => $id])->first();
+    }
 }
