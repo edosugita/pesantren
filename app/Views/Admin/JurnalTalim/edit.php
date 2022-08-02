@@ -15,6 +15,7 @@ $this->section('content');
                     <div class="m-t-10">
                         <form action="<?= base_url('/admin/jurnal-talim/' . $dataJurnal['id'] . '/edit') ?>" method="post" enctype="multipart/form-data" onsubmit="mySubmit()">
                             <?= csrf_field(); ?>
+                            <input type="hidden" name="gambarLama" value="<?= $dataJurnal['gambar'] ?>">
                             <div class="form-group">
                                 <label>Judul</label>
                                 <input type="text" class="form-control  <?= (isset($validation)) ? ($validation->hasError('judul')) ? 'is-invalid' : null : null ?>" placeholder="ex: Mengapa Membaca Alquran Harus dengan Tajwid dan Tartil?" name="judul" value="<?= $dataJurnal['judul'] ?>">
@@ -45,11 +46,11 @@ $this->section('content');
                                     <img class="img-preview" src="<?= base_url('/assets/content/images/' . $dataJurnal['gambar']) ?>" alt="">
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input <?= (isset($validation)) ? ($validation->hasError('gambar')) ? 'is-invalid' : null : null ?>" id="gambar" name="gambar" onchange="previewImg()" value="<?= $dataJurnal['gambar'] ?>">
+                                    <input type="file" class="custom-file-input <?= (isset($validation)) ? ($validation->hasError('gambar')) ? 'is-invalid' : null : null ?>" id="gambar" name="gambar" onchange="previewImg()">
                                     <div class="invalid-feedback">
                                         <?= (isset($validation)) ? ($validation->getError('gambar')) : null ?>
                                     </div>
-                                    <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+                                    <label class="custom-file-label" for="gambar"><?= $dataJurnal['gambar'] ?></label>
                                 </div>
                             </div>
                             <textarea name="articel" id="articelcontent" cols="1" rows="1" hidden></textarea>

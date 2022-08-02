@@ -146,9 +146,8 @@ class AdminJurnal extends BaseController
                     ],
                 ],
                 'gambar' => [
-                    'rules' => 'uploaded[gambar]|max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                    'rules' => 'max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
                     'errors' => [
-                        'uploaded' => 'Pilih gambar terlebih dahulu',
                         'max_size' => 'Ukuran gambar terlalu besar',
                         'is_image' => 'Yang anda pilih bukan gambar',
                         'mime_in' => 'Yang anda pilih bukan gambar',
@@ -160,11 +159,17 @@ class AdminJurnal extends BaseController
                 $data['validation'] = $this->validator;
             } else {
                 $fileSampul = $this->request->getFile('gambar');
-                $namaSampul = $fileSampul->getRandomName();
-                $fileSampul->move('assets/content/images', $namaSampul);
 
                 $a = $this->request->getVar('kategori');
                 $kategori = $this->kategori->getIdKategori($a);
+
+                if ($fileSampul->getError() == 4) {
+                    $namaSampul = $this->request->getVar('gambarLama');
+                } else {
+                    $namaSampul = $fileSampul->getRandomName();
+                    $fileSampul->move('assets/content/images', $namaSampul);
+                    unlink('assets/content/images/' . $this->request->getVar('gambarLama'));
+                }
 
                 $slug = url_title($this->request->getVar('judul'), '-', true);
 
@@ -178,6 +183,7 @@ class AdminJurnal extends BaseController
 
                 $newData = [
                     'judul' => $this->request->getVar('judul'),
+                    'slug' => $slug,
                     'id_kategori' => $kategori[0]['id'],
                     'penulis' => $this->request->getVar('penulis'),
                     'gambar' => $namaSampul,
@@ -201,6 +207,8 @@ class AdminJurnal extends BaseController
 
     public function delete($id)
     {
+        $gambar = $this->jurnal->find($id);
+        unlink('assets/content/images/' . $gambar['gambar']);
         $this->jurnal->delete($id);
         return redirect()->to('/admin/jurnal-talim')->with('modalSuccess', 'Jurnal Telah Berhasil di Hapus!');
     }
