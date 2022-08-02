@@ -54,4 +54,9 @@ class DokumenInstansiModel extends Model
     {
         return $this->select('*')->orderBy('id', 'DESC')->get()->getResultArray();
     }
+
+    public function findCount()
+    {
+        return $this->selectCount('id')->get()->getResultArray();
+    }
 }

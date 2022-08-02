@@ -64,6 +64,7 @@ class AdminIndukSantri extends BaseController
             $newData = [
                 'nis' => $kodeauto,
                 'id_data' => $getId[0]['id'],
+                'tahun_induk' => date('Y'),
             ];
 
             // dd($newData);
@@ -498,6 +499,7 @@ class AdminIndukSantri extends BaseController
                     $superNewData = [
                         'nis' => $kodeauto,
                         'id_data' => $getId[0]['id'],
+                        'tahun_induk' => date('Y'),
                     ];
                     $newQuery = $this->indukSantri->insert($superNewData);
                     if (!$newQuery) {

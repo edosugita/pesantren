@@ -58,6 +58,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
 
         // DASHBOARD
         $routes->get('dashboard', 'AdminDashboard::index');
+        $routes->get('dashboard/data-chart', 'AdminDashboard::chart');
 
         // MASTER ADMIN
         $routes->group('master', function ($routes) {

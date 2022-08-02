@@ -22,6 +22,9 @@ class IndukSantri extends Migration
                 'id_data' => [
                     'type' => 'INT',
                 ],
+                'tahun_induk' => [
+                    'type' => 'DATE',
+                ],
                 'created_at' => [
                     'type' => 'DATETIME',
                 ],

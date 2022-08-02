@@ -14,7 +14,7 @@ class IndukSantriModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nis', 'id_data'];
+    protected $allowedFields    = ['nis', 'id_data', 'tahun_induk'];
 
     // Dates
     protected $useTimestamps = true;
@@ -45,6 +45,11 @@ class IndukSantriModel extends Model
         return $this->db->table('induk_santri')->join('data_santri', 'induk_santri.id_data = data_santri.id')->get()->getResultArray();
     }
 
+    public function findCount()
+    {
+        return $this->selectCount('id')->get()->getResultArray();
+    }
+
     public function findJoinAllById($id)
     {
         return $this->db->table('induk_santri')->join('data_santri', 'induk_santri.id_data = data_santri.id')->where(['id_data' => $id])->get()->getResultArray();
@@ -58,5 +63,10 @@ class IndukSantriModel extends Model
     public function getNisSantri($id)
     {
         return $this->db->table('induk_santri')->join('data_santri', 'induk_santri.id_data = data_santri.id')->where(['nama_santri' => $id])->get()->getResultArray();
+    }
+
+    public function getChart()
+    {
+        return $this->select('tahun_induk')->selectCount('id')->selectMax('tahun_induk')->groupBy('tahun_induk')->orderBy('tahun_induk', 'ASC')->get()->getResultArray();
     }
 }

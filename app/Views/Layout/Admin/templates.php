@@ -44,7 +44,6 @@
 
     <!-- page js -->
     <script src="<?= base_url('assets/vendors/chartjs/Chart.min.js') ?>"></script>
-    <script src="<?= base_url('assets/js/pages/dashboard-default.js') ?>"></script>
     <script src="<?= base_url('assets/vendors/datatables/jquery.dataTables.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendors/datatables/dataTables.bootstrap.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendors/select2/select2.min.js') ?>"></script>
@@ -55,6 +54,8 @@
     <script src="<?= base_url('assets/js/app.min.js') ?>"></script>
 
     <script src="<?= base_url('assets/js/script.js') ?>"></script>
+
+    <?= $this->renderSection('js'); ?>
 
 </body>
 

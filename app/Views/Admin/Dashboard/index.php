@@ -33,7 +33,7 @@ $this->section('content');
                             <i class="anticon anticon-team"></i>
                         </div>
                         <div class="m-l-15">
-                            <h2 class="m-b-0">532</h2>
+                            <h2 class="m-b-0"><?= $dataSantri[0]['id'] ?></h2>
                             <p class="m-b-0 text-muted">Jumlah Santri</p>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ $this->section('content');
                             <i class="anticon anticon-user-add"></i>
                         </div>
                         <div class="m-l-15">
-                            <h2 class="m-b-0">240</h2>
+                            <h2 class="m-b-0"><?= $dataCalonSantri[0]['id'] ?></h2>
                             <p class="m-b-0 text-muted">Jumlah Calon Santri</p>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ $this->section('content');
                             <i class="anticon anticon-folder-open"></i>
                         </div>
                         <div class="m-l-15">
-                            <h2 class="m-b-0">240</h2>
+                            <h2 class="m-b-0"><?= $dokumen[0]['id'] ?></h2>
                             <p class="m-b-0 text-muted">Dokumen</p>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ $this->section('content');
                     <div class="m-v-60 text-center" style="height: 200px">
                         <canvas class="chart" id="customers-chart"></canvas>
                     </div>
-                    <div class="row border-top p-t-25">
+                    <div class="row border-top p-t-10">
                         <div class="col-4">
                             <div class="d-flex justify-content-center">
                                 <div class="media align-items-center">
@@ -147,4 +147,101 @@ $this->section('content');
     </div>
 </div>
 
+<?= $this->endSection(); ?>
+
+<?= $this->section('js'); ?>
+<script>
+    // $.ajax({
+    //     url: 'dashboard/data-chart',
+    //     success: function(data) {
+    //         var json = data,
+    //             obj = JSON.parse(json)
+
+    //         console.log(obj.tahun)
+    //         sessionStorage.setItem('tahun', obj.tahun)
+    //         sessionStorage.removeItem('tahun')
+    //     },
+    // })
+
+    const revenueChartConfig = new Chart(document.getElementById("revenue-chart").getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: <?= json_encode($tahun) ?>,
+            datasets: [{
+                label: 'Series A',
+                backgroundColor: 'rgba(255, 255, 255, 0)',
+                borderColor: '#3f87f5',
+                pointBackgroundColor: '#3f87f5',
+                pointBorderColor: '#ffffff',
+                pointHoverBackgroundColor: 'rgba(63, 135, 245, 0.15)',
+                pointHoverBorderColor: 'rgba(63, 135, 245, 0.15)',
+                data: <?= json_encode($santri) ?>
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            maintainAspectRatio: false,
+            responsive: true,
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            tooltips: {
+                mode: 'index'
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: [{
+                        display: false,
+                    }],
+                    ticks: {
+                        display: true,
+                        fontColor: '#77838f',
+                        fontSize: 13,
+                        padding: 10
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        drawBorder: false,
+                        drawTicks: false,
+                        borderDash: [3, 4],
+                        zeroLineWidth: 1,
+                        zeroLineBorderDash: [3, 4]
+                    },
+                    ticks: {
+                        display: true,
+                        max: 100,
+                        stepSize: 20,
+                        fontColor: '#77838f',
+                        fontSize: 13,
+                        padding: 10
+                    }
+                }],
+            }
+        }
+    });
+
+    const customersChartConfig = new Chart(document.getElementById("customers-chart").getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['New', 'Retuing', 'Others'],
+            datasets: [{
+                label: 'Series A',
+                backgroundColor: ["#05c9a7", '#886cff', '#ffc107'],
+                pointBackgroundColor: ["#05c9a7", '#886cff', '#ffc107'],
+                data: [350, 450, 100]
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 75,
+            maintainAspectRatio: false
+        }
+    });
+</script>
 <?= $this->endSection(); ?>

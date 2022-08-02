@@ -49,4 +49,9 @@ class CalonSantriModel extends Model
     {
         return $this->db->table('calon_santri')->join('data_santri', 'calon_santri.id_data = data_santri.id')->where(['id_data' => $id])->get()->getResultArray();
     }
+
+    public function findCount()
+    {
+        return $this->selectCount('id')->get()->getResultArray();
+    }
 }
