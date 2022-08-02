@@ -49,8 +49,8 @@ $this->section('content');
                         <label>Password</label>
                         <div class="input-affix m-b-10">
                             <i class="prefix-icon anticon anticon-lock"></i>
-                            <input type="password" class="form-control" placeholder="password" name="password" value="<?= set_value('password') ?>">
-                            <i class="suffix-icon anticon anticon-eye"></i>
+                            <input type="password" id="form-pw" class="form-control" placeholder="password" name="password" value="<?= set_value('password') ?>">
+                            <i class="suffix-icon far fa-eye-slash" id="icon-pw" style="cursor: pointer;"></i>
                         </div>
                     </div>
                     <div class="form-group">

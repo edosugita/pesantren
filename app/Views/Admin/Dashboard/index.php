@@ -151,18 +151,6 @@ $this->section('content');
 
 <?= $this->section('js'); ?>
 <script>
-    // $.ajax({
-    //     url: 'dashboard/data-chart',
-    //     success: function(data) {
-    //         var json = data,
-    //             obj = JSON.parse(json)
-
-    //         console.log(obj.tahun)
-    //         sessionStorage.setItem('tahun', obj.tahun)
-    //         sessionStorage.removeItem('tahun')
-    //     },
-    // })
-
     const revenueChartConfig = new Chart(document.getElementById("revenue-chart").getContext('2d'), {
         type: 'line',
         data: {

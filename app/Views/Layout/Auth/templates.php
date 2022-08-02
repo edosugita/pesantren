@@ -27,6 +27,7 @@
     <script src="<?= base_url('assets/js/app.min.js') ?>"></script>
 
     <script src="<?= base_url('assets/js/script.js') ?>"></script>
+    <script src="<?= base_url('/assets/js/Auth/script.js') ?>"></script>
 
 </body>
 
