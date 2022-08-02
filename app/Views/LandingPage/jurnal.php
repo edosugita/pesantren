@@ -28,7 +28,7 @@ $this->section('content');
             <div class="content-info-jurnal">
                 <div class="row">
                     <?php foreach ($dataJurnal as $data) : ?>
-                        <div class="col-lg">
+                        <div class="col-lg col-md-6">
                             <div class="card-jurnal">
                                 <div class="image-jurnal">
                                     <img src="<?= base_url('assets/content/images/' . $data['gambar']) ?>" alt="">
