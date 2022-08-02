@@ -495,6 +495,31 @@ body {
     display: none;
 }
 
+#calendar a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.fc-day-grid-event .fc-content {
+    white-space: normal !important;
+    overflow: hidden;
+}
+
+.fc-prev-button {
+    background: #049F67 !important;
+    color: white !important;
+}
+
+.fc-next-button {
+    background: #049F67 !important;
+    color: white !important;
+}
+
+.fc-today-button {
+    background: #049F67 !important;
+    color: white !important;
+}
+
 /* RESPONSIVE */
 
 /* DESKTOP */

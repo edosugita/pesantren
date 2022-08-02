@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\JadwalModel;
 use App\Models\JurnalModel;
 
 class LandingPage extends BaseController
@@ -9,6 +10,7 @@ class LandingPage extends BaseController
     public function __construct()
     {
         $this->jurnal = new JurnalModel();
+        $this->jadwal = new JadwalModel();
     }
 
     public function index()
@@ -22,11 +24,19 @@ class LandingPage extends BaseController
 
     public function jadwal()
     {
-        $data = [
-            'title' => 'Jadwal Ta’lim',
-        ];
 
-        return view('LandingPage/jadwal', $data);
+        $jadwal = $this->jadwal->findAll();
+        foreach ($jadwal as $data) {
+            $events[] = [
+                'title' => $data['materi'] . ' (' . $data['waktu'] . ')',
+                'start' => $data['tgl_jadwal'],
+                'end' => $data['tgl_jadwal'],
+            ];
+        }
+
+        // dd($events);
+
+        return view('LandingPage/Jadwal/index', ['title' => 'Jadwal Ta’lim', 'events' => json_encode($events)]);
     }
 
     public function jurnal()

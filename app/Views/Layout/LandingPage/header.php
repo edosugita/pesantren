@@ -11,7 +11,7 @@
                         <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jadwal Ta’lim</a>
+                        <a class="nav-link" href="<?= base_url('/jadwal') ?>">Jadwal Ta’lim</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('/jurnal') ?>">Jurnal Ta’lim</a>
