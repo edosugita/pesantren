@@ -914,6 +914,7 @@ class AdminIndukSantri extends BaseController
                 // dd($newData);
 
                 $query = $this->dataSantri->update($id, $newData);
+                // dd($query);
 
                 if (!$query) {
                     return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');

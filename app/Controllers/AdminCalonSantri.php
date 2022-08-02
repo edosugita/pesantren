@@ -854,7 +854,7 @@ class AdminCalonSantri extends BaseController
                     'alamat_wali' => $this->request->getVar('alamat_wali'),
                 ];
 
-                // dd($newData);
+                dd($newData);
 
                 $query = $this->dataSantri->update($id, $newData);
 
@@ -869,13 +869,10 @@ class AdminCalonSantri extends BaseController
         return view('Admin/CalonSantri/edit', $data);
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $data = [
-            'title' => 'Delete Calon Santri'
-        ];
-
-        return view('Admin/CalonSantri/delete', $data);
+        $this->jadwal->delete($id);
+        return redirect()->to('/admin/jadwal-talim')->with('modalSuccess', 'Jadwal Telah Berhasil di Hapus!');
     }
 
     public function cetak()

@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class JurnalModel extends Model
+class MutasiModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'jurnal';
+    protected $table            = 'mutasi';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kategori', 'judul', 'slug', 'penulis', 'gambar', 'articel', 'tgl_jurnal'];
+    protected $allowedFields    = ['nama', 'nominal', 'tanggal', 'jenis'];
 
     // Dates
     protected $useTimestamps = true;
@@ -40,16 +40,13 @@ class JurnalModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function findJoinAll()
+    public function findPemasukan()
     {
-        return $this->db->table('jurnal')->select('jurnal.*, kategori.id as id_kat, kategori.nama as nama_kategori')->join('kategori', 'jurnal.id_kategori = kategori.id')->get()->getResultArray();
+        return $this->selectSum('nominal')->where(['jenis' => 'Pemasukan'])->get()->getResultArray();
     }
 
-    public function getSlug($slug = false)
+    public function findPengeluaran()
     {
-        if ($slug == false) {
-            return $this->findAll();
-        }
-        return $this->where(['slug' => $slug])->first();
+        return $this->selectSum('nominal')->where(['jenis' => 'Pengeluaran'])->get()->getResultArray();
     }
 }

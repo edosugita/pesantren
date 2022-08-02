@@ -13,10 +13,64 @@ $this->section('content');
                         <a class="btn btn-santri btn-hover-santri" href=""><i class="anticon anticon-printer m-r-15"></i>Cetak</a>
                     </div>
                     <hr>
+                    <!-- START ALERT -->
+                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <?= session()->getFlashdata('fail'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <?= session()->getFlashdata('success'); ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('modalSuccess'))) : ?>
+                        <div class="modal fade" id="infaq-santri">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content" style="border-radius: 12px; overflow:hidden;">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                            <span class="sr-only"></span>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img src="<?= base_url('/assets/img/success-image.svg') ?>" class="mb-5">
+                                        <h5>Data Berhasil Ditambah atau Diperbarui</h5>
+                                        <p><?= session()->getFlashdata('modalSuccess') ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <!-- STOP ALERT -->
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="box-mutasi1 mb-2"></div>
+                            <p>Debit = Rp. <b><?= number_format($dataDebit, 2, ',', '.') ?></b></p>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="box-mutasi2 mb-2"></div>
+                            <p>Total Pemasukan = Rp. <b><?= $dataPemasukan[0]['nominal'] == null ? '0' : number_format($dataPemasukan[0]['nominal'], 2, ',', '.')  ?></b></p>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="box-mutasi3 mb-2"></div>
+                            <p>Total Pengeluaran = Rp. <b><?= $dataPengeluaran[0]['nominal'] == null ? '0' : number_format($dataPengeluaran[0]['nominal'], 2, ',', '.') ?></b></p>
+                        </div>
+                    </div>
                     <div class="row m-b-30">
                         <div class="col-12 d-flex justify-content-end p-h-30">
                             <div class="row">
-                                <button class="btn btn-santri btn-hover-santri" data-toggle="modal" data-target="#tambahObat">Tambah Mutasi</button>
+                                <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/mutasi/add') ?>">Tambah Mutasi</a>
                             </div>
                         </div>
                     </div>
@@ -34,178 +88,27 @@ $this->section('content');
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Uang Donatur</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>In</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Uang Donatur</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>In</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Membeli Semen</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>In</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Infaq santri 4 bulan</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>Out</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Infaq santri 4 bulan</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>In</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Infaq santri 4 bulan</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>In</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Dividen saham</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>In</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Uang donatur banyuwangi</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>In</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Membeli perusahaan baru</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>out</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>Dividen saham</td>
-                                        <td>$576.28</td>
-                                        <td>1/28/17</td>
-                                        <td>Out</td>
-                                        <td>
-                                            <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/edit') ?>">
-                                                <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <?php $i = 1 ?>
+                                    <?php foreach ($dataMutasi as $data) : ?>
+                                        <tr>
+                                            <td><?= $i++ ?></td>
+                                            <td><?= $data['nama'] ?></td>
+                                            <td>Rp. <?= number_format($data['nominal'], 2, ',', '.') ?></td>
+                                            <td><?= $data['tanggal'] ?></td>
+                                            <td><?= $data['jenis'] ?></td>
+                                            <td>
+                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/mutasi/' . $data['id'] . '/view') ?>">
+                                                    <i class="anticon anticon-eye" style="color: #336CFB;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL TAMBAH OBAT -->
-<div class="modal fade" id="tambahObat">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Mutasi Keuangan</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <i class="anticon anticon-close"></i>
-                </button>
-            </div>
-            <form method="">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Perihal</label>
-                        <input type="text" class="form-control" placeholder="ex: Pembangunan">
-                    </div>
-                    <div class="form-group">
-                        <label>Nominal</label>
-                        <input type="text" class="form-control" placeholder="ex: 1000000">
-                    </div>
-                    <div class="form-group">
-                        <label>Tanggal</label>
-                        <div class="input-affix m-b-10">
-                            <i class="prefix-icon anticon anticon-calendar"></i>
-                            <input type="text" class="form-control datepicker-input" placeholder="ex: 06/14/2022">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <div>
-                            <select class="select2">
-                                <option value="In">In</option>
-                                <option value="Out">Out</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;">Cancel</button>
-                    <button type="submit" class="btn btn-santri btn-hover-santri">Simpan</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>

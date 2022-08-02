@@ -177,4 +177,10 @@ class MasterAdmin extends BaseController
 
         return view('Admin/MasterAdmin/edit', $data);
     }
+
+    public function delete($id)
+    {
+        $this->admin->delete($id);
+        return redirect()->to('/admin/master')->with('modalSuccess', 'Data Telah Berhasil di Hapus!');
+    }
 }

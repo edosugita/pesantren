@@ -85,9 +85,31 @@ $this->section('content');
                                                     <i class="anticon anticon-form" style="color: #049F67;"></i>
                                                 </a>
                                                 <?php if ($data['role'] !== 'Master') : ?>
-                                                    <a href="#" class="btn btn-icon btn-hover btn-sm btn-rounded">
+                                                    <a class="btn btn-icon btn-hover btn-sm btn-rounded" style="cursor: pointer;" data-toggle="modal" data-target="#delete">
                                                         <i class="anticon anticon-delete" style="color: #BF0603;"></i>
                                                     </a>
+
+                                                    <div class="modal fade" id="delete">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content" style="border-radius: 12px; overflow:hidden;">
+                                                                <div class="modal-body text-center">
+                                                                    <img src="<?= base_url('/assets/img/delete.svg') ?>" class="mb-5">
+                                                                    <h5>Apakah anda ingin menghapus data ini?</h5>
+                                                                    <p>Apakah anda ingin menghapus data ini? Tolong konfirmasi jika anda ingin mengahapusnya</p>
+                                                                </div>
+                                                                <form action="<?= base_url('/admin/master/delete/' . $data['id']) ?>" method="post">
+                                                                    <div class="row" style="padding: 0 20px 20px 20px;">
+                                                                        <div class="col-6">
+                                                                            <button type="button" class="btn btn-hover-santri w-100" style="border: 1px solid #049F67; color: #049F67;" data-dismiss="modal">Cancel</button>
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                            <button type="submit" class="btn btn-santri btn-hover-santri" style="width: 100% !important;">Hapus</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>

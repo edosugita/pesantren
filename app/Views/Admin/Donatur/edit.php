@@ -12,7 +12,7 @@ $this->section('content');
                         <h5>Edit Data Donatur</h5>
                     </div>
                     <hr>
-                    <form action="<?= base_url('/admin/donatur/' . $dataDonatur['id'] . '/edit') ?>" method="post">
+                    <form action="<?= base_url('/admin/donatur/' . $dataDonatur['id'] . '/edit') ?>" method="post" onsubmit="return confirm('Anda yakin ingin merubah data ini?');">
                         <?= csrf_field() ?>
                         <div class="form-group">
                             <label>Nama Donatur</label>

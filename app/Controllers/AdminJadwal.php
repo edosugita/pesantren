@@ -210,13 +210,10 @@ class AdminJadwal extends BaseController
         return view('Admin/JadwalTalim/edit', $data);
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $data = [
-            'title' => 'Delete Jadwal'
-        ];
-
-        return view('Admin/JadwalTalim/delete', $data);
+        $this->jadwal->delete($id);
+        return redirect()->to('/admin/jadwal-talim')->with('modalSuccess', 'Jadwal Telah Berhasil di Hapus!');
     }
 
     public function cetak()

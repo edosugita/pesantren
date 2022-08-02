@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\IndukSantriModel;
 use App\Models\InfaqModel;
+use App\Models\MutasiModel;
 use App\Models\SemesterModel;
 
 class AdminInfaq extends BaseController
@@ -14,6 +15,7 @@ class AdminInfaq extends BaseController
         $this->indukSantri = new IndukSantriModel();
         $this->semester = new SemesterModel();
         $this->infaqSantri = new InfaqModel();
+        $this->mutasi = new MutasiModel();
     }
 
     public function index()
@@ -95,22 +97,35 @@ class AdminInfaq extends BaseController
 
                 // dd($hasilTgl);
 
-                $newData = [
-                    'nis' => $this->request->getVar('nis'),
-                    'id_semester' => $this->request->getVar('semester'),
+                $mutasiData = [
+                    'nama' => 'SPP',
                     'nominal' => str_replace(".", "", $this->request->getVar('nominal')),
-                    'tgl' => $hasilTgl,
-                    'status' => $this->request->getVar('status'),
+                    'tanggal' => $hasilTgl,
+                    'status' => 'Pemasukan',
                 ];
 
                 // dd($newData);
 
-                $query = $this->infaqSantri->insert($newData);
+                $queryMutasi = $this->mutasi->insert($mutasiData);
 
-                if (!$query) {
+                if (!$queryMutasi) {
                     return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
                 } else {
-                    return redirect()->to('/admin/infaq')->with('modalSuccess', 'Data Infaq Berhasil Ditambah');
+
+                    $newData = [
+                        'nis' => $this->request->getVar('nis'),
+                        'id_semester' => $this->request->getVar('semester'),
+                        'nominal' => str_replace(".", "", $this->request->getVar('nominal')),
+                        'tgl' => $hasilTgl,
+                        'status' => $this->request->getVar('status'),
+                    ];
+
+                    $query = $this->infaqSantri->insert($newData);
+                    if (!$query) {
+                        return redirect()->back()->with('fail', 'Terdapat kesalahan, silahkan coba lagi!');
+                    } else {
+                        return redirect()->to('/admin/infaq')->with('modalSuccess', 'Data Infaq Berhasil Ditambah');
+                    }
                 }
             }
         }
@@ -197,15 +212,6 @@ class AdminInfaq extends BaseController
         }
 
         return view('Admin/Infaq/edit', $data);
-    }
-
-    public function delete()
-    {
-        $data = [
-            'title' => 'Delete Infaq'
-        ];
-
-        return view('Admin/Infaq/delete', $data);
     }
 
     public function cetak()

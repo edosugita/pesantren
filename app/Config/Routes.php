@@ -65,6 +65,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->get('/', 'MasterAdmin::index');
             $routes->get('(:num)/view', 'MasterAdmin::view/$1');
             $routes->match(['get', 'post'], '(:num)/edit', 'MasterAdmin::edit/$1');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'MasterAdmin::delete/$1');
             $routes->match(['get', 'post'], 'add', 'MasterAdmin::add');
         });
 
@@ -85,7 +86,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->get('(:num)/view', 'AdminCalonSantri::view/$1');
             $routes->match(['get', 'post'], '(:num)/edit', 'AdminCalonSantri::edit/$1');
             $routes->match(['get', 'post'], 'add', 'AdminCalonSantri::add');
-            $routes->get('delete', 'AdminCalonSantri::delete');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'AdminCalonSantri::delete/$1');
             $routes->get('cetak', 'AdminCalonSantri::cetak');
         });
 
@@ -93,7 +94,6 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         $routes->group('infaq', function ($routes) {
             $routes->get('/', 'AdminInfaq::index');
             $routes->match(['get', 'post'], 'add', 'AdminInfaq::add');
-            $routes->match(['get', 'post'], '(:num)/edit', 'AdminInfaq::edit/$1');
             $routes->match(['get', 'post'], '(:num)/view', 'AdminInfaq::view/$1');
             $routes->get('delete', 'AdminInfaq::delete');
             $routes->get('cetak', 'AdminInfaq::cetak');
@@ -105,7 +105,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->get('/', 'AdminJadwal::index');
             $routes->match(['get', 'post'], 'add', 'AdminJadwal::add');
             $routes->match(['get', 'post'], '(:num)/edit', 'AdminJadwal::edit/$1');
-            $routes->get('delete', 'AdminJadwal::delete');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'AdminJadwal::delete/$1');
             $routes->get('cetak', 'AdminJadwal::cetak');
         });
 
@@ -115,13 +115,14 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->get('(:segment)/view', 'AdminJurnal::view/$1');
             $routes->match(['get', 'post'], 'add', 'AdminJurnal::add');
             $routes->match(['get', 'post'], '(:num)/edit', 'AdminJurnal::edit/$1');
-            $routes->get('delete', 'AdminJurnal::delete');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'AdminJurnal::delete/$1');
         });
 
         // MUTASI
         $routes->group('mutasi', function ($routes) {
             $routes->get('/', 'AdminMutasi::index');
-            $routes->get('edit', 'AdminMutasi::edit');
+            $routes->match(['get', 'post'], 'add', 'AdminMutasi::add');
+            $routes->get('(:num)/view', 'AdminMutasi::view/$1');
             $routes->get('delete', 'AdminMutasi::delete');
             $routes->get('cetak', 'AdminMutasi::cetak');
         });

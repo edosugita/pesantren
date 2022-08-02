@@ -199,12 +199,9 @@ class AdminJurnal extends BaseController
         return view('Admin/JurnalTalim/edit', $data);
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $data = [
-            'title' => 'Delete Jurnal Talim'
-        ];
-
-        return view('Admin/JurnalTalim/delete', $data);
+        $this->jurnal->delete($id);
+        return redirect()->to('/admin/jurnal-talim')->with('modalSuccess', 'Jurnal Telah Berhasil di Hapus!');
     }
 }

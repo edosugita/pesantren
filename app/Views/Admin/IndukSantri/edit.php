@@ -206,9 +206,10 @@ $this->section('content');
                                                 <label>Penghasilan</label>
                                                 <select class="select2" name="penghasilan_ayah">
                                                     <option value="null">Pilih Penghasilan Ayah</option>
-                                                    <option value="Di Bawah Rp. 1.000.000">Di Bawah Rp. 1.000.000</option>
-                                                    <option value="Rp. 1.000.000 - 3.000.000">Rp. 1.000.000 - 3.000.000</option>
-                                                    <option value="Di Atas Rp. 5.000.000">Di Atas Rp. 5.000.000</option>
+                                                    <option value="Di Bawah Rp. 1.000.000" <?= $dataSantri[0]['penghasilan_ayah'] == 'Rp. Di Bawah Rp. 1.000.000' ? 'selected' : '' ?>>Di Bawah Rp. 1.000.000</option>
+                                                    <option value="Rp. 1.000.000 - 3.000.000" <?= $dataSantri[0]['penghasilan_ayah'] == 'Rp. 1.000.000 - 3.000.000' ? 'selected' : '' ?>>Rp. 1.000.000 - 3.000.000</option>
+                                                    <option value="Rp. 3.000.000 - 4.000.000" <?= $dataSantri[0]['penghasilan_ayah'] == 'Rp. 3.000.000 - 4.000.000' ? 'selected' : '' ?>>Rp. 3.000.000 - 4.000.000</option>
+                                                    <option value="Di Atas Rp. 5.000.000" <?= $dataSantri[0]['penghasilan_ayah'] == 'Di Atas Rp. 5.000.000' ? 'selected' : '' ?>>Di Atas Rp. 5.000.000</option>
                                                 </select>
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('penghasilan_ayah')) : null ?>
@@ -266,10 +267,10 @@ $this->section('content');
                                             <div class="form-group">
                                                 <label>Penghasilan Ibu</label>
                                                 <select class="select2" name="penghasilan_ibu">
-                                                    <option value="null">Pilih Penghasilan Ibu</option>
-                                                    <option value="Di Bawah Rp. 1.000.000">Di Bawah Rp. 1.000.000</option>
-                                                    <option value="Rp. 1.000.000 - 3.000.000">Rp. 1.000.000 - 3.000.000</option>
-                                                    <option value="Di Atas Rp. 5.000.000">Di Atas Rp. 5.000.000</option>
+                                                    option value="Di Bawah Rp. 1.000.000" <?= $dataSantri[0]['penghasilan_ibu'] == 'Rp. Di Bawah Rp. 1.000.000' ? 'selected' : '' ?>>Di Bawah Rp. 1.000.000</option>
+                                                    <option value="Rp. 1.000.000 - 3.000.000" <?= $dataSantri[0]['penghasilan_ibu'] == 'Rp. 1.000.000 - 3.000.000' ? 'selected' : '' ?>>Rp. 1.000.000 - 3.000.000</option>
+                                                    <option value="Rp. 3.000.000 - 4.000.000" <?= $dataSantri[0]['penghasilan_ibu'] == 'Rp. 3.000.000 - 4.000.000' ? 'selected' : '' ?>>Rp. 3.000.000 - 4.000.000</option>
+                                                    <option value="Di Atas Rp. 5.000.000" <?= $dataSantri[0]['penghasilan_ibu'] == 'Di Atas Rp. 5.000.000' ? 'selected' : '' ?>>Di Atas Rp. 5.000.000</option>
                                                 </select>
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('penghasilan_ibu')) : null ?>
@@ -335,9 +336,10 @@ $this->section('content');
                                                 <label>Penghasilan Wali</label>
                                                 <select class="select2" name="penghasilan_wali">
                                                     <option value="null">Pilih Penghasilan Wali</option>
-                                                    <option value="Di Bawah Rp. 1.000.000">Di Bawah Rp. 1.000.000</option>
-                                                    <option value="Rp. 1.000.000 - 3.000.000">Rp. 1.000.000 - 3.000.000</option>
-                                                    <option value="Di Atas Rp. 5.000.000">Di Atas Rp. 5.000.000</option>
+                                                    option value="Di Bawah Rp. 1.000.000" <?= $dataSantri[0]['penghasilan_wali'] == 'Rp. Di Bawah Rp. 1.000.000' ? 'selected' : '' ?>>Di Bawah Rp. 1.000.000</option>
+                                                    <option value="Rp. 1.000.000 - 3.000.000" <?= $dataSantri[0]['penghasilan_wali'] == 'Rp. 1.000.000 - 3.000.000' ? 'selected' : '' ?>>Rp. 1.000.000 - 3.000.000</option>
+                                                    <option value="Rp. 3.000.000 - 4.000.000" <?= $dataSantri[0]['penghasilan_wali'] == 'Rp. 3.000.000 - 4.000.000' ? 'selected' : '' ?>>Rp. 3.000.000 - 4.000.000</option>
+                                                    <option value="Di Atas Rp. 5.000.000" <?= $dataSantri[0]['penghasilan_wali'] == 'Di Atas Rp. 5.000.000' ? 'selected' : '' ?>>Di Atas Rp. 5.000.000</option>
                                                 </select>
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('penghasilan_wali')) : null ?>

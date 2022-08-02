@@ -63,7 +63,6 @@
                                         <th>Nama Santri</th>
                                         <th>Semester</th>
                                         <th>Jumlah Infaq</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -75,11 +74,6 @@
                                             <td><?= $data['nama_santri'] ?></td>
                                             <td><?= $data['id_semester'] ?></td>
                                             <td>Rp. <?= number_format($data['nominal'], 2, ',', '.') ?></td>
-                                            <td>
-                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/infaq/' . $data['id'] . '/edit') ?>">
-                                                    <i class="anticon anticon-form" style="color: #049F67;"></i>
-                                                </a>
-                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

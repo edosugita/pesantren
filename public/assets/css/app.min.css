@@ -29539,3 +29539,21 @@ div.is-invalid {
     line-height: 140%;
     color: #4D4D4D;
 }
+
+.box-mutasi1 {
+    width: 15px;
+    height: 15px;
+    background-color: #0C7FDA;
+}
+
+.box-mutasi2 {
+    width: 15px;
+    height: 15px;
+    background-color: #049F67;
+}
+
+.box-mutasi3 {
+    width: 15px;
+    height: 15px;
+    background-color: #C90603;
+}
