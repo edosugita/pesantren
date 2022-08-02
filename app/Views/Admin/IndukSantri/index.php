@@ -10,7 +10,7 @@ $this->section('content');
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5>Data Induk Santri</h5>
-                        <a class="btn btn-santri btn-hover-santri" href=""><i class="anticon anticon-printer m-r-15"></i>Cetak</a>
+                        <a class="btn btn-santri btn-hover-santri" href="<?= base_url('/admin/induk-santri/cetak') ?>"><i class="anticon anticon-printer m-r-15"></i>Cetak</a>
                     </div>
                     <hr>
                     <!-- START ALERT -->
@@ -91,9 +91,6 @@ $this->section('content');
                                                 <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/induk-santri/' . $data['id'] . '/edit') ?>">
                                                     <i class="anticon anticon-form" style="color: #049F67;"></i>
                                                 </a>
-                                                <!-- <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="#">
-                                                    <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                                </a> -->
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

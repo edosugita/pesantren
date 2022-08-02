@@ -877,10 +877,21 @@ class AdminCalonSantri extends BaseController
 
     public function cetak()
     {
-        $data = [
-            'title' => 'Cetak Calon Santri'
-        ];
+        $data = $this->calonSantri->findJoinAll();
+        $i = 1;
+        $html = '<table class="table table-hover table-borderless"> <thead style="background: #CDECE1;"><tr><th>No</th><th>Nama Santri</th>
+                                        <th>No Reg</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>No. Telp</th>
+                                        <th>Alamat</th></tr></thead><tbody>';
+        foreach ($data as $data) {
+            $html .= '<tr><td>' . $i++ . '</td><td>' . $data['nama_santri'] . '</td><td>' . $data['no_register'] . '</td><td>' . $data['gender'] . '</td><td>' . $data['no_hp_santri'] . '</td><td>' . $data['alamat_santri'] . '</td></td></tr>';
+        }
 
-        return view('Admin/CalonSantri/cetak', $data);
+        $html .= '</tbody></table>';
+
+        header('Content-Type:application/xls');
+        header('Content-Disposition:attachment;filename=CalonSantri.xls');
+        echo $html;
     }
 }

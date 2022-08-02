@@ -927,21 +927,19 @@ class AdminIndukSantri extends BaseController
         return view('Admin/IndukSantri/edit', $data);
     }
 
-    public function delete()
-    {
-        $data = [
-            'title' => 'Delete Induk Santri'
-        ];
-
-        return view('Admin/IndukSantri/delete', $data);
-    }
-
     public function cetak()
     {
-        $data = [
-            'title' => 'Cetak Induk Santri'
-        ];
+        $data = $this->indukSantri->findJoinAll();
+        $i = 1;
+        $html = '<table class="table table-hover table-borderless"> <thead style="background: #CDECE1;"><tr><th>No</th><th>NIS</th><th>Nama Santri</th><th>Asal</th><th>Semester</th></tr></thead><tbody>';
+        foreach ($data as $data) {
+            $html .= '<tr><td>' . $i++ . '</td><td>' . $data['nis'] . '</td><td>' . $data['nama_santri'] . '</td><td>' . $data['tmp_lahir'] . '</td><td>' . $data['semester'] . '</td></tr>';
+        }
 
-        return view('Admin/IndukSantri/cetak', $data);
+        $html .= '</tbody></table>';
+
+        header('Content-Type:application/xls');
+        header('Content-Disposition:attachment;filename=IndukSantri.xls');
+        echo $html;
     }
 }

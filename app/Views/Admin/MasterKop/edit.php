@@ -37,7 +37,7 @@ $this->section('content');
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" class="form-control  <?= (isset($validation)) ? ($validation->hasError('name')) ? 'is-invalid' : null : null ?>" placeholder="ex: PPAM" name="name" value="<?= set_value('name') ? set_value('name') : $dataAdmin['name'] ?>">
+                                <input type="text" class="form-control  <?= (isset($validation)) ? ($validation->hasError('name')) ? 'is-invalid' : null : null ?>" placeholder="ex: PPAM" name="name" value="<?= set_value('name') ? set_value('name') : $dataAdmin['nama'] ?>">
                                 <div class="invalid-feedback">
                                     <?= (isset($validation)) ? ($validation->getError('name')) : null ?>
                                 </div>

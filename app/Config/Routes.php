@@ -100,7 +100,6 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->match(['get', 'post'], '(:num)/edit', 'AdminIndukSantri::edit/$1');
             $routes->match(['get', 'post'], 'add', 'AdminIndukSantri::add');
             $routes->match(['get', 'post'], 'add/baru', 'AdminIndukSantri::addBaru');
-            $routes->get('delete', 'AdminIndukSantri::delete');
             $routes->get('cetak', 'AdminIndukSantri::cetak');
         });
 
