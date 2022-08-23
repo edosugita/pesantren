@@ -52,7 +52,7 @@ $routes->get('/registrasi', 'AdminAuth::registrasi');
 $routes->match(['get', 'post'], '/registrasi/add', 'AdminAuth::add');
 
 $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
-    $routes->group('/admin', ['filter' => 'FilterLogin'], function ($routes) {
+    $routes->group('/admin', function ($routes) {
         // LOGOUT
         $routes->get('logout', 'AdminAuth::logout');
 
