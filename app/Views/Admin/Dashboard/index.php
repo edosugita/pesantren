@@ -25,7 +25,7 @@ $this->section('content');
                 </div>
             </div>
         <?php endif; ?>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-6">
             <div class="card">
                 <div class="card-body">
                     <div class="media align-items-center">
@@ -40,7 +40,7 @@ $this->section('content');
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-6">
             <div class="card">
                 <div class="card-body">
                     <div class="media align-items-center">
@@ -55,7 +55,7 @@ $this->section('content');
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-6">
             <div class="card">
                 <div class="card-body">
                     <div class="media align-items-center">
@@ -70,7 +70,7 @@ $this->section('content');
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-6">
             <div class="card">
                 <div class="card-body">
                     <div class="media align-items-center">
@@ -107,8 +107,8 @@ $this->section('content');
                         <canvas class="chart" id="customers-chart"></canvas>
                     </div>
                     <div class="row border-top p-t-10">
-                        <div class="col-4">
-                            <div class="d-flex justify-content-center">
+                        <div class="col-12">
+                            <div class="mb-3">
                                 <div class="media align-items-center">
                                     <span class="badge badge-success badge-dot m-r-10"></span>
                                     <div class="m-l-5">
@@ -118,8 +118,8 @@ $this->section('content');
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="d-flex justify-content-center">
+                        <div class="col-12">
+                            <div class="mb-3">
                                 <div class="media align-items-center">
                                     <span class="badge badge-secondary badge-dot m-r-10"></span>
                                     <div class="m-l-5">
@@ -129,8 +129,8 @@ $this->section('content');
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="d-flex justify-content-center">
+                        <div class="col-12">
+                            <div class="mb-3">
                                 <div class="media align-items-center">
                                     <span class="badge badge-warning badge-dot m-r-10"></span>
                                     <div class="m-l-5">

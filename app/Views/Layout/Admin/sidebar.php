@@ -42,6 +42,11 @@
                                 <span class="title">Master Semester</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<?= base_url('/admin/master/landing') ?>">
+                                <span class="title">Landing Page</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">

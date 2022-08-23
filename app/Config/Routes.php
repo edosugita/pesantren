@@ -52,7 +52,7 @@ $routes->get('/registrasi', 'AdminAuth::registrasi');
 $routes->match(['get', 'post'], '/registrasi/add', 'AdminAuth::add');
 
 $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
-    $routes->group('/admin', function ($routes) {
+    $routes->group('/admin', ['filter' => 'FilterLogin'], function ($routes) {
         // LOGOUT
         $routes->get('logout', 'AdminAuth::logout');
 
@@ -60,8 +60,10 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         $routes->get('dashboard', 'AdminDashboard::index');
         $routes->get('dashboard/data-chart', 'AdminDashboard::chart');
 
+        // FILTER MASTER
+        // $routes->group('', ['filter' => 'FilterLogin'], function ($routes) {
         // MASTER ADMIN
-        $routes->group('master', function ($routes) {
+        $routes->group('master', ['filter' => 'MasterFilter'], function ($routes) {
             $routes->get('/', 'MasterAdmin::index');
             $routes->get('(:num)/view', 'MasterAdmin::view/$1');
             $routes->match(['get', 'post'], '(:num)/edit', 'MasterAdmin::edit/$1');
@@ -70,7 +72,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         });
 
         // MASTER KATEGORI
-        $routes->group('master/kategori', function ($routes) {
+        $routes->group('master/kategori', ['filter' => 'MasterFilter'], function ($routes) {
             $routes->get('/', 'MasterKategori::index');
             $routes->match(['get', 'post'], '(:num)/edit', 'MasterKategori::edit/$1');
             $routes->match(['get', 'post'], 'delete/(:num)', 'MasterKategori::delete/$1');
@@ -78,7 +80,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         });
 
         // MASTER KOP SURAT
-        $routes->group('master/kode-surat', function ($routes) {
+        $routes->group('master/kode-surat', ['filter' => 'MasterFilter'], function ($routes) {
             $routes->get('/', 'MasterKop::index');
             $routes->match(['get', 'post'], '(:num)/edit', 'MasterKop::edit/$1');
             $routes->match(['get', 'post'], 'delete/(:num)', 'MasterKop::delete/$1');
@@ -86,15 +88,20 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         });
 
         // MASTER SEMESTER
-        $routes->group('master/semester', function ($routes) {
+        $routes->group('master/semester', ['filter' => 'MasterFilter'], function ($routes) {
             $routes->get('/', 'MasterSemester::index');
             $routes->match(['get', 'post'], '(:num)/edit', 'MasterSemester::edit/$1');
             $routes->match(['get', 'post'], 'delete/(:num)', 'MasterSemester::delete/$1');
             $routes->match(['get', 'post'], 'add', 'MasterSemester::add');
         });
 
+        // MASTER LANDING PAGE
+        $routes->group('master/landing', ['filter' => 'MasterFilter'], function ($routes) {
+            $routes->get('/', 'AdminLanding::index');
+        });
+
         // INDUK SANTRI
-        $routes->group('induk-santri', function ($routes) {
+        $routes->group('induk-santri', ['filter' => 'MasterFilter'], function ($routes) {
             $routes->get('/', 'AdminIndukSantri::index');
             $routes->get('(:num)/view', 'AdminIndukSantri::view/$1');
             $routes->match(['get', 'post'], '(:num)/edit', 'AdminIndukSantri::edit/$1');
@@ -104,7 +111,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         });
 
         // CALON SANTRI
-        $routes->group('calon-santri', function ($routes) {
+        $routes->group('calon-santri', ['filter' => 'MasterFilter'], function ($routes) {
             $routes->get('/', 'AdminCalonSantri::index');
             $routes->get('(:num)/view', 'AdminCalonSantri::view/$1');
             $routes->match(['get', 'post'], '(:num)/edit', 'AdminCalonSantri::edit/$1');
@@ -112,9 +119,11 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->match(['get', 'post'], 'delete/(:num)', 'AdminCalonSantri::delete/$1');
             $routes->get('cetak', 'AdminCalonSantri::cetak');
         });
+        // });
 
+        // $routes->group('', ['filter' => 'FilterLogin'], function ($routes) {
         // INFAQ
-        $routes->group('infaq', function ($routes) {
+        $routes->group('infaq', ['filter' => 'BendaharaFilter'], function ($routes) {
             $routes->get('/', 'AdminInfaq::index');
             $routes->match(['get', 'post'], 'add', 'AdminInfaq::add');
             $routes->match(['get', 'post'], '(:num)/view', 'AdminInfaq::view/$1');
@@ -123,26 +132,8 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->match(['get', 'post'], 'data-santri/json-data-auto-fill', 'DataSantriJson::index');
         });
 
-        // JADWAL TA'LIM
-        $routes->group('jadwal-talim', function ($routes) {
-            $routes->get('/', 'AdminJadwal::index');
-            $routes->match(['get', 'post'], 'add', 'AdminJadwal::add');
-            $routes->match(['get', 'post'], '(:num)/edit', 'AdminJadwal::edit/$1');
-            $routes->match(['get', 'post'], 'delete/(:num)', 'AdminJadwal::delete/$1');
-            $routes->get('cetak', 'AdminJadwal::cetak');
-        });
-
-        // JURNAL TA'LIM
-        $routes->group('jurnal-talim', function ($routes) {
-            $routes->get('/', 'AdminJurnal::index');
-            $routes->get('(:segment)/view', 'AdminJurnal::view/$1');
-            $routes->match(['get', 'post'], 'add', 'AdminJurnal::add');
-            $routes->match(['get', 'post'], '(:num)/edit', 'AdminJurnal::edit/$1');
-            $routes->match(['get', 'post'], 'delete/(:num)', 'AdminJurnal::delete/$1');
-        });
-
         // MUTASI
-        $routes->group('mutasi', function ($routes) {
+        $routes->group('mutasi', ['filter' => 'BendaharaFilter'], function ($routes) {
             $routes->get('/', 'AdminMutasi::index');
             $routes->match(['get', 'post'], 'add', 'AdminMutasi::add');
             $routes->get('(:num)/view', 'AdminMutasi::view/$1');
@@ -151,7 +142,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
         });
 
         // DONATUR
-        $routes->group('donatur', function ($routes) {
+        $routes->group('donatur', ['filter' => 'BendaharaFilter'], function ($routes) {
             $routes->get('/', 'AdminDonatur::index');
             $routes->get('(:num)/view', 'AdminDonatur::view/$1');
             $routes->match(['get', 'post'], 'add', 'AdminDonatur::add');
@@ -159,16 +150,38 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->get('delete', 'AdminDonatur::delete');
             $routes->get('cetak', 'AdminDonatur::cetak');
         });
+        // });
+
+        // $routes->group('', ['filter' => 'FilterLogin'], function ($routes) {
+        // JADWAL TA'LIM
+        $routes->group('jadwal-talim', ['filter' => 'SekretarisFilter'], function ($routes) {
+            $routes->get('/', 'AdminJadwal::index');
+            $routes->match(['get', 'post'], 'add', 'AdminJadwal::add');
+            $routes->match(['get', 'post'], '(:num)/edit', 'AdminJadwal::edit/$1');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'AdminJadwal::delete/$1');
+            $routes->get('cetak', 'AdminJadwal::cetak');
+        });
+
+        // JURNAL TA'LIM
+        $routes->group('jurnal-talim', ['filter' => 'SekretarisFilter'], function ($routes) {
+            $routes->get('/', 'AdminJurnal::index');
+            $routes->get('(:segment)/view', 'AdminJurnal::view/$1');
+            $routes->match(['get', 'post'], 'add', 'AdminJurnal::add');
+            $routes->match(['get', 'post'], '(:num)/edit', 'AdminJurnal::edit/$1');
+            $routes->match(['get', 'post'], 'delete/(:num)', 'AdminJurnal::delete/$1');
+        });
 
         // DOKUMEN
-        $routes->group('dokumen', function ($routes) {
+        $routes->group('dokumen', ['filter' => 'SekretarisFilter'], function ($routes) {
             $routes->get('/', 'AdminDokumen::index');
             $routes->get('add', 'AdminDokumen::add');
             $routes->match(['get', 'post'], 'add/instansi', 'AdminDokumen::instansi');
             $routes->match(['get', 'post'], 'add/santri', 'AdminDokumen::santri');
             $routes->get('cetak', 'AdminDokumen::cetak');
+            $routes->get('cetak/(:num)/dokumen', 'AdminDokumen::cetakDocument/$1');
             $routes->match(['get', 'post'], 'add/data-santri/json-data-auto-fill', 'DataSantriJson::index');
         });
+        // });
     });
 });
 

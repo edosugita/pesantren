@@ -1,0 +1,37 @@
+input {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    border: 0;
+    padding: 10px;
+    overflow: hidden;
+}
+
+textarea {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    border: 0;
+    padding: 10px;
+}
+
+.display-button {
+    opacity: 0;
+}
+
+.display-input:focus+.display-button {
+    opacity: 1;
+    border-radius: 0 10px 10px 0;
+}
+
+input:focus {
+    border-inline: 1px solid #dadada;
+    border: 1px solid #dadada;
+}
+
+textarea:focus {
+    border-inline: 1px solid #575757;
+    border: 1px solid #575757;
+}
+
+.footer {
+    background-color: #f9fbfd;
+}

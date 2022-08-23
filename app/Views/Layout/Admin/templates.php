@@ -16,6 +16,7 @@
 
     <!-- Core css -->
     <link href="<?= base_url('assets/css/app.min.css') ?>" rel="stylesheet">
+    <?= $this->renderSection('css'); ?>
 
 </head>
 

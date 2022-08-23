@@ -1,13 +1,13 @@
 <!-- Header START -->
 <div class="header">
     <div class="logo logo-dark">
-        <a href="<?= base_url('/') ?>">
+        <a href="<?= base_url('/admin/dashboard') ?>">
             <img src="<?= base_url('assets/images/logo/logo.png') ?>" alt="Logo">
             <img class="logo-fold" src="<?= base_url('assets/images/logo/logo-fold.png') ?>" alt="Logo">
         </a>
     </div>
     <div class="logo logo-white">
-        <a href="<?= base_url('/') ?>">
+        <a href="<?= base_url('/admin/dashboard') ?>">
             <img src="<?= base_url('assets/images/logo/logo-white.png') ?>" alt="Logo">
             <img class="logo-fold" src="<?= base_url('assets/images/logo/logo-fold-white.png') ?>" alt="Logo">
         </a>

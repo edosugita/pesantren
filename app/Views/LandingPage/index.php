@@ -4,7 +4,6 @@ $this->section('content');
 ?>
 
 <main>
-
     <!-- ALERT START -->
     <?php if (!empty(session()->getFlashdata('fail'))) : ?>
         <div class="col-12">

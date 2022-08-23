@@ -3,7 +3,11 @@
 namespace Config;
 
 use App\Filters\AuthFilter;
+use App\Filters\BendaharaFilter;
+use App\Filters\FilterLogin;
+use App\Filters\MasterFilter;
 use App\Filters\NoAuthFilter;
+use App\Filters\SekretarisFilter;
 use App\Filters\UrlFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
@@ -21,14 +25,18 @@ class Filters extends BaseConfig
      * @var array
      */
     public $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'invalidchars'  => InvalidChars::class,
-        'secureheaders' => SecureHeaders::class,
-        'UrlFilter'     => UrlFilter::class,
-        'AuthFilter'    => AuthFilter::class,
-        'NoAuthFilter'  => NoAuthFilter::class,
+        'csrf'              => CSRF::class,
+        'toolbar'           => DebugToolbar::class,
+        'honeypot'          => Honeypot::class,
+        'invalidchars'      => InvalidChars::class,
+        'secureheaders'     => SecureHeaders::class,
+        'UrlFilter'         => UrlFilter::class,
+        'FilterLogin'       => FilterLogin::class,
+        'AuthFilter'        => AuthFilter::class,
+        'NoAuthFilter'      => NoAuthFilter::class,
+        'MasterFilter'      => MasterFilter::class,
+        'BendaharaFilter'   => BendaharaFilter::class,
+        'SekretarisFilter'  => SekretarisFilter::class,
     ];
 
     /**

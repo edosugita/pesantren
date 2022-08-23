@@ -83,7 +83,7 @@ $this->section('content');
                                             <td><?= $data['instansi_tujuan'] ?></td>
                                             <td><?= $data['tanggal'] ?></td>
                                             <td>
-                                                <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/calon-santri/' . $data['id'] . '/download') ?>">
+                                                <a target="_blank" class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/dokumen/cetak/' . $data['id'] . '/dokumen') ?>">
                                                     <i class="anticon anticon-cloud-download" style="color: #336CFB;"></i <i class="anticon anticon"></i>
                                                 </a>
                                             </td>

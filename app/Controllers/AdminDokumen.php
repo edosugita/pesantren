@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\DokumenInstansiModel;
 use App\Models\IndukSantriModel;
 use App\Models\KopModel;
+use Mpdf\Mpdf;
+use Mpdf\Tag\SetHtmlPageHeader;
 
 class AdminDokumen extends BaseController
 {
@@ -286,6 +288,116 @@ class AdminDokumen extends BaseController
         return view('Admin/Dokumen/santri', $data);
     }
 
+    function getHari($hari)
+    {
+        switch ($hari) {
+            case 'Monday':
+                return "Senin";
+                break;
+            case 'Tuesday':
+                return "Selasa";
+                break;
+            case 'Wednesday':
+                return "Rabu";
+                break;
+            case 'Thursday':
+                return "Kamis";
+                break;
+            case 'Friday':
+                return "Jumat";
+                break;
+            case 'Saturday':
+                return "Sabtu";
+                break;
+            case 'Sunday':
+                return "Ahad";
+                break;
+        }
+    }
+
+    public function cetakDocument($id)
+    {
+        $data = $this->dokumenInstansi->find($id);
+
+        if ($data['tanggal_mulai'] == $data['tanggal_akhir']) {
+            $getHari = $this->getHari(date('l', strtotime('tanggal_mulai')));
+            $getTgl = date('d F Y', strtotime('tanggal_mulai'));
+        } else {
+            $getHari = $this->getHari(date('l', strtotime('tanggal_mulai'))) . ' s/d ' . $this->getHari(date('l', strtotime('tanggal_akhir')));
+            $getHari = date('d', strtotime('tanggal_mulai')) . ' s/d ' . date('d F Y', strtotime('tanggal_akhir'));
+        }
+
+        $mpdf = new Mpdf(['setAutoTopMargin' => 'stretch', 'setAutoBottomMargin' => 'stretch']);
+
+        $mpdf->SetHTMLHeader('
+        <div>
+            
+            <p style="text-align: center;">
+                <span style="font-size: 14pt; font-weight: bold; font-family: Arial Black,Arial Bold,Gadget,sans-serif; color: #000000;">PONDOK PESANTREN AL - MUKMIN</span> <br>
+                <span style="font-size: 14pt; font-weight: bold; font-family: Arial Black,Arial Bold,Gadget,sans-serif; color: #00B050;">KOTA MALANG</span> <br>
+                <span style="font-size: 11pt; font-weight: Arial, Helvetica, sans-serif; color: #000000;">Nomor Statistik Ponpes: 51005730041</span> <br>
+                <span style="font-size: 11pt; font-weight: Arial, Helvetica, sans-serif; color: #000000;">Yayasan  Masjid Sayyidah Nur Muhammad Mu’minah</span> <br>
+                <span style="font-size: 11pt; font-weight: Arial, Helvetica, sans-serif; color: #000000;">Sekretariat: Jl. Mandalawangi No. 09  Kel. Karangbesuki, Kec.Sukun, Malang</span> <br>
+            </p>
+            <div style="border-bottom: 1px solid #000000; margin-bottom:1px"><span></span></div>
+            <div style="border-bottom: 3px solid #000000"><span></span></div>
+        </div>
+        ');
+
+        $mpdf->WriteHTML('
+        <div>
+            <table style="width: 100%; margin: 0 !important">
+                <tbody>
+                    <tr>
+                        <td style="line-height: 25pt">Nomor : ' . $data['nomor_surat'] . '</td>
+                        <td style="text-align: right; line-height: 25pt">Malang, ' . date('d F Y', strtotime($data['tanggal'])) . '</td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 25pt">Perihal : ' . $data['keperluan'] . '</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p style="margin-bottom: 0pt !important">Yth. ' . $data['instansi_tujuan'] . '</p>
+            <p style="text-indent: 36pt;">Assalamualaikum Wr.Wb</p>
+            <p style="text-indent: 36pt;">Puji syukur kehadirat Allah SWT atas nikmat, rahmat ,taufik dan hidayah-Nya. Semoga</p>
+            <p> sholawta serta salam tetap tercurahkan kepada Rasulullah SAW</p>
+            <p></p>
+            <p style="text-indent: 36pt;">Dengan hormat, sehubungan dengan kegiatan Penempatan Santri Dakwah 2022 yang akan </p>
+            <p>diselenggarakan pada :</p>
+            <table class="table borderless" style="margin-left: 36pt;">
+                <thead>
+                    <tr>
+                        <td style="line-height: 25pt">Hari</td>
+                        <td style="line-height: 25pt">:</td>
+                        <td style="line-height: 25pt">' . $getHari . '</td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 25pt">Tanggal</td>
+                        <td style="line-height: 25pt">:</td>
+                        <td style="line-height: 25pt">' . date('d F Y', strtotime($data['tanggal'])) . '</td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 25pt">Tempat</td>
+                        <td style="line-height: 25pt">:</td>
+                        <td style="line-height: 25pt">' . $data['alamat_tujuan'] . '</td>
+                    </tr>
+                </thead>
+            </table>
+            <p style="text-indent: 36pt;">Maka sehubungan dengan kegiatan tersebut, kami memohonkan izin untuk mahasiswa yang </p>
+            <p>bernama <b>' . $data['nama'] . '</b>, tidak dapat mengikuti latihan</p>
+            <p></p>
+            <p style="text-indent: 36pt;">Demikian surat permohonan izin ini kami buat, atas perhatiannya kami ucapkan terima kasih</p>
+            <p style="text-indent: 36pt;">Jazakumullah Akhsanal Jaza’</p>
+            <p style="text-indent: 36pt;">Wassalamualaikum Wr. Wb</p>
+        </div>
+        ');
+
+        $this->response->setContentType('application/pdf');
+        $mpdf->Output();
+    }
+
     public function cetak()
     {
         $data = $this->dokumenInstansi->findDesc();
@@ -300,7 +412,7 @@ class AdminDokumen extends BaseController
 
         $html .= '</tbody></table>';
 
-        header('Content-Type:application/xls');
+        $this->response->setContentType('application/xls');
         header('Content-Disposition:attachment;filename=Dokumen.xls');
         echo $html;
     }
