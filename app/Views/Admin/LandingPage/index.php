@@ -136,7 +136,7 @@ $this->section('css');
                         <div class="container">
                             <div class="display-kegiatan">
                                 <h4 style="font-weight: 600;">Kegiatan</h4>
-                                <button class="btn btn-primary">Add</button>
+                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#exampleModalCenter">Add</button>
                             </div>
                             <div class="lead-kegiatan">
                                 <div class="row">
@@ -244,6 +244,27 @@ $this->section('css');
         </div>
     </div>
 </div>
+</div>
+
+<!-- MODAL KEGIATAN -->
+<div class="modal fade" id="exampleModalCenter">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Kegiatan</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?= $this->endSection(); ?>

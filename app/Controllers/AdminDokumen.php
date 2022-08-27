@@ -249,15 +249,19 @@ class AdminDokumen extends BaseController
 
                 // GENERATE
 
-                if (date('Y', strtotime($maxYear[0]['tanggal'])) !== $tahun) {
-                    $max++;
-                    $no = sprintf("%03s", $max);
+                if ($maxYear[0]['tanggal'] !== null) {
+                    if (date('Y', strtotime($maxYear[0]['tanggal'])) !== $tahun) {
+                        $max++;
+                        $no = sprintf("%03s", $max);
+                    } else {
+                        $max++;
+                        $no = sprintf("%03s", $max);
+                    }
+                    $no;
                 } else {
                     $max++;
                     $no = sprintf("%03s", $max);
                 }
-
-                // dd($no);
 
                 $newData = [
                     'no' => $no,
