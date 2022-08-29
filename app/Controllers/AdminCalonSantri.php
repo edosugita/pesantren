@@ -50,7 +50,7 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'nik_santri' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]',
+                        'rules' => 'required|integer|min_length[16]|max_length[16]|is_unique[data_santri.nik_santri]',
                         'errors' => [
                             'required' => 'NIK Santri harus di isi',
                             'integer' => 'NIK Santri harus berupa angka',
@@ -209,7 +209,7 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'nik_santri' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]',
+                        'rules' => 'required|integer|min_length[16]|max_length[16]|is_unique[data_santri.nik_santri]',
                         'errors' => [
                             'required' => 'NIK Santri harus di isi',
                             'integer' => 'NIK Santri harus berupa angka',
@@ -462,7 +462,7 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'nik_santri' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]',
+                        'rules' => 'required|integer|min_length[16]|max_length[16]|is_unique[data_santri.nik_santri]',
                         'errors' => [
                             'required' => 'NIK Santri harus di isi',
                             'integer' => 'NIK Santri harus berupa angka',
@@ -621,7 +621,7 @@ class AdminCalonSantri extends BaseController
                         ]
                     ],
                     'nik_santri' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]',
+                        'rules' => 'required|integer|min_length[16]|max_length[16]|is_unique[data_santri.nik_santri]',
                         'errors' => [
                             'required' => 'NIK Santri harus di isi',
                             'integer' => 'NIK Santri harus berupa angka',
