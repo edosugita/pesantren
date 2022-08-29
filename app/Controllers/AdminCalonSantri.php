@@ -56,6 +56,7 @@ class AdminCalonSantri extends BaseController
                             'integer' => 'NIK Santri harus berupa angka',
                             'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
                             'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
+                            'is_unique' => 'NIK Santri sudah terdaftar',
                         ]
                     ],
                     'tmp_lahir' => [
@@ -215,6 +216,7 @@ class AdminCalonSantri extends BaseController
                             'integer' => 'NIK Santri harus berupa angka',
                             'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
                             'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
+                            'is_unique' => 'NIK Santri sudah terdaftar',
                         ]
                     ],
                     'tmp_lahir' => [
@@ -468,6 +470,7 @@ class AdminCalonSantri extends BaseController
                             'integer' => 'NIK Santri harus berupa angka',
                             'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
                             'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
+                            'is_unique' => 'NIK Santri sudah terdaftar',
                         ]
                     ],
                     'tmp_lahir' => [
@@ -627,6 +630,7 @@ class AdminCalonSantri extends BaseController
                             'integer' => 'NIK Santri harus berupa angka',
                             'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
                             'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
+                            'is_unique' => 'NIK Santri sudah terdaftar',
                         ]
                     ],
                     'tmp_lahir' => [
