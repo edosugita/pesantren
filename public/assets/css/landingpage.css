@@ -153,6 +153,7 @@ body {
     z-index: 2;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .display-kegiatan span:nth-child(2) {
@@ -176,52 +177,32 @@ body {
 }
 
 .lead-kegiatan {
-    margin: 20px 0;
-    display: flex;
     align-items: center;
 }
 
 .box-kegiatan {
-    min-height: 303px;
-    min-width: 277px;
+    width: 100%;
     background-color: #025034;
     color: #FFFFFF;
     box-shadow: -2px 2px 20px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    margin: 0 50px 0 0;
-    position: relative;
+    margin: 20px 0 0 0;
     overflow: hidden;
 }
 
-.box-kegiatan:nth-child(1) {
-    background-image: url('../img/k-kajian.png');
-    background-repeat: no-repeat;
+.img-kegiatan {
+    height: 200px;
     background-size: cover;
+    overflow: hidden;
+
 }
 
-.box-kegiatan:nth-child(2) {
-    background-image: url('../img/k-membaca.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.box-kegiatan:nth-child(3) {
-    background-image: url('../img/k-mengajar.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.box-kegiatan:nth-child(4) {
-    background-image: url('../img/k-olahraga.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+.img-kegiatan img {
+    width: 100%;
 }
 
 .text-kegiatan {
-    width: 100%;
     background: #FFFFFF;
-    position: absolute;
-    bottom: 0;
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -260,12 +241,12 @@ body {
 
 .title-fasil {
     display: flex;
-    align-items: flex-end;
+    justify-content: space-between;
     color: #038456;
 }
 
-.title-fasil svg {
-    margin-right: 12px;
+.title-fasil .fas {
+    font-size: 20px;
 }
 
 .box-fasil p {

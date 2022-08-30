@@ -39,6 +39,7 @@ $routes->get('/', 'LandingPage::index');
 $routes->get('/jadwal', 'LandingPage::jadwal');
 $routes->get('/jurnal', 'LandingPage::jurnal');
 $routes->get('/jurnal/view/(:segment)', 'LandingPage::Detailjurnal/$1');
+$routes->get('/kegiatan/(:segment)', 'LandingPage::Detailkegiatan/$1');
 
 /*
  * --------------------------------------------------------------------
@@ -97,7 +98,18 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
 
         // MASTER LANDING PAGE
         $routes->group('master/landing', ['filter' => 'MasterFilter'], function ($routes) {
-            $routes->get('/', 'AdminLanding::index');
+            $routes->match(['get', 'post'], '/', 'AdminLanding::index');
+            $routes->match(['get', 'post'], 'update', 'AdminLanding::update');
+            $routes->match(['get', 'post'], 'fasilitas', 'AdminLanding::fasilitas');
+            $routes->match(['get', 'post'], 'title', 'AdminLanding::display/$1');
+            $routes->match(['get', 'post'], 'lead', 'AdminLanding::lead/$1');
+            $routes->match(['get', 'post'], 'tentang', 'AdminLanding::tentang/$1');
+
+            $routes->match(['get', 'post'], 'kegiatan/edit/(:num)', 'AdminLanding::editKeg/$1');
+            $routes->match(['get', 'post'], 'fasilitas/(:num)/edit', 'AdminLanding::editFasil/$1');
+
+            $routes->match(['get', 'post'], 'fasilitas/delete', 'AdminLanding::deleteFasil');
+            $routes->match(['get', 'post'], 'kegiatan/delete', 'AdminLanding::deleteKeg');
         });
 
         // INDUK SANTRI

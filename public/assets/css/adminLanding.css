@@ -35,3 +35,8 @@ textarea:focus {
 .footer {
     background-color: #f9fbfd;
 }
+
+.nav-item {
+    padding: 0;
+    margin-left: 0;
+}

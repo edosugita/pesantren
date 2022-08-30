@@ -4,6 +4,12 @@ namespace App\Controllers;
 
 use App\Models\JadwalModel;
 use App\Models\JurnalModel;
+use App\Models\DisplayModel;
+use App\Models\FasilitasModel;
+use App\Models\InfoModel;
+use App\Models\KegiatanModel;
+use App\Models\LeadModel;
+use App\Models\TentangModel;
 
 class LandingPage extends BaseController
 {
@@ -11,12 +17,24 @@ class LandingPage extends BaseController
     {
         $this->jurnal = new JurnalModel();
         $this->jadwal = new JadwalModel();
+        $this->display = new DisplayModel();
+        $this->lead = new LeadModel();
+        $this->tentang = new TentangModel();
+        $this->kegiatan = new KegiatanModel();
+        $this->fasilitas = new FasilitasModel();
+        $this->info = new InfoModel();
     }
 
     public function index()
     {
         $data = [
-            'title' => 'Pesantren'
+            'title' => 'Pesantren',
+            'display' => $this->display->first(),
+            'lead' => $this->lead->first(),
+            'tentang' => $this->tentang->first(),
+            'kegiatan' => $this->kegiatan->findAll(),
+            'fasilitas' => $this->fasilitas->findAll(),
+            'info' => $this->info->findAll(),
         ];
 
         return view('LandingPage/index', $data);
@@ -59,5 +77,15 @@ class LandingPage extends BaseController
         ];
 
         return view('LandingPage/detail', $data);
+    }
+
+    public function Detailkegiatan($slug)
+    {
+        $data = [
+            'title' => ' Detail Jurnal Ta’lim',
+            'dataKegiatan' => $this->kegiatan->getSlug($slug),
+        ];
+
+        return view('LandingPage/Kegiatan/index', $data);
     }
 }

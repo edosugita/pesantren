@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class JurnalTaklim extends Migration
+class Kegiatan extends Migration
 {
     public function up()
     {
@@ -12,33 +12,22 @@ class JurnalTaklim extends Migration
             [
                 'id' => [
                     'type' => 'INT',
-                    'unsigned' => TRUE,
                     'auto_increment' => TRUE
-                ],
-                'id_kategori' => [
-                    'type' => 'INT',
                 ],
                 'judul' => [
                     'type' => 'VARCHAR',
-                    'constraint' => '255',
+                    'constraint' => '255'
                 ],
                 'slug' => [
                     'type' => 'VARCHAR',
                     'constraint' => '255',
                 ],
-                'penulis' => [
-                    'type' => 'VARCHAR',
-                    'constraint' => '50',
-                ],
                 'gambar' => [
                     'type' => 'VARCHAR',
-                    'constraint' => '255',
+                    'constraint' => '255'
                 ],
-                'articel' => [
+                'isi' => [
                     'type' => 'TEXT',
-                ],
-                'tgl_jurnal' => [
-                    'type' => 'DATE',
                 ],
                 'created_at' => [
                     'type' => 'DATETIME',
@@ -54,12 +43,11 @@ class JurnalTaklim extends Migration
         );
 
         $this->forge->addKey('id', TRUE);
-        $this->forge->addForeignKey('id_kategori', 'kategori', 'id');
-        $this->forge->createTable('jurnal');
+        $this->forge->createTable('kegiatan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('jurnal');
+        $this->forge->dropTable('kegiatan');
     }
 }
