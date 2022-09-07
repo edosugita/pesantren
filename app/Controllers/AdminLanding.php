@@ -343,7 +343,7 @@ class AdminLanding extends BaseController
         $id = $this->request->getVar('id');
         $gambar = $this->kegiatan->find($id);
         unlink('assets/content/images/' . $gambar['gambar']);
-        // dd($id);
+        dd($id);
         $this->kegiatan->delete($id);
         return redirect()->to('/admin/master/landing')->with('modalSuccess', 'Data Telah Berhasil di Hapus!');
     }
