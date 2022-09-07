@@ -285,7 +285,7 @@ $this->section('css');
                 <p>Apakah anda ingin menghapus data ini? Tolong konfirmasi jika anda ingin mengahapusnya</p>
             </div>
             <form action="<?= base_url('/admin/master/landing/kegiatan/delete') ?>" method="post">
-                <input type="text" class="idKegiatan" name="id">
+                <input type="text" class="idKegiatan" name="id" hidden>
                 <div class="row" style="padding: 0 20px 20px 20px;">
                     <div class="col-6">
                         <button type="button" class="btn btn-hover-santri w-100" style="border: 1px solid #049F67; color: #049F67;" data-dismiss="modal">Cancel</button>
