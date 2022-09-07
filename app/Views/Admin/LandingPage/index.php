@@ -238,7 +238,7 @@ $this->section('css');
                     <i class="anticon anticon-close"></i>
                 </button>
             </div>
-            <form action="<?= base_url('/admin/master/landing') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('/admin/master/landing') ?>" method="post" enctype="multipart/form-data" onsubmit="mySubmit()">
                 <div class="modal-body">
                     <?= csrf_field(); ?>
                     <div class="form-group">
@@ -313,7 +313,7 @@ $this->section('css');
                 <div class="modal-body">
                     <?= csrf_field(); ?>
                     <div class="form-group">
-                        <label>Judul</label>
+                        <label>Keunggulan</label>
                         <input type="text" class="form-control  <?= (isset($validation)) ? ($validation->hasError('judul')) ? 'is-invalid' : null : null ?>" placeholder="ex: Olahraga" name="judul" value="<?= set_value('judul') ?>">
                         <div class="invalid-feedback">
                             <?= (isset($validation)) ? ($validation->getError('judul')) : null ?>

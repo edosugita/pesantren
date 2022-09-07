@@ -70,6 +70,8 @@ class AdminLanding extends BaseController
                 $f = preg_replace('#<a class="ql-action">(.*?)</a><a class="ql-remove">(.*?)</a>#', '', $e);
                 $articel = preg_replace('#<input (.*?)>#', '', $f);
 
+                // dd($this->request->getVar('articel'));
+
                 $newData = [
                     'judul' => $this->request->getVar('judul'),
                     'slug' => $slug,

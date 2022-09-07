@@ -53,12 +53,14 @@ $this->section('content');
                                     <label class="custom-file-label" for="gambar"><?= $dataJurnal['gambar'] ?></label>
                                 </div>
                             </div>
-                            <textarea name="articel" id="articelcontent" cols="1" rows="1" hidden></textarea>
-                            <div id="editor">
-                                <?= $dataJurnal['articel'] ?>
+                            <div class="mb-4">
+                                <textarea name="articel" id="articelcontent" cols="1" rows="1" hidden></textarea>
+                                <div id="editor">
+                                    <?= $dataJurnal['articel'] ?>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 d-flex justify-content-end p-h-30 mt-4">
+                                <div class="col-12 d-flex justify-content-end p-h-30">
                                     <div class="row">
                                         <button type="button" class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;" onclick="history.back()">Cancel</button>
                                         <button type="submit" class="btn btn-santri btn-hover-santri">Simpan</button>
