@@ -341,10 +341,10 @@ class AdminLanding extends BaseController
     public function deleteKeg()
     {
         $id = $this->request->getVar('id');
-        dd($id);
-        $gambar = $this->kegiatan->find($id);
-        unlink('assets/content/images/' . $gambar['gambar']);
-        $this->kegiatan->delete($id);
-        return redirect()->to('/admin/master/landing')->with('modalSuccess', 'Data Telah Berhasil di Hapus!');
+        var_dump($id);
+        // $gambar = $this->kegiatan->find($id);
+        // unlink('assets/content/images/' . $gambar['gambar']);
+        // $this->kegiatan->delete($id);
+        // return redirect()->to('/admin/master/landing')->with('modalSuccess', 'Data Telah Berhasil di Hapus!');
     }
 }
