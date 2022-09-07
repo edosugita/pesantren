@@ -184,7 +184,7 @@ $this->section('css');
                                         <a class="btn btn-icon btn-hover btn-sm btn-rounded" href="<?= base_url('/admin/master/landing/fasilitas/' . $data['id'] . '/edit') ?>">
                                             <i class="anticon anticon-form" style="color: #049F67;"></i>
                                         </a>
-                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded btn-hapus" style="cursor: pointer;" data-id="<?= $data['id'] ?>" data-judul="<?= $data['judul'] ?>">
+                                        <button class="btn btn-icon btn-hover btn-sm btn-rounded btn-hapus-fasil" style="cursor: pointer;" data-id="<?= $data['id'] ?>" data-judul="<?= $data['judul'] ?>">
                                             <i class="anticon anticon-delete" style="color: #BF0603;"></i>
                                         </button>
                                     </div>
@@ -347,7 +347,7 @@ $this->section('css');
 </div>
 
 <!-- MODAL DELETE FASILITAS -->
-<div class="modal fade" id="delete">
+<div class="modal fade" id="delete-fasil">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="border-radius: 12px; overflow:hidden;">
             <div class="modal-body text-center">
@@ -399,7 +399,7 @@ $this->section('css');
     });
 
     // DELETE FASILITAS
-    $('.btn-hapus').on('click', function() {
+    $('.btn-hapus-fasil').on('click', function() {
         // get data from button edit
         const id = $(this).data('id');
         const judul = $(this).data('judul');
@@ -407,7 +407,7 @@ $this->section('css');
         $('.judul').html('Apakah anda ingin menghapus data <b>' + judul + '</b>?');
         $('.idFasilitas').val(id);
         // Call Modal Edit
-        $('#delete').modal('show');
+        $('#delete-fasil').modal('show');
     });
 </script>
 <?= $this->endSection(); ?>
