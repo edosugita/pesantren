@@ -52,7 +52,7 @@ $this->section('content');
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-end p-h-30 m-t-20">
                                     <div class="row">
-                                        <button class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;" onclick="history.back()">Cancel</button>
+                                        <button type="button" class="btn m-r-10 btn-hover-santri" style="border: 1px solid #049F67; color: #049F67;" onclick="history.back()">Cancel</button>
                                         <button type="submit" class="btn btn-santri btn-hover-santri">Simpan</button>
                                     </div>
                                 </div>

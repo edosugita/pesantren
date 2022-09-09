@@ -85,31 +85,9 @@ $this->section('content');
                                                     <i class="anticon anticon-form" style="color: #049F67;"></i>
                                                 </a>
                                                 <?php if ($data['role'] !== 'Master') : ?>
-                                                    <a class="btn btn-icon btn-hover btn-sm btn-rounded" style="cursor: pointer;" data-toggle="modal" data-target="#delete">
+                                                    <button class="btn btn-icon btn-hover btn-sm btn-rounded btn-hapus-keg" style="cursor: pointer;" data-id="<?= $data['id'] ?>" data-judul="<?= $data['nama'] ?>">
                                                         <i class="anticon anticon-delete" style="color: #BF0603;"></i>
-                                                    </a>
-
-                                                    <div class="modal fade" id="delete">
-                                                        <div class="modal-dialog modal-dialog-centered">
-                                                            <div class="modal-content" style="border-radius: 12px; overflow:hidden;">
-                                                                <div class="modal-body text-center">
-                                                                    <img src="<?= base_url('/assets/img/delete.svg') ?>" class="mb-5">
-                                                                    <h5>Apakah anda ingin menghapus data ini?</h5>
-                                                                    <p>Apakah anda ingin menghapus data ini? Tolong konfirmasi jika anda ingin mengahapusnya</p>
-                                                                </div>
-                                                                <form action="<?= base_url('/admin/master/delete/' . $data['id']) ?>" method="post">
-                                                                    <div class="row" style="padding: 0 20px 20px 20px;">
-                                                                        <div class="col-6">
-                                                                            <button type="button" class="btn btn-hover-santri w-100" style="border: 1px solid #049F67; color: #049F67;" data-dismiss="modal">Cancel</button>
-                                                                        </div>
-                                                                        <div class="col-6">
-                                                                            <button type="submit" class="btn btn-santri btn-hover-santri" style="width: 100% !important;">Hapus</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    </button>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>
@@ -123,5 +101,46 @@ $this->section('content');
         </div>
     </div>
 </div>
+
+<!-- MODAL DELETE KEGIATAN -->
+<div class="modal fade" id="delete">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 12px; overflow:hidden;">
+            <div class="modal-body text-center">
+                <img src="<?= base_url('/assets/img/delete.svg') ?>" class="mb-5">
+                <h5 class="judul-keg"></h5>
+                <p>Apakah anda ingin menghapus data ini? Tolong konfirmasi jika anda ingin mengahapusnya</p>
+            </div>
+            <form action="<?= base_url('/admin/master/delete') ?>" method="post">
+                <input type="text" class="idKegiatan" name="id" hidden>
+                <div class="row" style="padding: 0 20px 20px 20px;">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-hover-santri w-100" style="border: 1px solid #049F67; color: #049F67;" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-santri btn-hover-santri" style="width: 100% !important;">Hapus</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<?= $this->endSection(); ?>
+
+<?= $this->section('js'); ?>
+<script>
+    // DELETE KEGIATAN
+    $('.btn-hapus-keg').on('click', function() {
+        // get data from button edit
+        const id = $(this).data('id');
+        const judul = $(this).data('judul');
+        // Set data to Form Edit
+        $('.judul-keg').html('Apakah anda ingin menghapus data <b>' + judul + '</b>?');
+        $('.idKegiatan').val(id);
+        // Call Modal Edit
+        $('#delete').modal('show');
+    });
+</script>
 
 <?= $this->endSection(); ?>

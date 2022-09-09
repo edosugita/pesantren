@@ -68,7 +68,7 @@ $routes->group('', ['filter' => 'AuthFilter'], function ($routes) {
             $routes->get('/', 'MasterAdmin::index');
             $routes->get('(:num)/view', 'MasterAdmin::view/$1');
             $routes->match(['get', 'post'], '(:num)/edit', 'MasterAdmin::edit/$1');
-            $routes->match(['get', 'post'], 'delete/(:num)', 'MasterAdmin::delete/$1');
+            $routes->match(['get', 'post'], 'delete', 'MasterAdmin::delete');
             $routes->match(['get', 'post'], 'add', 'MasterAdmin::add');
         });
 
