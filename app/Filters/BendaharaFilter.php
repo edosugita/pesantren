@@ -11,7 +11,7 @@ class BendaharaFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('role') !== 'Bendahara' || session()->get('role') !== 'Master') {
+        if (session()->get('role') !== 'Bendahara') {
             if (session()->get('role') !== 'Master') {
                 return redirect()->to('/admin/dashboard')->with('fail', 'Anda Bukan Admin Bendahara!');
             }

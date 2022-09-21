@@ -53,6 +53,23 @@ $this->section('content');
             <div class="col-sm-12 col-md-9">
 
                 <form action="<?= base_url('/registrasi/add') ?>" method="post">
+                    <!-- ALERT START -->
+                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <?= session()->getFlashdata('fail'); ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="col-12">
+                            <div class="alert alert-success alert-dismissible fade show">
+                                <?= session()->getFlashdata('success'); ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <?php if (isset($validation)) : ?>
                         <div class="col-12 mb-2">
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">

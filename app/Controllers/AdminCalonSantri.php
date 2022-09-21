@@ -386,6 +386,26 @@ class AdminCalonSantri extends BaseController
                     return redirect()->back()->with('fail', 'Penghasilan Ayah atau Ibu harus di Pilih!');
                 }
 
+                if ($this->request->getVar('nik_santri') == $this->request->getVar('nik_ayah') || $this->request->getVar('nik_santri') == $this->request->getVar('nik_ibu') || $this->request->getVar('nik_santri') == $this->request->getVar('nik_wali')) {
+                    session()->setFlashdata('fail', 'NIK tidak boleh sama');
+                    return redirect()->to('/admin/calon-santri/add')->withInput();
+                }
+
+                if ($this->request->getVar('nik_ayah') == $this->request->getVar('nik_santri') || $this->request->getVar('nik_ayah') == $this->request->getVar('nik_wali') || $this->request->getVar('nik_ayah') == $this->request->getVar('nik_ibu')) {
+                    session()->setFlashdata('fail', 'NIK tidak boleh sama');
+                    return redirect()->to('/admin/calon-santri/add')->withInput();
+                }
+
+                if ($this->request->getVar('nik_ibu') == $this->request->getVar('nik_santri') || $this->request->getVar('nik_ibu') == $this->request->getVar('nik_wali') || $this->request->getVar('nik_ibu') == $this->request->getVar('nik_ayah')) {
+                    session()->setFlashdata('fail', 'NIK tidak boleh sama');
+                    return redirect()->to('/admin/calon-santri/add')->withInput();
+                }
+
+                if ($this->request->getVar('nik_wali') == $this->request->getVar('nik_santri') || $this->request->getVar('nik_wali') == $this->request->getVar('nik_ibu') || $this->request->getVar('nik_wali') == $this->request->getVar('nik_ayah')) {
+                    session()->setFlashdata('fail', 'NIK tidak boleh sama');
+                    return redirect()->to('/admin/calon-santri/add')->withInput();
+                }
+
                 $register = date('yd') . mt_rand(100, 999);
 
                 $newData = [
@@ -790,6 +810,26 @@ class AdminCalonSantri extends BaseController
             } else {
                 if ($this->request->getVar('penghasilan_ayah') === 'null' || $this->request->getVar('penghasilan_ibu') === 'null') {
                     return redirect()->back()->with('fail', 'Penghasilan Ayah atau Ibu harus di Pilih!');
+                }
+
+                if ($this->request->getVar('nik_santri') == $this->request->getVar('nik_ayah') || $this->request->getVar('nik_santri') == $this->request->getVar('nik_ibu') || $this->request->getVar('nik_santri') == $this->request->getVar('nik_wali')) {
+                    session()->setFlashdata('fail', 'NIK tidak boleh sama');
+                    return redirect()->back()->withInput();
+                }
+
+                if ($this->request->getVar('nik_ayah') == $this->request->getVar('nik_santri') || $this->request->getVar('nik_ayah') == $this->request->getVar('nik_wali') || $this->request->getVar('nik_ayah') == $this->request->getVar('nik_ibu')) {
+                    session()->setFlashdata('fail', 'NIK tidak boleh sama');
+                    return redirect()->back()->withInput();
+                }
+
+                if ($this->request->getVar('nik_ibu') == $this->request->getVar('nik_santri') || $this->request->getVar('nik_ibu') == $this->request->getVar('nik_wali') || $this->request->getVar('nik_ibu') == $this->request->getVar('nik_ayah')) {
+                    session()->setFlashdata('fail', 'NIK tidak boleh sama');
+                    return redirect()->back()->withInput();
+                }
+
+                if ($this->request->getVar('nik_wali') == $this->request->getVar('nik_santri') || $this->request->getVar('nik_wali') == $this->request->getVar('nik_ibu') || $this->request->getVar('nik_wali') == $this->request->getVar('nik_ayah')) {
+                    session()->setFlashdata('fail', 'NIK tidak boleh sama');
+                    return redirect()->back()->withInput();
                 }
 
                 $newData = [
