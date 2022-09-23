@@ -476,333 +476,664 @@ class AdminCalonSantri extends BaseController
 
         if ($this->request->getMethod() == 'post') {
             if ($this->request->getVar('nik_wali') == null || $this->request->getVar('no_wali') == null) {
-                $validation = $this->validate([
-                    'nama_santri' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Nama Santri harus di isi',
-                        ]
-                    ],
-                    'nik_santri' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]|is_unique[data_santri.nik_santri]',
-                        'errors' => [
-                            'required' => 'NIK Santri harus di isi',
-                            'integer' => 'NIK Santri harus berupa angka',
-                            'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
-                            'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
-                            'is_unique' => 'NIK Santri sudah terdaftar',
-                        ]
-                    ],
-                    'tmp_lahir' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Tempat Lahir Santri harus di isi',
+                // dd(['baru' => $this->request->getVar('nik_santri'), 'lama' => $this->request->getVar('nik_lama')]);
+                if ($this->request->getVar('nik_santri') == $this->request->getVar('nik_lama')) {
+                    $validation = $this->validate([
+                        'nama_santri' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Santri harus di isi',
+                            ]
                         ],
-                    ],
-                    'tgl_lahir' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Tanggal Lahir Santri harus di isi',
+                        'nik_santri' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Santri harus di isi',
+                                'integer' => 'NIK Santri harus berupa angka',
+                                'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
+                            ]
                         ],
-                    ],
-                    'semester' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Semester Santri saat ini harus di isi',
+                        'tmp_lahir' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tempat Lahir Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'agama' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Agama Santri harus di isi',
+                        'tgl_lahir' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tanggal Lahir Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'gender' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Jenis Kelamin Santri harus di isi',
+                        'semester' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Semester Santri saat ini harus di isi',
+                            ],
                         ],
-                    ],
-                    'kewarganegaraan' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Kewarganegaraan Santri harus di isi',
+                        'agama' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Agama Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'tmp_pendidikan' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Tempat Pendidikan Santri saat ini harus di isi',
+                        'gender' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Jenis Kelamin Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'no_santri' => [
-                        'rules' => 'required|integer|min_length[11]|max_length[13]',
-                        'errors' => [
-                            'required' => 'No Telepon Santri harus di isi',
-                            'integer' => 'No Telepon Santri harus berupa angka',
-                            'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
+                        'kewarganegaraan' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Kewarganegaraan Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'hobi' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Hobi Santri Santri harus di isi',
+                        'tmp_pendidikan' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tempat Pendidikan Santri saat ini harus di isi',
+                            ],
                         ],
-                    ],
-                    'alamat_santri' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Alamat Santri harus di isi',
+                        'no_santri' => [
+                            'rules' => 'required|integer|min_length[11]|max_length[13]',
+                            'errors' => [
+                                'required' => 'No Telepon Santri harus di isi',
+                                'integer' => 'No Telepon Santri harus berupa angka',
+                                'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                                'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
+                            ],
                         ],
-                    ],
-                    'nama_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Nama Ayah harus di isi',
-                        ]
-                    ],
-                    'nik_ayah' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]',
-                        'errors' => [
-                            'required' => 'NIK Ayah harus di isi',
-                            'integer' => 'NIK Ayah harus berupa angka',
-                            'min_length' => 'NIK Ayah harus memiliki minimal 16 angka',
-                            'max_length' => 'NIK Ayah harus memiliki maximal 16 angka',
-                        ]
-                    ],
-                    'pekerjaan_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Pekerjaan Ayah harus di isi',
-                        ]
-                    ],
-                    'no_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'No Telepon Ayah harus di isi',
-                        ]
-                    ],
-                    'penghasilan_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Penghasilan Ayah harus di isi',
-                        ]
-                    ],
-                    'alamat_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Alamat Ayah harus di isi',
-                        ]
-                    ],
-                    'nama_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Nama Ibu harus di isi',
-                        ]
-                    ],
-                    'nik_ibu' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]',
-                        'errors' => [
-                            'required' => 'NIK Ibu harus di isi',
-                            'integer' => 'NIK Ibu harus berupa angka',
-                            'min_length' => 'NIK Ibu harus memiliki minimal 16 angka',
-                            'max_length' => 'NIK Ibu harus memiliki maximal 16 angka',
-                        ]
-                    ],
-                    'pekerjaan_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Pekerjaan Ibu harus di isi',
-                        ]
-                    ],
-                    'penghasilan_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Penghasilan Ibu harus di isi',
-                        ]
-                    ],
-                    'no_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'No Telepon Ibu harus di isi',
-                        ]
-                    ],
-                    'alamat_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Alamat Ibu harus di isi',
-                        ]
-                    ],
-                ]);
+                        'hobi' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Hobi Santri Santri harus di isi',
+                            ],
+                        ],
+                        'alamat_santri' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Santri harus di isi',
+                            ],
+                        ],
+                        'nama_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Ayah harus di isi',
+                            ]
+                        ],
+                        'nik_ayah' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Ayah harus di isi',
+                                'integer' => 'NIK Ayah harus berupa angka',
+                                'min_length' => 'NIK Ayah harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Ayah harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                        'pekerjaan_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Pekerjaan Ayah harus di isi',
+                            ]
+                        ],
+                        'no_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'No Telepon Ayah harus di isi',
+                            ]
+                        ],
+                        'penghasilan_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Penghasilan Ayah harus di isi',
+                            ]
+                        ],
+                        'alamat_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Ayah harus di isi',
+                            ]
+                        ],
+                        'nama_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Ibu harus di isi',
+                            ]
+                        ],
+                        'nik_ibu' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Ibu harus di isi',
+                                'integer' => 'NIK Ibu harus berupa angka',
+                                'min_length' => 'NIK Ibu harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Ibu harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                        'pekerjaan_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Pekerjaan Ibu harus di isi',
+                            ]
+                        ],
+                        'penghasilan_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Penghasilan Ibu harus di isi',
+                            ]
+                        ],
+                        'no_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'No Telepon Ibu harus di isi',
+                            ]
+                        ],
+                        'alamat_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Ibu harus di isi',
+                            ]
+                        ],
+                    ]);
+                } else {
+                    $validation = $this->validate([
+                        'nama_santri' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Santri harus di isi',
+                            ]
+                        ],
+                        'nik_santri' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]|is_unique[data_santri.nik_santri]',
+                            'errors' => [
+                                'required' => 'NIK Santri harus di isi',
+                                'integer' => 'NIK Santri harus berupa angka',
+                                'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
+                                'is_unique' => 'NIK Santri sudah terdaftar',
+                            ]
+                        ],
+                        'tmp_lahir' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tempat Lahir Santri harus di isi',
+                            ],
+                        ],
+                        'tgl_lahir' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tanggal Lahir Santri harus di isi',
+                            ],
+                        ],
+                        'semester' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Semester Santri saat ini harus di isi',
+                            ],
+                        ],
+                        'agama' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Agama Santri harus di isi',
+                            ],
+                        ],
+                        'gender' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Jenis Kelamin Santri harus di isi',
+                            ],
+                        ],
+                        'kewarganegaraan' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Kewarganegaraan Santri harus di isi',
+                            ],
+                        ],
+                        'tmp_pendidikan' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tempat Pendidikan Santri saat ini harus di isi',
+                            ],
+                        ],
+                        'no_santri' => [
+                            'rules' => 'required|integer|min_length[11]|max_length[13]',
+                            'errors' => [
+                                'required' => 'No Telepon Santri harus di isi',
+                                'integer' => 'No Telepon Santri harus berupa angka',
+                                'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                                'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
+                            ],
+                        ],
+                        'hobi' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Hobi Santri Santri harus di isi',
+                            ],
+                        ],
+                        'alamat_santri' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Santri harus di isi',
+                            ],
+                        ],
+                        'nama_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Ayah harus di isi',
+                            ]
+                        ],
+                        'nik_ayah' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Ayah harus di isi',
+                                'integer' => 'NIK Ayah harus berupa angka',
+                                'min_length' => 'NIK Ayah harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Ayah harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                        'pekerjaan_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Pekerjaan Ayah harus di isi',
+                            ]
+                        ],
+                        'no_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'No Telepon Ayah harus di isi',
+                            ]
+                        ],
+                        'penghasilan_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Penghasilan Ayah harus di isi',
+                            ]
+                        ],
+                        'alamat_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Ayah harus di isi',
+                            ]
+                        ],
+                        'nama_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Ibu harus di isi',
+                            ]
+                        ],
+                        'nik_ibu' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Ibu harus di isi',
+                                'integer' => 'NIK Ibu harus berupa angka',
+                                'min_length' => 'NIK Ibu harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Ibu harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                        'pekerjaan_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Pekerjaan Ibu harus di isi',
+                            ]
+                        ],
+                        'penghasilan_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Penghasilan Ibu harus di isi',
+                            ]
+                        ],
+                        'no_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'No Telepon Ibu harus di isi',
+                            ]
+                        ],
+                        'alamat_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Ibu harus di isi',
+                            ]
+                        ],
+                    ]);
+                }
             } else {
-                $validation = $this->validate([
-                    'nama_santri' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Nama Santri harus di isi',
-                        ]
-                    ],
-                    'nik_santri' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]|is_unique[data_santri.nik_santri]',
-                        'errors' => [
-                            'required' => 'NIK Santri harus di isi',
-                            'integer' => 'NIK Santri harus berupa angka',
-                            'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
-                            'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
-                            'is_unique' => 'NIK Santri sudah terdaftar',
-                        ]
-                    ],
-                    'tmp_lahir' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Tempat Lahir Santri harus di isi',
+                if ($this->request->getVar('nik_santri') == $this->request->getVar('nik_lama')) {
+                    $validation = $this->validate([
+                        'nama_santri' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Santri harus di isi',
+                            ]
                         ],
-                    ],
-                    'tgl_lahir' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Tanggal Lahir Santri harus di isi',
+                        'nik_santri' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Santri harus di isi',
+                                'integer' => 'NIK Santri harus berupa angka',
+                                'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
+                            ]
                         ],
-                    ],
-                    'semester' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Semester Santri saat ini harus di isi',
+                        'tmp_lahir' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tempat Lahir Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'agama' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Agama Santri harus di isi',
+                        'tgl_lahir' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tanggal Lahir Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'gender' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Jenis Kelamin Santri harus di isi',
+                        'semester' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Semester Santri saat ini harus di isi',
+                            ],
                         ],
-                    ],
-                    'kewarganegaraan' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Kewarganegaraan Santri harus di isi',
+                        'agama' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Agama Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'tmp_pendidikan' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Tempat Pendidikan Santri saat ini harus di isi',
+                        'gender' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Jenis Kelamin Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'no_santri' => [
-                        'rules' => 'required|integer|min_length[11]|max_length[13]',
-                        'errors' => [
-                            'required' => 'No Telepon Santri harus di isi',
-                            'integer' => 'No Telepon Santri harus berupa angka',
-                            'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
-                            'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
+                        'kewarganegaraan' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Kewarganegaraan Santri harus di isi',
+                            ],
                         ],
-                    ],
-                    'hobi' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Hobi Santri Santri harus di isi',
+                        'tmp_pendidikan' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tempat Pendidikan Santri saat ini harus di isi',
+                            ],
                         ],
-                    ],
-                    'alamat_santri' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Alamat Santri harus di isi',
+                        'no_santri' => [
+                            'rules' => 'required|integer|min_length[11]|max_length[13]',
+                            'errors' => [
+                                'required' => 'No Telepon Santri harus di isi',
+                                'integer' => 'No Telepon Santri harus berupa angka',
+                                'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                                'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
+                            ],
                         ],
-                    ],
-                    'nama_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Nama Ayah harus di isi',
-                        ]
-                    ],
-                    'nik_ayah' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]',
-                        'errors' => [
-                            'required' => 'NIK Ayah harus di isi',
-                            'integer' => 'NIK Ayah harus berupa angka',
-                            'min_length' => 'NIK Ayah harus memiliki minimal 16 angka',
-                            'max_length' => 'NIK Ayah harus memiliki maximal 16 angka',
-                        ]
-                    ],
-                    'pekerjaan_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Pekerjaan Ayah harus di isi',
-                        ]
-                    ],
-                    'no_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'No Telepon Ayah harus di isi',
-                        ]
-                    ],
-                    'penghasilan_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Penghasilan Ayah harus di isi',
-                        ]
-                    ],
-                    'alamat_ayah' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Alamat Ayah harus di isi',
-                        ]
-                    ],
-                    'nama_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Nama Ibu harus di isi',
-                        ]
-                    ],
-                    'nik_ibu' => [
-                        'rules' => 'required|integer|min_length[16]|max_length[16]',
-                        'errors' => [
-                            'required' => 'NIK Ibu harus di isi',
-                            'integer' => 'NIK Ibu harus berupa angka',
-                            'min_length' => 'NIK Ibu harus memiliki minimal 16 angka',
-                            'max_length' => 'NIK Ibu harus memiliki maximal 16 angka',
-                        ]
-                    ],
-                    'pekerjaan_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Pekerjaan Ibu harus di isi',
-                        ]
-                    ],
-                    'penghasilan_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Penghasilan Ibu harus di isi',
-                        ]
-                    ],
-                    'no_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'No Telepon Ibu harus di isi',
-                        ]
-                    ],
-                    'alamat_ibu' => [
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Alamat Ibu harus di isi',
-                        ]
-                    ],
-                    'nik_wali' => [
-                        'rules' => 'integer|min_length[16]|max_length[16]',
-                        'errors' => [
-                            'integer' => 'NIK Wali harus berupa angka',
-                            'min_length' => 'NIK Wali harus memiliki minimal 16 angka',
-                            'max_length' => 'NIK Wali harus memiliki maximal 16 angka',
-                        ]
-                    ],
-                ]);
+                        'hobi' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Hobi Santri Santri harus di isi',
+                            ],
+                        ],
+                        'alamat_santri' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Santri harus di isi',
+                            ],
+                        ],
+                        'nama_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Ayah harus di isi',
+                            ]
+                        ],
+                        'nik_ayah' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Ayah harus di isi',
+                                'integer' => 'NIK Ayah harus berupa angka',
+                                'min_length' => 'NIK Ayah harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Ayah harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                        'pekerjaan_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Pekerjaan Ayah harus di isi',
+                            ]
+                        ],
+                        'no_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'No Telepon Ayah harus di isi',
+                            ]
+                        ],
+                        'penghasilan_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Penghasilan Ayah harus di isi',
+                            ]
+                        ],
+                        'alamat_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Ayah harus di isi',
+                            ]
+                        ],
+                        'nama_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Ibu harus di isi',
+                            ]
+                        ],
+                        'nik_ibu' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Ibu harus di isi',
+                                'integer' => 'NIK Ibu harus berupa angka',
+                                'min_length' => 'NIK Ibu harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Ibu harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                        'pekerjaan_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Pekerjaan Ibu harus di isi',
+                            ]
+                        ],
+                        'penghasilan_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Penghasilan Ibu harus di isi',
+                            ]
+                        ],
+                        'no_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'No Telepon Ibu harus di isi',
+                            ]
+                        ],
+                        'alamat_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Ibu harus di isi',
+                            ]
+                        ],
+                        'nik_wali' => [
+                            'rules' => 'integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'integer' => 'NIK Wali harus berupa angka',
+                                'min_length' => 'NIK Wali harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Wali harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                    ]);
+                } else {
+                    $validation = $this->validate([
+                        'nama_santri' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Santri harus di isi',
+                            ]
+                        ],
+                        'nik_santri' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]|is_unique[data_santri.nik_santri]',
+                            'errors' => [
+                                'required' => 'NIK Santri harus di isi',
+                                'integer' => 'NIK Santri harus berupa angka',
+                                'min_length' => 'NIK Santri harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Santri harus memiliki maximal 16 angka',
+                                'is_unique' => 'NIK Santri sudah terdaftar',
+                            ]
+                        ],
+                        'tmp_lahir' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tempat Lahir Santri harus di isi',
+                            ],
+                        ],
+                        'tgl_lahir' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tanggal Lahir Santri harus di isi',
+                            ],
+                        ],
+                        'semester' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Semester Santri saat ini harus di isi',
+                            ],
+                        ],
+                        'agama' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Agama Santri harus di isi',
+                            ],
+                        ],
+                        'gender' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Jenis Kelamin Santri harus di isi',
+                            ],
+                        ],
+                        'kewarganegaraan' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Kewarganegaraan Santri harus di isi',
+                            ],
+                        ],
+                        'tmp_pendidikan' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Tempat Pendidikan Santri saat ini harus di isi',
+                            ],
+                        ],
+                        'no_santri' => [
+                            'rules' => 'required|integer|min_length[11]|max_length[13]',
+                            'errors' => [
+                                'required' => 'No Telepon Santri harus di isi',
+                                'integer' => 'No Telepon Santri harus berupa angka',
+                                'min_length' => 'No Telepon Santri harus memiliki minimal 11 angka',
+                                'max_length' => 'No Telepon Santri harus memiliki maximal 13 angka',
+                            ],
+                        ],
+                        'hobi' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Hobi Santri Santri harus di isi',
+                            ],
+                        ],
+                        'alamat_santri' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Santri harus di isi',
+                            ],
+                        ],
+                        'nama_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Ayah harus di isi',
+                            ]
+                        ],
+                        'nik_ayah' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Ayah harus di isi',
+                                'integer' => 'NIK Ayah harus berupa angka',
+                                'min_length' => 'NIK Ayah harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Ayah harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                        'pekerjaan_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Pekerjaan Ayah harus di isi',
+                            ]
+                        ],
+                        'no_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'No Telepon Ayah harus di isi',
+                            ]
+                        ],
+                        'penghasilan_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Penghasilan Ayah harus di isi',
+                            ]
+                        ],
+                        'alamat_ayah' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Ayah harus di isi',
+                            ]
+                        ],
+                        'nama_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Nama Ibu harus di isi',
+                            ]
+                        ],
+                        'nik_ibu' => [
+                            'rules' => 'required|integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'required' => 'NIK Ibu harus di isi',
+                                'integer' => 'NIK Ibu harus berupa angka',
+                                'min_length' => 'NIK Ibu harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Ibu harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                        'pekerjaan_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Pekerjaan Ibu harus di isi',
+                            ]
+                        ],
+                        'penghasilan_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Penghasilan Ibu harus di isi',
+                            ]
+                        ],
+                        'no_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'No Telepon Ibu harus di isi',
+                            ]
+                        ],
+                        'alamat_ibu' => [
+                            'rules' => 'required',
+                            'errors' => [
+                                'required' => 'Alamat Ibu harus di isi',
+                            ]
+                        ],
+                        'nik_wali' => [
+                            'rules' => 'integer|min_length[16]|max_length[16]',
+                            'errors' => [
+                                'integer' => 'NIK Wali harus berupa angka',
+                                'min_length' => 'NIK Wali harus memiliki minimal 16 angka',
+                                'max_length' => 'NIK Wali harus memiliki maximal 16 angka',
+                            ]
+                        ],
+                    ]);
+                }
             }
 
             if (!$validation) {

@@ -113,6 +113,7 @@ $this->section('content');
                                             </div>
                                             <div class="form-group">
                                                 <label>NIK</label>
+                                                <input type="number" name="nik_lama" value="<?= $dataSantriReg[0]['nik_santri'] ?>" hidden>
                                                 <input type="number" name="nik_santri" class="form-control <?= (isset($validation)) ? ($validation->hasError('nik_santri')) ? 'is-invalid' : null : null ?>" placeholder="ex: 190645234" value="<?= $dataSantriReg[0]['nik_santri'] ?>">
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('nik_santri')) : null ?>
