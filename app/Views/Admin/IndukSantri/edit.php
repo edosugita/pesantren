@@ -62,6 +62,26 @@ $this->section('content');
                                 <form action="<?= base_url('/admin/induk-santri/' . $dataSantri[0]['id'] . '/edit') ?>" method="post" onsubmit="return confirm('Anda yakin ingin merubah data ini?');">
                                     <?= csrf_field(); ?>
                                     <!-- START ALERT -->
+                                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                                        <div class="col-12">
+                                            <div class="alert alert-danger alert-dismissible fade show">
+                                                <?= session()->getFlashdata('fail'); ?>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                                        <div class="col-12">
+                                            <div class="alert alert-success alert-dismissible fade show">
+                                                <?= session()->getFlashdata('success'); ?>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
                                     <?php if (isset($validation)) : ?>
                                         <div class="col-12 mb-2">
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -92,6 +112,7 @@ $this->section('content');
                                             </div>
                                             <div class="form-group">
                                                 <label>NIK</label>
+                                                <input type="number" name="nik_lama" value="<?= $dataSantri[0]['nik_santri'] ?>" hidden>
                                                 <input type="number" name="nik_santri" class="form-control <?= (isset($validation)) ? ($validation->hasError('nik_santri')) ? 'is-invalid' : null : null ?>" placeholder="ex: 190645234" value="<?= $dataSantri[0]['nik_santri'] ?>">
                                                 <div class="invalid-feedback">
                                                     <?= (isset($validation)) ? ($validation->getError('nik_santri')) : null ?>
