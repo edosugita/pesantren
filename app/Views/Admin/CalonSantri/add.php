@@ -62,6 +62,26 @@ $this->section('content');
                                 <form action="<?= base_url('/admin/calon-santri/add') ?>" method="post">
                                     <?= csrf_field(); ?>
                                     <!-- START ALERT -->
+                                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                                        <div class="col-12">
+                                            <div class="alert alert-danger alert-dismissible fade show">
+                                                <?= session()->getFlashdata('fail'); ?>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty(session()->getFlashdata('success'))) : ?>
+                                        <div class="col-12">
+                                            <div class="alert alert-success alert-dismissible fade show">
+                                                <?= session()->getFlashdata('success'); ?>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
                                     <?php if (isset($validation)) : ?>
                                         <div class="col-12 mb-2">
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
